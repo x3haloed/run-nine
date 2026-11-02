@@ -72,3 +72,21 @@ Separate literal-length hypothesis corpus:
   share identical bytes as controls. No production acceptance policy was changed.
 - Version 8 hints 1/255 are included to separate workspace from grammar tests;
   actual native requirements/observations remain the integrating parent's work.
+
+Parent-reported targeted native literal observations (no private artifact read):
+- OS9 Resource Manager VARIABLE cases words127/128/255 x tags00/10 completed
+  six of six byte-exact. Native adaptation preserved each literal prefix, used
+  v8 hints255/255, and added owned zero-repeat/expected zero-fill to length4096.
+- Positive support is scoped to those tested lengths/encodings and adaptation;
+  lengths>255 and nonminimal forms remain reference-derived. Production codec
+  unchanged; 64 MiB remains RUN9 policy, not a native format limit.
+- BYTE experiment passed127 controls and was deliberately aborted incomplete
+  after its first128-word case stalled across two saved observations. The stall
+  alone is inconclusive, not a recorded native rejection verdict.
+- Parent host comparisons reported MIT ResourceDASM matching all6 VARIABLE and
+  MIT Python all6 BYTE; each matches2 common controls under the alternate form.
+- Private parent evidence: .local/codec-replacement/native-literal-variable/
+  comparison-final.json SHA256
+  bc291fddd6f65c57e82ba94743b7e72a9cd0908da42c141ef835a72f3f94e62e.
+  Manifest/log hashes are recorded in ../docs/resource-codec-format.md exactly
+  as supplied by the parent; this context did not open those private files.

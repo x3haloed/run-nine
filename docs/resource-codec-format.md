@@ -118,7 +118,9 @@ plus allocator overhead; an allocator may round an allocation upward.
 Literal lengths for tokens 00/10 are disputed: Python/Kaitai describe a single
 unsigned length byte; ResourceDASM calls `read_encoded_int`. This implementation
 chooses V and includes 127/128/255/256/16127/16128-word tests. Values below 128
-agree across both descriptions.
+agree across both descriptions. Targeted native observations now positively
+support V at 128/255 words for both tags, as detailed below; larger lengths
+remain reference-derived.
 
 A separate, deliberately small experimental corpus isolates this disagreement:
 `tests/support/literal_hypotheses.rs` authors twelve fixtures (tags 00/10 times
@@ -148,7 +150,42 @@ to reduce native workspace confounding; they are not a new format guarantee.
 Any native transport padding/adaptation must remain separately recorded. Fixture
 shape tests check exact lengths and wire bytes without calling the production
 decoder or asserting either disputed interpretation is correct. Production
-literal handling is unchanged pending native observation.
+literal handling is unchanged by the following targeted native observations.
+
+### Targeted native literal observations
+
+The integrating parent reported an OS9 Resource Manager run with
+`complete=true` and six of six byte-exact comparisons for the VARIABLE fixtures:
+`dcmp0-hypothesis-variable-words{127,128,255}-tag{00,10}`. Native inputs adapted
+workspace and output padding: version 8 fraction/extra hints were 255/255, the
+original literal prefix was preserved, and an owned zero-repeat suffix extended
+expected output with zeros to a declared length of 4096. These successful cases
+positively support variable-integer literal lengths at 128 and 255 words for both
+tags under that adaptation. They do not establish native behavior for lengths
+above 255, nonminimal encodings, insufficient workspace, or arbitrary malformed
+streams. The default 64 MiB output bound remains RUN9 policy.
+
+The separate BYTE experiment passed the two byte-identical 127-word controls,
+then produced no result for its first 128-word case across two saved observations.
+The parent deliberately aborted the incomplete run. The stall alone is
+inconclusive and is not recorded as a native rejection verdict. Parent-reported
+host comparisons found pinned MIT ResourceDASM matching all six VARIABLE cases
+and MIT Python matching all six BYTE cases; each matched the two common controls
+under the alternate encoding.
+
+Private evidence pointers supplied by the parent (not opened by this fresh
+implementation context) are under
+`.local/codec-replacement/native-literal-variable/`:
+
+| File | Parent-supplied SHA-256 |
+| --- | --- |
+| `manifest.json` | `60e06236d8113dc9d7d629a4b170cc5ea31831d21496167ace6f5184ab28d889` |
+| `native-final.jsonl` | `d4088dc6353c74b9ecbf9bbd4ea7b7a491fdf32b7007f922b16f5b3cc85782c3` |
+| `comparison-final.json` | `bc291fddd6f65c57e82ba94743b7e72a9cd0908da42c141ef835a72f3f94e62e` |
+
+These hashes identify private observation records; no corresponding artifact
+contents are copied here. The production parser and main acceptance corpus were
+not changed.
 
 ### dcmp0 extensions
 
@@ -322,8 +359,9 @@ export need not be committed.
 
 1. Header size zero is accepted as eighteen bytes; exact header attribute byte 1
    and version 8 reserved zero are required. Test alternate attribute bits.
-2. 00/10 extended literal lengths use V rather than one unsigned byte. Probe
-   127/128/255/256 words and nonminimal V encodings.
+2. Native six-case observations support V literal lengths at 127/128/255 words
+   for tags 00/10 with the recorded workspace/zero-fill adaptation. Probe lengths
+   above 255 (including 256) and nonminimal V encodings separately.
 3. Extensions 01/05 exist for dcmp0; extension values truncate, counts mask to
    low16, and selector 00 accepts zero count. Probe signed/high-bit parameters.
 4. Only odd declared lengths admit a single final decoded alignment byte;
@@ -342,7 +380,8 @@ export need not be committed.
    Kaitai explicitly warns insufficient working space can make the native
    decompressor misbehave. Native probe adaptations (such as version 8 hints
    1,255 or version 9 extra space 65535) must record original/adapted input hashes
-   while keeping compressed bytecode and expected output unchanged.
+   while preserving the tested bytecode/expected prefix and explicitly recording
+   any added zero-fill suffix, changed declared length, and expected padding.
 
 Application baselines contain dcmp0 only; success there cannot validate dcmp3.
 Native/synthetic comparisons and runtime integration remain separate work.
