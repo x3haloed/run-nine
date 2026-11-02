@@ -3,8 +3,15 @@ set -eu
 root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 if [ "$#" -lt 1 ] || [ "$#" -gt 2 ]; then echo 'usage: start-reference.sh WORKING_QCOW2 [--cocoa]' >&2; exit 2; fi
 display=none
-emulator=${CLASSIC_REFERENCE_EMULATOR:-/opt/homebrew/bin/qemu-system-ppc}
-firmware=${CLASSIC_REFERENCE_FIRMWARE_DIR:-/opt/homebrew/share/qemu}
+if [ -x "$root/.local/reference/qemu/qemu-system-ppc" ]; then
+ default_emulator="$root/.local/reference/qemu/qemu-system-ppc"
+ default_firmware="$root/.local/reference/qemu/pc-bios"
+else
+ default_emulator=/opt/homebrew/bin/qemu-system-ppc
+ default_firmware=/opt/homebrew/share/qemu
+fi
+emulator=${CLASSIC_REFERENCE_EMULATOR:-$default_emulator}
+firmware=${CLASSIC_REFERENCE_FIRMWARE_DIR:-$default_firmware}
 if [ "$#" -eq 2 ]; then
  if [ -n "${CLASSIC_REFERENCE_EMULATOR:-}" ]; then echo 'a custom reference emulator must use its VNC viewer, not --cocoa staging' >&2; exit 2; fi
  case "$2" in --cocoa) display=cocoa; emulator=$(python3 "$root/tools/stage-reference-app.py");; *) echo 'unknown display option' >&2; exit 2;; esac

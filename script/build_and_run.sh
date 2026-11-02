@@ -23,11 +23,8 @@ session_dir=${CLASSIC_RUNTIME_SESSION_DIR:-$session_dir}
 # Explicit input overrides also allow verified local copies when FileProvider
 # delays reads under Documents before the native event loop can start.
 application_dir=${CLASSIC_RUNTIME_APPLICATION_DIR:-$root/work/apps/$application}
-# FileProvider can attach signing-incompatible Finder metadata to bundles
-# under Documents, even between signing and verification. Keep this generated
-# build artifact in the per-user local cache; data/logs remain in the workspace.
-cache_key=$(python3 -c 'import hashlib,sys;print(hashlib.sha256(sys.argv[1].encode()).hexdigest()[:12])' "$root")
-app="$(getconf DARWIN_USER_TEMP_DIR)classic-runtime-$cache_key/Classic Runtime.app"
+# Generated application bundles stay with the checkout's ignored local data.
+app="$root/work/hosted/Classic Runtime.app"
 binary="$app/Contents/MacOS/ClassicRuntime"
 pkill -x ClassicRuntime >/dev/null 2>&1 || true
 # Keep the GUI executable stable while headless cargo run/test checks execute.
