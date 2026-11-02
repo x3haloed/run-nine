@@ -57,10 +57,13 @@ def main():
     parser.add_argument('probe_resource', type=Path)
     parser.add_argument('output', type=Path)
     parser.add_argument('--names', nargs='*', help='explicit positive vector names; otherwise all positives')
+    parser.add_argument('--selection', type=Path, help='JSON array of explicit positive vector names')
     parser.add_argument('--embedded', action='store_true', help='small smoke corpus inside application')
     args = parser.parse_args()
     csv.field_size_limit(16 * 1024 * 1024)
-    wanted = set(args.names) if args.names else None
+    if args.names and args.selection:
+        parser.error('choose --names or --selection')
+    wanted = set(json.loads(args.selection.read_text())) if args.selection else set(args.names) if args.names else None
     rows = []
     with args.vectors.open() as stream:
         for row in csv.DictReader(stream, delimiter='\t'):

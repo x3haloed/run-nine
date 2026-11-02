@@ -1,0 +1,54 @@
+RUN9 resource codec 0.2.0
+
+New Rust implementation and synthetic fixture generators:
+Copyright (c) 2026 RUN9 contributors; MIT OR Apache-2.0.
+The package carries both project license texts. Third-party MIT notices are
+retained separately in NOTICES.txt and apply to their respective material.
+
+Authoring method:
+A fresh implementation context received only implementation-handoff.txt, the
+approved SHA-256 ledger, approved MIT reference files and project license texts.
+It verified every file in the approved reference ledger before reading its contents. It did
+not inspect GPL source/tests, old oracles, the legacy vendor crate, runtime vendor
+code, application/OS resources, or parent conversation history. Implementation
+uses new checked byte/bit readers, a bounded output builder, borrowed-input memo
+storage, and independent synthetic encoders. It does not claim a legally defined
+clean-room process or native correctness merely from this separation.
+
+Exact approved reference revisions and hashes:
+../docs/resource-codec-reference-pins.json
+
+ResourceDASM db45c79522bf9683f92b13ba675f582fb1fb31fd (MIT):
+- src/ResourceDecompressors/System01.cc: dcmp0 grammar, extensions 0..6,
+  signed variable lengths, low-word count semantics, and fixed dictionary.
+  src/table.rs transcribes const_table0's 179 words as format data.
+- src/ResourceDecompressors/System3.cc: dcmp3 grammar and compatibility
+  thresholds, including the 0x288 4-bit, 0x66C, and 0x200C irregularities.
+- src/ResourceDecompressors/System.hh: header structure and parameter roles.
+- src/ResourceCompression.cc: header attribute interpretation inspected via
+  limited field search; no emulator implementation material imported.
+- ResourceCompression.hh was read with the header reference; no code imported.
+
+Kaitai Struct formats 7d175667527372eb0c521045c1dac212230d9779 (MIT metadata):
+- macos/compressed_resource.ksy: independent header field/validation facts.
+- macos/resource_compression/dcmp_variable_length_integer.ksy: signed integer
+  encoding and boundary facts.
+- macos/resource_compression/dcmp_0.ksy: independent literal, memo, extension
+  and alignment grammar; confirms narrower one-byte literal lengths and omission
+  of extensions 01/05 relative to ResourceDASM.
+
+python-rsrcfork d2bbab1f5dd8670baa1ea5a31a1754b824743493 (MIT):
+- src/rsrcfork/compress/common.py: independent header and integer specification.
+- src/rsrcfork/compress/dcmp0.py: independent dcmp0 grammar, odd-length behavior,
+  strict trailing data rule. tests/support/table_expected.rs derives its exact
+  expected fixed words from TABLE_DATA, independently of the Rust production
+  dictionary transcription. No application/resource fixtures were imported.
+
+The corpus is newly authored from these format facts, not from the previous
+implementation or legacy tests. Expected bytes are direct arithmetic/literal
+constructions; dcmp3 streams are authored with a separate encoder. This does
+not substitute for native/differential verification by the integrating parent.
+
+Disagreements and explicit RUN9 policies, including strict padding/trailing
+rules and the default 64 MiB expansion limit, are recorded in
+../docs/resource-codec-format.md with source citations and native probe targets.

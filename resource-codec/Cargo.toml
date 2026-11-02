@@ -1,0 +1,8 @@
+[package]
+name = "run9-resource-codec"
+version = "0.2.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "Bounded classic Macintosh dcmp0 and dcmp3 resource decoder"
+
+[workspace]
