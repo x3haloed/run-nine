@@ -1,0 +1,358 @@
+{
+  "upstream": "https://github.com/benletchford/m68k-rs",
+  "version": "0.14.7",
+  "commit": "856b8045a42125f1a340c1ed365d50dd62114781",
+  "crate_sha256": "91cac6cd830bba6da0f6d75dc59d3f2315fb207b4557c5ae7851f212a801f454",
+  "license": "MIT",
+  "files": {
+    "CHANGELOG.md": {
+      "vendored_sha256": "409465e1fa9fe142d5f502e86133c9b891e1d4ad95c2e167c249c370e0eac992",
+      "upstream_sha256": "409465e1fa9fe142d5f502e86133c9b891e1d4ad95c2e167c249c370e0eac992"
+    },
+    "Cargo.toml": {
+      "vendored_sha256": "3ddbe211dce56fe156129cc2e509e6eb906046d3cdf6255baf70e49659b358f1",
+      "upstream_sha256": "f1ffd634d7ff1717b99149d480bfafb7a134a5574bd0a133c6f876ca3052b5d1"
+    },
+    "Cargo.toml.orig": {
+      "vendored_sha256": "6ff93ee4a5ebb2b6492e0fe435d21416d03cf7447c502ddc379b51ba18504f07",
+      "upstream_sha256": "6ff93ee4a5ebb2b6492e0fe435d21416d03cf7447c502ddc379b51ba18504f07"
+    },
+    "LICENSE": {
+      "vendored_sha256": "19fcd25302df14b67c6bcb2f84500658da079f257bd6477085333a71576cd205",
+      "upstream_sha256": "19fcd25302df14b67c6bcb2f84500658da079f257bd6477085333a71576cd205"
+    },
+    "README.md": {
+      "vendored_sha256": "f771016845e2025aec9c4009d7da30d00faae00776c9d968140bae8f7210cda6",
+      "upstream_sha256": "f771016845e2025aec9c4009d7da30d00faae00776c9d968140bae8f7210cda6"
+    },
+    "benches/microbench.rs": {
+      "vendored_sha256": "f4bb729d4d006252ad512278e402f6222e8833ee19e58e7c41720061ea8e5950",
+      "upstream_sha256": "f4bb729d4d006252ad512278e402f6222e8833ee19e58e7c41720061ea8e5950"
+    },
+    "src/core/addressing.rs": {
+      "vendored_sha256": "a4e4646775ab6a2df4a238d284f5392f7501c1df23d106483691cd4ecb683cb3",
+      "upstream_sha256": "b010e76355c3560168d01e11d405c956a7bbc78c661a54c4b13aca5faf3c0467"
+    },
+    "src/core/cpu.rs": {
+      "vendored_sha256": "94eed9c5b60f9924caf71fa63501ae9bace8aa232705af9993b40c92f30e25c3",
+      "upstream_sha256": "6af1c139b38af2868556e2923be3101daa6b55f3b6dad85b05144c5f0b81c841"
+    },
+    "src/core/decode.rs": {
+      "vendored_sha256": "178e5ab923e8fb22d25119d7bb3fea9f39bc2bd5ab42d1170eaaf140768d2323",
+      "upstream_sha256": "865e8627130d582ae4ca73d96e647ca9df4c4390bcfe464c971e8fb8095bd598"
+    },
+    "src/core/ea.rs": {
+      "vendored_sha256": "a058dbae363e50303c0026a3db579599d38db1ec5b3a3cad47c2eb7d96176117",
+      "upstream_sha256": "b588583150abf572bb613db29d17da7d9fd187b7d9f511bd173cd2c6667bcbc3"
+    },
+    "src/core/exceptions.rs": {
+      "vendored_sha256": "efa407a259fbec1a81d970e1f37cbad3a70c43ec6b954172f8ef7794ebf16f2b",
+      "upstream_sha256": "808493bc54926274eb8699de29a99397fef1282820a407f883d6799a7ec34cd3"
+    },
+    "src/core/execute.rs": {
+      "vendored_sha256": "605b693384d245feb0924a225bdcdf0c4e5741ee836995925775ad087919a98d",
+      "upstream_sha256": "ef1c2269ee8526e0f4887d8d49b384ae96ee21bd28f924e04baca066de86e861"
+    },
+    "src/core/instructions/bcd.rs": {
+      "vendored_sha256": "8aea35e559c29f8c1a257efda9874c785614df2e67cd5aacd1417f599213da18",
+      "upstream_sha256": "97eecb45f890825dc313fea2ebb6e07a19a72242c45d825b80848a49d957cd27"
+    },
+    "src/core/instructions/bit_manip.rs": {
+      "vendored_sha256": "163d931032694a587bf58ab04a798939852307514c5c9f790d61c3347e9d9ece",
+      "upstream_sha256": "e1d886fc26801cdb73b4abd63f453b7ea06ce1630ea4e8aefaf50505329c4fc2"
+    },
+    "src/core/instructions/bitfield.rs": {
+      "vendored_sha256": "1beaadb48d67058aab6257ac6d6aa8814dcec1c0b32b28e35c11ae023bb04f8d",
+      "upstream_sha256": "a3e43e4f5df27ed1168fbed0f326480f81bf8d06c8465bb01003e34ef7f357da"
+    },
+    "src/core/instructions/callm.rs": {
+      "vendored_sha256": "828921a9eaa94166c40c7e4116d96e35340ead200175c98634d0a52ccf571c24",
+      "upstream_sha256": "3c4dc35e446346b7c7a83041d83be4ea4a90cf80d4f6b095b692e7b2cd62022c"
+    },
+    "src/core/instructions/cmp2_chk2.rs": {
+      "vendored_sha256": "8a5822924c35138346724f7c82351c774638823cbc30c715350102d033774b5e",
+      "upstream_sha256": "b0ae5e4e6ce948db26547e0c677987b49eaa73fdb073d42f71b4095d6fbf6c49"
+    },
+    "src/core/instructions/compare_swap.rs": {
+      "vendored_sha256": "90335b99e9552fa1685e536ce74a363d2f410389d6043d2c6d9f2d30adf0ed6a",
+      "upstream_sha256": "fadcea771b975d585deb8f1ccd7c166c14c2148f42f3e7861fb828db72259eed"
+    },
+    "src/core/instructions/data_movement.rs": {
+      "vendored_sha256": "27b6ecda8ecb0f9ea71fb07528c4df0d24d41e3e160516406d821eb20fb5cfd8",
+      "upstream_sha256": "99a676c25f74928c7643bd186eb222156136d844944d2985238f0c4eb71f8ec8"
+    },
+    "src/core/instructions/integer_arith.rs": {
+      "vendored_sha256": "495165c11609d3946afac263320845629f2bac0efe806766885fd5ddff1e0220",
+      "upstream_sha256": "bbbdafd6cb41151ca04695ce13025b1fb42572e56fb3cd6873da85d513ecbf28"
+    },
+    "src/core/instructions/logical.rs": {
+      "vendored_sha256": "fb887c2e923cf0ef8618262ec11469fbf1bae59122b234b937c353a990f79258",
+      "upstream_sha256": "ab0f5d863e24c3da0f96ff87c13fa06242109f66381a886f73d3894aa77d10f3"
+    },
+    "src/core/instructions/mod.rs": {
+      "vendored_sha256": "e7336b294714c426bea423d971095b63b07c37536e82ee6f808fecec917130c1",
+      "upstream_sha256": "e5d41759c7980ced837dcfaae8249869a78f24cf5d59f3a2e80b77ae4147412d"
+    },
+    "src/core/instructions/move16.rs": {
+      "vendored_sha256": "4df6525115404542739628a5376cc6219fcb1a459d5dcf88a7d12edea9b3c3ab",
+      "upstream_sha256": "ac9d032031c9e44bf41f6e4bddafdcbbb3b1d112f65cd73ecaec2467d7411ff6"
+    },
+    "src/core/instructions/moves.rs": {
+      "vendored_sha256": "e40a74e220183df19b84cd6857c2a8d7f9ff04b705caf9c9e5be0ec6f4649483",
+      "upstream_sha256": "688cc0fcb02a5421fa21510459322ffc0acdccd8e81e29fe272afde4368408b4"
+    },
+    "src/core/instructions/mul_div.rs": {
+      "vendored_sha256": "54f7ee9a17c84f58148012accfa284a114a448f4c923935a9331750c21273b22",
+      "upstream_sha256": "33503b23dac86ff148e3e5f6b623c3b6c62cd51bb7fed17390cda1926cfeb6d0"
+    },
+    "src/core/instructions/mul_div_long.rs": {
+      "vendored_sha256": "e82e9b4117496583f05a9d9b8ad1c29932577a539dc17b01dab5fe8a1f3ead78",
+      "upstream_sha256": "a4b0209c916e0f67153fc4f41891c095efeeabdcc4a1246ef182300f77b6d683"
+    },
+    "src/core/instructions/shift_rotate.rs": {
+      "vendored_sha256": "478f02ca8f4d588ef8d6922065baa8419835eced660a2b2123339f030cc3a78d",
+      "upstream_sha256": "8ed736b701a2b5452b5349f706cf76332a8fd02b9d96cafc4e303fcc1680f03e"
+    },
+    "src/core/interrupts.rs": {
+      "vendored_sha256": "e946d9e61b5ed66360e710e04631a0a4b2669b21f4417e2c09d5e4bf515fb2a4",
+      "upstream_sha256": "35fa82855348c28bb1c77921fd088b9eedd1fac1fb4f7e1a1c8d5be9e241b053"
+    },
+    "src/core/mem_ops.rs": {
+      "vendored_sha256": "8fcadd044f13bae686bdaf5165333e5453011e7b2ffd30672eb04d35e8723414",
+      "upstream_sha256": "59dac8e05870e34c9707705af3ccfb552178d92b22eef66fd17c5ae15285c896"
+    },
+    "src/core/memory.rs": {
+      "vendored_sha256": "17671f8a10873dd6d6b6137bd8be2bc2e171cc3b56c421498171a4c5dbc640a3",
+      "upstream_sha256": "09add62e061bafb6b73e2ef6205da39ab2592f5d7c0f7b3bd3f058446c486380"
+    },
+    "src/core/mod.rs": {
+      "vendored_sha256": "616cead84a6eda1e4cc5f4c9b6c0f84c3ef06d77cd7a42482fa09ad1fa561994",
+      "upstream_sha256": "373d7a2cb134985ac4fe5b98bcfefd81ebd179e053d4172e843643f690e1ec11"
+    },
+    "src/core/op_cache.rs": {
+      "vendored_sha256": "491c6c88de24f4f3a7ed905bb991c13c0c41cda059dd3a9c8cc83b2d126e671d",
+      "upstream_sha256": "a3fdce8e105f9f24b5b00135da78427aa393543d2c51d9a8d4242b12620b78d0"
+    },
+    "src/core/registers.rs": {
+      "vendored_sha256": "70e68b0d063719110f5d38e669a1dfe079884d64e86cb5dbe6dd48826f7ef11c",
+      "upstream_sha256": "0ff27c0b989f77e24f44c3d267f3686397294d1ee694c770f007e323b9c1948d"
+    },
+    "src/core/status.rs": {
+      "vendored_sha256": "c22163ea5d7b045906481a0dae11311d699d6a4309c573dd31eb3f568a73aaa0",
+      "upstream_sha256": "92e90a7de8bcd149091448ae356d810823a93140fb2b8d37c891bb92d3e88f25"
+    },
+    "src/core/timing.rs": {
+      "vendored_sha256": "376b68e5ced79e4e51e4e76d82b5d1141d10d7891b32f178596f2f69c70ad078",
+      "upstream_sha256": "37a02aa79591266117a7c63a171641c53bc44074e4896f251e1a368491319293"
+    },
+    "src/core/timing_020.rs": {
+      "vendored_sha256": "812fe4123d5e868f9ed8ae724028296e0f03d11617b0ab5e7537a31f37d20cf7",
+      "upstream_sha256": "fd5243c9c77eda4efa629c19dcb6f1ccb2424523573ca6af982873d0e0adb84c"
+    },
+    "src/core/timing_040.rs": {
+      "vendored_sha256": "e654b4bd201a15915b00e593c5726c7631c1458876c0957b9cc895a26521f11c",
+      "upstream_sha256": "8e8a5beecfc5422d354bd4f21fbc873808fa3ed0f3ee2cb011b8110938b4b1fd"
+    },
+    "src/core/timing_060.rs": {
+      "vendored_sha256": "d34d3a839c824db20aff1e937772bcc04b52445db800c8efa4b3551d28a070fe",
+      "upstream_sha256": "2a08921d59fd08d1b74238f64204643632f0127083e1e247f9f8baa6aa6b8f51"
+    },
+    "src/core/trace_jit/flow_latch_tests.rs": {
+      "vendored_sha256": "d12a3d511185716b0f4e0b10c01c5cfb6eea0115cea0e8272f756afe5c9592a2",
+      "upstream_sha256": "9f7acec4de442ee59a87cbba8c746b83773b2c9160a2fc81facce797893b8100"
+    },
+    "src/core/trace_jit/instruction_accounting.rs": {
+      "vendored_sha256": "54e184ab83a289323d53f45387107420f270c085352e17a6a2518ee3c1d3a0fd",
+      "upstream_sha256": "f8428fb0cca10dc209f06fbf0a729142acc1333ac197a6af3f22bdcbb296e596"
+    },
+    "src/core/trace_jit/native_region/worker.rs": {
+      "vendored_sha256": "e0992fa6b228794631a154559c815f70f8410150e82f24d278d33bb0ff9efdb7",
+      "upstream_sha256": "fe31a4167fdac02914935a823d56570b8cce5aa9b7b11210456a9b06fa99548d"
+    },
+    "src/core/trace_jit/native_region/worker_lifecycle_tests.rs": {
+      "vendored_sha256": "5ed3fd384553dd8409207962414df0e9bd080fef511f29b03fab713d99e5044f",
+      "upstream_sha256": "58fe3e067e1242e473b8e7c3ee4d489fe3e0950db94ba065bb840f32bb738aae"
+    },
+    "src/core/trace_jit/native_region.rs": {
+      "vendored_sha256": "199750691cbc230b70655383fae322a38a13468c9710c4e20923842830c419f8",
+      "upstream_sha256": "4863912047ac4d1b5083a9b5486e1309117ebbdc50f3a5feaad63612b9a9ef85"
+    },
+    "src/core/trace_jit/native_region_math_tests.rs": {
+      "vendored_sha256": "967048eb9f9f64759f65cfff575ca07d3bc2f7b7e3c859ef41d5dc472ad75de8",
+      "upstream_sha256": "cbaec1f820daaca5c3f5cb54d04c9324cfcc69f04384a3cc8ac0afbf87391591"
+    },
+    "src/core/trace_jit/native_region_public_tests.rs": {
+      "vendored_sha256": "4da2f1879f8a05b730225772b72249b9efdba4c8eedd60d142d229a15051a9ee",
+      "upstream_sha256": "827249e2cb9def0f4dc68e7641cbaa35a5478d3f3c4ba859e54ffc2df55d4653"
+    },
+    "src/core/trace_jit/native_region_tests.rs": {
+      "vendored_sha256": "1e32e1c8cf8504cdcac37363fddae9cd7155821b0680e95643d3973eda1bd51c",
+      "upstream_sha256": "51ed716071ec8834a32cee4fa63a208d1ad6c425bf86c798d4d8c68a10be528b"
+    },
+    "src/core/trace_jit/native_region_worker_tests.rs": {
+      "vendored_sha256": "61ff8c30ad340d209ad50607c3638732f89c0a1b32934d163cdc01b30023c50c",
+      "upstream_sha256": "4c0f4987aaa10ec9a6945913ab438b8705118145053c90c1510f788921153824"
+    },
+    "src/core/trace_jit/store_filter_tests.rs": {
+      "vendored_sha256": "2871cf6e30ac8eb5da18c2f1c99f958b7a5a5d6696599d15b962a87fe9e0d454",
+      "upstream_sha256": "25455937528abd06fdfd57f424d6512604e3cb9b8bc235e882bccca0f72b46ca"
+    },
+    "src/core/trace_jit/worker_startup_tests.rs": {
+      "vendored_sha256": "261204bd83cbbfb655f2e3346025ddb17bff135e332c1eeb0586f508113b826f",
+      "upstream_sha256": "30c9c49e94535a5172dbe4dbefd47a1730942782040947378f274a108037686c"
+    },
+    "src/core/trace_jit.rs": {
+      "vendored_sha256": "90796c6babae0c6fa7e6ee69cc4b75749043dfc2c703ff67724f6dc804216392",
+      "upstream_sha256": "5da33c29008065e89afb60c175c179894efc653136f8733c6e6a302a032d596e"
+    },
+    "src/core/trace_profile.rs": {
+      "vendored_sha256": "fa85f596423720b3dd8e2a3760dc9007c2b15efbec718ef72cdd26e378b225a1",
+      "upstream_sha256": "7cde013164038a87b650abe6f6ad9f25b63c9ee0c67284c0ec0fc87d5529e6d7"
+    },
+    "src/core/types.rs": {
+      "vendored_sha256": "ed46a036a02652de5bbf8ee1f199a7dab56dc1f4281d7276ed5e89f5856bc529",
+      "upstream_sha256": "866430a54649c9cba7e61f24742f25bb68021538244b1a3804ec513c73886b7c"
+    },
+    "src/core/window.rs": {
+      "vendored_sha256": "652e7e6a3a359b99b562ff0e1acc129969fa03634f93815e1897a7e6ae3f0cfc",
+      "upstream_sha256": "95037ae1845ba3072f616616fe5f4c28940bc44e44cd37c77ab2e0ae7d551aef"
+    },
+    "src/dasm/format.rs": {
+      "vendored_sha256": "2306722e302cb53a21c12724c50d1ea94793d22765b3a11e4b1e046a1a6477e7",
+      "upstream_sha256": "3a5b1bcbd186b005086f58444daa802fdca2f3ac504ee20dda658f6fdb599636"
+    },
+    "src/dasm/mod.rs": {
+      "vendored_sha256": "dc4a681334e33cd3bedc8ba2908c60cd8d11730ccb7bcac87b940087785f7af8",
+      "upstream_sha256": "e13a5a5b7db5c71e8a1d7de4193ecd23df12ec5e1b6c2fa021c26fe3ab34c1d6"
+    },
+    "src/fpu/dd.rs": {
+      "vendored_sha256": "2c7fd28b904a21f1bbc9cbf19dfad1202e34f316b256ff6f9f468d57281e5530",
+      "upstream_sha256": "3be97a5df808672071ee06b585980760803abf436884db9bcbecbbc9a7fbffc8"
+    },
+    "src/fpu/mod.rs": {
+      "vendored_sha256": "65cdcf0ac4efdd9a4548d00b8a98ee1a1a1d0bda298bc56d18963fcc6dd20258",
+      "upstream_sha256": "d28c90650f066491b52f95475f9f8a0ef4bf24cdd8644db629e94e3d334afece"
+    },
+    "src/fpu/operations.rs": {
+      "vendored_sha256": "ae705a1a4e7e425359fa4d754f90f541ee8e1b819f287628c38472388ae9a401",
+      "upstream_sha256": "abdb9c3540b1e0c43f89abdba9f910e6711ca006554790fff620ae1851b53038"
+    },
+    "src/fpu/packed.rs": {
+      "vendored_sha256": "1eb371d45fe6ad72c1e45bb926763e851998dc3dd5112cc911d14c590c0823e0",
+      "upstream_sha256": "65d5209313e4df08739a10bcb7de7b913dad489f14fbc0d65695f7203019b971"
+    },
+    "src/fpu/registers.rs": {
+      "vendored_sha256": "fb16f3b3b490e3f284a54ccc0ce7c5711247e1a2b4d883dd5e9fd7a1b0e7b611",
+      "upstream_sha256": "5483a776301753fff8e772d894b4ffa31478b4a145b0155746ae3d97b142c45e"
+    },
+    "src/fpu/softfloat.rs": {
+      "vendored_sha256": "489785d56d4adb183516918ab4ec2610349332a87a6a19113b4c449a884368ee",
+      "upstream_sha256": "cf95b6c28df4c13ed8993acd45c3c66343fbef520eed20fcc3caedf02caf520b"
+    },
+    "src/fpu/transcendental.rs": {
+      "vendored_sha256": "c63b469fabe9850b52c135924575f8ac1a68b9dc010298d66717a2a5d0318ca0",
+      "upstream_sha256": "45dbed388372a032ef9f3344388bce03ea6776eed8105247259f2afde268f6f6"
+    },
+    "src/fpu/types.rs": {
+      "vendored_sha256": "f40f5594447c0ceaee6d84e6a0be05000f1bf54ae19bafe3c80530f59ca1f346",
+      "upstream_sha256": "ab48474cd42b84b69936e6f5ef8786a9331e605eb31bbb469d278ba53f8ece1c"
+    },
+    "src/freestanding.rs": {
+      "vendored_sha256": "e37ceefdcf19fbb7a1e0793acc529fc5ed6cb248265125cf686ec500cb0e0ac4",
+      "upstream_sha256": null
+    },
+    "src/lib.rs": {
+      "vendored_sha256": "f6d7c07d0ed25ac12cac030e8b6e9445d43279abdeb0663ea67e6bee8ea712ca",
+      "upstream_sha256": "4dcc53303209ac92ade8e498be4131f72c2a93698bac40a418d1ede3d43bc92a"
+    },
+    "src/main.rs": {
+      "vendored_sha256": "0c03562a1f5bd11eaf78fccf3087781c01d6cd7aa5aa7b2da774bde8554ca51f",
+      "upstream_sha256": "7b536ff92fdf617243b3d955d00da074dd0a8340c4e6d0629c38d4bf8633d883"
+    },
+    "src/mmu/atc.rs": {
+      "vendored_sha256": "1d98862d95b24a8b18533462d8629880a2cfb1462380d76861ba6cbe12005265",
+      "upstream_sha256": "cefe3e4b57d2f5f824a514d049b6d16770b1dc650665f8f6e2d5a0eae857f4af"
+    },
+    "src/mmu/mod.rs": {
+      "vendored_sha256": "b64de363b7411ea5114f0e869427dd346c7b2b24e3efcc86872905f24c64d789",
+      "upstream_sha256": "cdec6770a368ee974780b529941beee54e618d91090ed1f762eed5e04b4064a8"
+    },
+    "src/mmu/translation.rs": {
+      "vendored_sha256": "ee4cecaec2013e5a743d700bd1a9d60bec2ed284b1338d40e3759239bf42495b",
+      "upstream_sha256": "7203b331e8acc0b9add23f6ab4520622716addb5b9ed9edc547a16a9854a938b"
+    },
+    "src/mmu/ttr.rs": {
+      "vendored_sha256": "37e08347a437715856d9f053a1ab6ea1a0608b94f476935601747d212f2cd02e",
+      "upstream_sha256": "b8ceae9ca7eacf52675832214c793092c1f53ade2dff4fd88044eb5c18641ac3"
+    }
+  },
+  "added_files": [
+    "src/freestanding.rs"
+  ],
+  "modified_files": [
+    "Cargo.toml",
+    "src/core/addressing.rs",
+    "src/core/cpu.rs",
+    "src/core/decode.rs",
+    "src/core/ea.rs",
+    "src/core/exceptions.rs",
+    "src/core/execute.rs",
+    "src/core/instructions/bcd.rs",
+    "src/core/instructions/bit_manip.rs",
+    "src/core/instructions/bitfield.rs",
+    "src/core/instructions/callm.rs",
+    "src/core/instructions/cmp2_chk2.rs",
+    "src/core/instructions/compare_swap.rs",
+    "src/core/instructions/data_movement.rs",
+    "src/core/instructions/integer_arith.rs",
+    "src/core/instructions/logical.rs",
+    "src/core/instructions/mod.rs",
+    "src/core/instructions/move16.rs",
+    "src/core/instructions/moves.rs",
+    "src/core/instructions/mul_div.rs",
+    "src/core/instructions/mul_div_long.rs",
+    "src/core/instructions/shift_rotate.rs",
+    "src/core/interrupts.rs",
+    "src/core/mem_ops.rs",
+    "src/core/memory.rs",
+    "src/core/mod.rs",
+    "src/core/op_cache.rs",
+    "src/core/registers.rs",
+    "src/core/status.rs",
+    "src/core/timing.rs",
+    "src/core/timing_020.rs",
+    "src/core/timing_040.rs",
+    "src/core/timing_060.rs",
+    "src/core/trace_jit/flow_latch_tests.rs",
+    "src/core/trace_jit/instruction_accounting.rs",
+    "src/core/trace_jit/native_region/worker.rs",
+    "src/core/trace_jit/native_region/worker_lifecycle_tests.rs",
+    "src/core/trace_jit/native_region.rs",
+    "src/core/trace_jit/native_region_math_tests.rs",
+    "src/core/trace_jit/native_region_public_tests.rs",
+    "src/core/trace_jit/native_region_tests.rs",
+    "src/core/trace_jit/native_region_worker_tests.rs",
+    "src/core/trace_jit/store_filter_tests.rs",
+    "src/core/trace_jit/worker_startup_tests.rs",
+    "src/core/trace_jit.rs",
+    "src/core/trace_profile.rs",
+    "src/core/types.rs",
+    "src/core/window.rs",
+    "src/dasm/format.rs",
+    "src/dasm/mod.rs",
+    "src/fpu/dd.rs",
+    "src/fpu/mod.rs",
+    "src/fpu/operations.rs",
+    "src/fpu/packed.rs",
+    "src/fpu/registers.rs",
+    "src/fpu/softfloat.rs",
+    "src/fpu/transcendental.rs",
+    "src/fpu/types.rs",
+    "src/lib.rs",
+    "src/main.rs",
+    "src/mmu/atc.rs",
+    "src/mmu/mod.rs",
+    "src/mmu/translation.rs",
+    "src/mmu/ttr.rs"
+  ]
+}

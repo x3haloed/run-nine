@@ -1,0 +1,20 @@
+[package]
+name = "classic-boot"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license = "MIT OR Apache-2.0"
+build = "build.rs"
+
+[dependencies]
+classic-core = { path = "../compat-core", features = ["freestanding-cpu"] }
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+lto = true
+codegen-units = 1
+debug = 1

@@ -1,0 +1,1 @@
+data 'clut' (128, "Owned color table") { $"01020304000000010000FFFF123456780001ABCD23456789" };

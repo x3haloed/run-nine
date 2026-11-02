@@ -1,0 +1,8 @@
+# Owned fixture bytes and licensed font assets must not be line-normalized.
+probes/**/*.bin -text -diff
+probes/**/*.rsrc -text -diff
+runtime/data/color-tables/*.bin -text -diff
+runtime/fonts/*.ttf -text -diff
+runtime/fonts/*.otf -text -diff
+# Preserve the pinned MIT upstream Rustdoc hard break unchanged.
+vendor/m68k/src/core/ea.rs whitespace=-blank-at-eol

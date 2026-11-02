@@ -1,0 +1,7 @@
+[package]
+name = "run9-resource-codec"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-or-later"
+publish = false
+description = "Temporarily retained GPL classic resource codec; replacement deferred"

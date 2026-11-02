@@ -1,0 +1,32 @@
+Vendored compiled sources from crates.io minifb0.29.0.
+Upstream repository: https://github.com/emoon/rust_minifb
+Upstream git: c97def08215cbb8b83d1d1a1091cd356e610d068
+License: MIT (LICENSE retained). Cargo.toml.orig and VCS metadata retained.
+Cargo [patch.crates-io] selects this tree; this is window/input code only.
+
+Local changes:
+- macOS is_active decodes the native boolean as nonzero and the native bridge
+  queries isKeyWindow plus application activation directly. Upstream inverted
+  the boolean and its main-window notification cache retained true on resign.
+  This restores held-key publication while focused and clearing on focus loss.
+- macOS view records NSEvent coordinates for click/motion/drag/enter/exit,
+  replacing the post-poll global cursor query that disagrees with delivered
+  remote input events. Mouse-moved tracking is enabled.
+- InputCallback has a default pointer_event method. The macOS native bridge
+  forwards ordered left-button transitions and motion to it, retaining fast
+  down/up/drag sequences within one frame. Existing platforms have a no-op
+  default; the hosted runtime retains a polled fallback outside macOS.
+- Active macOS windows expose set_mouse_position for explicit guest cursor
+  requests. Content coordinates are converted to screen coordinates for the OS
+  cursor warp; successful warps update cached coordinates without synthesizing
+  pointer/button/key callbacks. Inactive windows reject the request. The shared
+  Macintosh mouse service remains outside minifb. This supports guest recentering
+  while preserving physical relative motion; it is not a hidden-cursor capture rule.
+- Static callback registration/drop uses the same stable boxed WindowState
+  and null-checked rust_data pointer as upstream keyboard/character callbacks.
+
+Modified upstream sources: src/lib.rs, src/os/macos/mod.rs,
+src/native/macosx/{OSXWindow.h,OSXWindowFrameView.m,MacMiniFB.m}.
+OSXWindow.m and one MacMiniFB.m line also have whitespace-only cleanup.
+No Macintosh application, CPU or Toolbox implementation is imported here.
+Upstream examples/resources are outside this compiled-source subset.

@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.16)
+project(StyledTextProbe C)
+option(RAW_INITIAL_REFCON "Reproduce the initial default-refcon observation" OFF)
+if(RAW_INITIAL_REFCON)
+  add_application(StyledTextProbe initial-refcon.c)
+else()
+  add_application(StyledTextProbe styles.c)
+endif()
+
+add_application(StyledTextVariantProbe variant.c)

@@ -1,0 +1,2780 @@
+{
+  "policy": "Individual path/content/provenance decisions. Original apps/OS9/ROM/media, full native outputs and captured game PCM/screenshots stay ignored. Numerical compatibility facts and owned fixtures are distinguished from original software/artwork. Old tracked status alone never authorizes import.",
+  "files": [
+    {
+      "path": "probes/addressing/CMakeLists.txt",
+      "sha256": "b792800eb6337e5a008e0bd24dbb9417a859ff60430d574330051b56c5fea943",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/addressing/addressing.c",
+      "sha256": "6eb9007367a8c1c6db4384224aa5a98c14dbd5387fd0de1e25f08e7963a913e2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/alerts/CMakeLists.txt",
+      "sha256": "3d7d575b4c7dcb11c1fe2b5a2e0a5fe6f8579970d7f68a9adf69792c966a8f12",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/alerts/alerts.c",
+      "sha256": "46a5e1d41fd66fd3b99ee99ccf65bab7255e22bcc68e85fd0009be9f4dff6284",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/alerts/alerts.r",
+      "sha256": "0f167e1014afb015cb0f8688997ef70b5f65f23a5e62621a3da4c215ef906ebc",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/alerts/resources.rsrc",
+      "sha256": "9f324152594a80b6c5367978cbb11d3ea7c2300fdde74727f00977a100b9f3e9",
+      "evidence": [
+        "tools/build-alert-resources.py",
+        "probes/alerts/runtime-filter.s",
+        "probes/alerts/alerts.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/alerts/runtime-filter.s",
+      "sha256": "e12aba9f00cc33aa50fb7e177ccb74c806e24bc1c848fd853ff49d2c7fb91840",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/appleevents/CMakeLists.txt",
+      "sha256": "9ca836e743ac56a9734ffe9e00e023716e5eb63733c6e7d4f0030e6efcf1c69f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/appleevents/registry.c",
+      "sha256": "b38ccad8e6a9650e07c49b883459b3bdfeafb49b7570ba10bc5e162ad974f300",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/apprelease/CMakeLists.txt",
+      "sha256": "4f82c3c564235ca6749e50ce27a1cbd002e501ecca43d366d037fc6bb4724d93",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/apprelease/apprelease.c",
+      "sha256": "8498fc0fcb0676a8e69b1fc75476b14a119322d7b3d4940d0f34c6d619594432",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/apprelease/resources.r",
+      "sha256": "818fffe6eab273a7abcea484423a8f328359044345acdec48994af6a763ed595",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/appsource/CMakeLists.txt",
+      "sha256": "49f405413b7172f975ee0547137ae4dc85545d660f96594e5aa017ed50279708",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/appsource/appsource.c",
+      "sha256": "8078763903b86c34cd76eb83e3888ed2275bf75829dd4327089f42fda2fc9cf7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/appsource/data-fork.bin",
+      "sha256": "68bf8b0f25b94dffff002ff71c2ccf88d2138b96f40f25af72bd301f27009b58",
+      "evidence": [
+        "literal owned test string: source data, NUL,0x80"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cataloginfo/CMakeLists.txt",
+      "sha256": "558c4ceef3ef7c2e4afa4d2bbf11bfe4952540677ab405ba82b1eb4c221cd326",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cataloginfo/cataloginfo.c",
+      "sha256": "c8129abf29bca868a1c74b097b560e8013df65785321966c5763b90b82956535",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/clipboard/CMakeLists.txt",
+      "sha256": "446c2db54c46e40057eea16a65485488e07a9fe722c606c857551fd0c9b6471c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/clipboard/clipboard.c",
+      "sha256": "8a4223978294915f246d7cc4ebae0b10929149caca5dbce7c0a7a777fb0a7ceb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/colorports/CMakeLists.txt",
+      "sha256": "aabceb8bc09e035f2d3562b5349b09843a4473b78ff5645ecc327db055291455",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/colorports/colorports.c",
+      "sha256": "bdef56d17add97b29d171442ea49d234803ce73b4698f7a4e7dfac063c735cb9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/colorread/CMakeLists.txt",
+      "sha256": "9805432814fdd9af794493d65b454310f446e500f3cfaa0e3dbd16e75f1fae2b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/colorread/read.c",
+      "sha256": "b3df812102c8fea7d5259f96e9cec03076ecc608b870bc4621fc054f4737259a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/colortext/CMakeLists.txt",
+      "sha256": "625f26143382ccce82363285989a7a8edccf4525eea1f8f752d37d922bb4eda2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/colortext/colortext.c",
+      "sha256": "107aa5af95a5dbc5ef4880e9fd24d03828f4141d405f1681fc5e99ac103ef4a7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlhit/CMakeLists.txt",
+      "sha256": "35d935f71dec9df39df15e4d0b0f1af0f522e91c64d6a3a17c37fe767c3d9f2f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlhit/hit.c",
+      "sha256": "d9becfbdf883209d190a9671d7b196224d3cdc0542c0a9e90c39d58f64249cbb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controls/CMakeLists.txt",
+      "sha256": "ea14aa1f078d9e4d8f79ed45e9e14e6d38a172b01d793725210bc6d0411a17be",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controls/controls.c",
+      "sha256": "8c94c13722b5d864745df4c589ac1a2969e10a3c622c6c1496b83fdceb0f8c64",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlthumb/CMakeLists.txt",
+      "sha256": "9208f909f319cf6a6a07cd72111faf9b87dd9774dc696f7765b2c4e595e4cbf8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlthumb/action.s",
+      "sha256": "7c504782fe02376afdecc8f094b433811308600bcb0ff02770bdb5933b7feab4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlthumb/thumb.c",
+      "sha256": "6aa536baa0b0ccf2825f85e8986f56103ad053bb39389b6f28f4e9834c50b323",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlthumbedge/CMakeLists.txt",
+      "sha256": "61a0e564c5e4f843d68b4b65dbafca5fb8946dc9be611b7a835e2461fb908c49",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controlthumbedge/edges.c",
+      "sha256": "f970a22e4d8ef82d24f506d9c51998a13ed12fbc43ea1afe1144a6ae3ff201dc",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controltrack/CMakeLists.txt",
+      "sha256": "d64d3ade25743eb53b4e6cdf8f97e92ed7a6a7cbef8926c55d3bfbae0142c4ce",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controltrack/action.s",
+      "sha256": "527c255a9c9df8b833cfb5d1c3328be641d804d97e6f76b05c4d794186faf1cb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controltrack/button-state.c",
+      "sha256": "88caaa06f23506a564a62e54194ec4dd805982e41b3c830635cea8fb78623a26",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/controltrack/track.c",
+      "sha256": "b41fe4e827755dfd28d05ad14788dbfc92d49ce16f83579192cefaad3f2b426d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/core/CMakeLists.txt",
+      "sha256": "c712704f4a3b7b9431c7eb1dde8713949e480c5ebcfaad0d1acdc4508560653d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/core/core.c",
+      "sha256": "59c343fea445e5b18ac0970f6836086b154702b8989ad43e5d72bde7522ca780",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/countresources/CMakeLists.txt",
+      "sha256": "447504c790d1049335a6f921889daf84fc9f75ff775d6d83a2ad498753dded28",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/countresources/count.c",
+      "sha256": "0a0e9b354dee71e45bcef8a98f55624a91e84014a798351dcb84a1a5f4559c4e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/countresources/fixtures.r",
+      "sha256": "a88ac59f8b7a18c9597b7df78cb4ba3a9fc41ad008c4de1cae124fd564d9779b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/courier/CMakeLists.txt",
+      "sha256": "ef08889a26b78da8182c3de3440c1a8b303e96e2f208a6d867caf8c8fb718804",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/courier/courier.c",
+      "sha256": "c8925a4ca70c63adfaf6f9c4af747fa67aa2e27ea239badf9e1f83315834ec10",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/ctabchanged/CMakeLists.txt",
+      "sha256": "bbb1a8eb1dda56af879878543db7bd238bb8095d988030c29a713bc4577b2dfa",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/ctabchanged/changed.c",
+      "sha256": "ad48373f128d0561585a0ab712d63fda105efca0b253721e6c6f6cfbc108e101",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/ctabchanged/resources.r",
+      "sha256": "9494e42f6dea4fc8480fae83e6e8c55e6945fa6340fab282f269df051801616f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/ctseed/CMakeLists.txt",
+      "sha256": "ceecbc55f81bfd4d60efb24284633187344816831e047d7e19d306d235e44853",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/ctseed/resources.r",
+      "sha256": "9494e42f6dea4fc8480fae83e6e8c55e6945fa6340fab282f269df051801616f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/ctseed/seed.c",
+      "sha256": "94f6ca2b98a9a87ba25839149ebddf2778c103f2de2652acab187713a9ceda7d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cursormotion/CMakeLists.txt",
+      "sha256": "7a53f1dd7b779b2f274c362c3ef205b40ba06495ab7807201eb186592f7c1ecc",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cursormotion/motion.c",
+      "sha256": "3fb4cfe51e72716348df061c05f883660048a54d2f26395ec4bfdb41f7f83fdd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cursormotion/movements.json",
+      "sha256": "74e76c15c135e120abe6ad6a2ad1f29d08d3d824f2fcdfe4f4b427b407ebb37c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cursorstate/CMakeLists.txt",
+      "sha256": "b447b98aa74c2bddfe8cd0aaa401d674115c6b1e955c977c8073772fff3676c4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/cursorstate/cursor.c",
+      "sha256": "d38df74a1d28fbe285d8c7ad65da1ebaf69921bd354c3e8d60c0a31ee7b9fbcb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/delay/CMakeLists.txt",
+      "sha256": "5ccd3ffe5e4ea95b8484eca77883f7fb9298f6fab9a3ccd5ed90206fb6e24bb5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/delay/delay.c",
+      "sha256": "e6b300cb19e8c35cb61436e86f2d788e880cead5d0051bc2b89bbb00cc9b1cf4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/deletefiles/CMakeLists.txt",
+      "sha256": "dec1f1068645497dc024fd0a6da65d39cea146268d9192156090b98bf9d7938a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/deletefiles/deletefiles.c",
+      "sha256": "c150aa348385b3006559693d67264cd52ae5f78ca0bc36ca310062265a8481ec",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/devicedepth/CMakeLists.txt",
+      "sha256": "042dfa019b0ffe33bb92d9e5ea7207ceb0e2d900020a7c7bb7bbfd15e29cca10",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/devicedepth/depth.c",
+      "sha256": "fca98c3dd3e1cb23c691b94dd5e98020e767e950d73e80060892e74a8cdecf25",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/dialogitemtext/CMakeLists.txt",
+      "sha256": "2718063e3cac7f91fc729583c6dd514fba6efe998d9a992e2e31289095fb7797",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/dialogitemtext/item.c",
+      "sha256": "492083879574d78586c070555c7b096a1ef58243733c7a083752b6f17c81f63d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/dialogparams/CMakeLists.txt",
+      "sha256": "dca66bc992c7c0d401b5d204f0e63219d0845e5646ab412026cda710aa9014b9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/dialogparams/dialogparams.c",
+      "sha256": "08be83b256d9db634ce29931834782bae473d08376c9304dfc0674fd571152d7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/doclifecycle/CMakeLists.txt",
+      "sha256": "a0e6f1074a6b48bca0f8b8e0e87c4e15ee452f937786c86d819e47512edebfd3",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/doclifecycle/doclifecycle.c",
+      "sha256": "c7cb9b85cc81dba88c54b1549e6dee1e148047d3f7fcd775a43095b610671362",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/emptydriver/CMakeLists.txt",
+      "sha256": "9f57e57fc60a99203c5d2e6b0873484332ed3227d757f10e9fe0077832a60ba9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/emptydriver/driver.c",
+      "sha256": "1565ce6e0a9afe90fd81dbcedcaed890945a66b4ff6abe1b4c7cb8ad3aeeb1e4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/environs/CMakeLists.txt",
+      "sha256": "6524f897d05840d1c51bb21ba47f02242d22d0d30b87827c8c6d1feac2a1490f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/environs/environs.c",
+      "sha256": "446c988dfd4742bb4b7af06a41cb34271f5e60263ad97f02b3f5580b44e1e149",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fcbinfo/CMakeLists.txt",
+      "sha256": "f73a559550219ff122461ab0a981fe6b710aa88064d111d4dedaac9e4fd290d8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fcbinfo/fcbinfo.c",
+      "sha256": "f5957aae8f6ae7876a8d5a23f1527e398bd070cca43ff4065511515fe07d9dd6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/files/CMakeLists.txt",
+      "sha256": "5da1d3383b6a8eafc29433b8f545b5510d58aa44709740fae3afc3c59ce01a4b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/files/files.c",
+      "sha256": "58d422f494941087a953b15527ea3495404b3775734b80a9be599e01c710903f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/flushfile/CMakeLists.txt",
+      "sha256": "b93f8e18ffabf835e3f3137fc2111b476db15e42097f9148f80e30e6401f5597",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/flushfile/flush.c",
+      "sha256": "6021a9f7fb234bc8b6a54a5c55d04892b0c2b45901d455fc0abb721c86565a26",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fontavailability/CMakeLists.txt",
+      "sha256": "d9a652151aabd7d12146caec333e94eab754631e13bab20becef8b089d03a4ce",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fontavailability/availability.c",
+      "sha256": "ddf750581f563a970ca77ab531ff41c97d78dcb1f8877679787a63ea1716d103",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fontavailability/globals.c",
+      "sha256": "a9f96016bacb11c65f90c638529fe710d48c97c6be58176165730c280e085768",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fontcatalog/CMakeLists.txt",
+      "sha256": "548dae8211712db8009b924abf27d375b3efdc066e97f19c82e80748214afcdb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fontcatalog/catalog.c",
+      "sha256": "f25239b046442d2b68aee83e8a368951be43016740fd0208f59e24add45dad52",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fonts/CMakeLists.txt",
+      "sha256": "22082257520c1c33d0331b5054999eda57bca16f1d78d24112fb7b8922ea87d9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/fonts/fonts.c",
+      "sha256": "72e1db713f5e7aaa1ca165ad49bcec1bfdeed7914709a50675b45601a4b1dc9b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/gestalt/CMakeLists.txt",
+      "sha256": "c6a5d70ce3092e577d75bc509ab6a8a6319317d9387539cae2b76b9f30657e25",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/gestalt/gestalt.c",
+      "sha256": "e7dac07c71170e6562cc3afef1214de42319c98d952c27bfb6d58d4c2791286d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/getctable/CMakeLists.txt",
+      "sha256": "3899ba2e574ed967577ea1e4fc8ebd3ed1acb8c96aa69b93c2236269e4efe60d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/getctable/getctable.c",
+      "sha256": "4ceea758ff3dabb69cecd34eb79398c10cb3f55ba8085e996228eef0d7ba50e4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/getctable/resources.r",
+      "sha256": "7f2f50c4ddd38d9a11ddac43a2faa700469d046f33771537c75daa12e77bd167",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/getkeys/CMakeLists.txt",
+      "sha256": "28bb29186c101be19c2c0705248a832bb0a5eb36168ac3c5fc35d1a215467140",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/getkeys/keys.c",
+      "sha256": "1c6eea50f3dffb203ce668cc1832ab7c407e8cd343ede403d76739df37838186",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/handclone/CMakeLists.txt",
+      "sha256": "25b592eb6096b5454c15ab371ced66f47403a7520f543a72f9fe102d8c602661",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/handclone/clone.c",
+      "sha256": "bdcb5a0aaa408232ccd1b7ee22371c0be5fba3420f79b8e47de41eaff8d5e507",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/handlestate/CMakeLists.txt",
+      "sha256": "62035b3c4f1e80240cbfad729d1111598e4e1332e7379cf1cd2bf7a651895826",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/handlestate/handlestate.c",
+      "sha256": "bb22e67322f2b4f0a76720e438ca6d74abf1099a80496c6888afba8a647b4cc5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/hgetvinfo/CMakeLists.txt",
+      "sha256": "557a7dc07c837fc73b4358a1f329ad11ae7bfc8dae7fcc7be72090eeff7ac580",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/hgetvinfo/volume.c",
+      "sha256": "6614aef50f93c9161ab79fce0de097b23e877e7b7aeced3bd7061151da4c8773",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/hittest/CMakeLists.txt",
+      "sha256": "06dda11310be1503400ab9f2609f6d89683a98a09d74d851f55bfdd7aeb22251",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/hittest/hittest.c",
+      "sha256": "a94f3bdababdfcfdc1c184c07735407452a1b478b0d62a8b08cb72989b4ed792",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/indresource/CMakeLists.txt",
+      "sha256": "1ddb490901049b6eb91b4281ce3b8b9c0998011f70ac72c81e4b4af56a13dc7e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/indresource/index.c",
+      "sha256": "052f33230e585a4167219ae8bce268be09a2e8d7a0841c20c1cd8e7ce8846c0f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inkmetrics/CMakeLists.txt",
+      "sha256": "c7b5c0687770d9f55f1fa28a042cd0d409363dd6d2be62396f1efa78bf2f4614",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inkmetrics/inkmetrics.c",
+      "sha256": "39b229d42af7d62f7fe3114ab46fbb27c60063b7ea1c5479db617f456c291454",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inputevents/CMakeLists.txt",
+      "sha256": "4bd94effc3b0b3cc9503029a5145aee2c2078a172ef9a5ce7132e6ac77bc8607",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inputevents/input.c",
+      "sha256": "290dd3118767f2a07a204d43d1d1beb2e083116a904d8940052f31bfdb82dbdd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inverse/CMakeLists.txt",
+      "sha256": "78a5884064d733ed82070143c810873686a3e243e453743f714317c554f8000c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inverse/inverse.c",
+      "sha256": "50cc52a0ab17a8bf7ea4276259254d87dcbcaecb3d7e2b24068a7278f72730bd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inverse4/CMakeLists.txt",
+      "sha256": "b57be144cb87ef7b63fad4838926ee03933c651ee4d52fdf4a209b93a1a9801d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/inverse4/inverse.c",
+      "sha256": "b94ecd1a003ff0249f424e6fd236086d567dacce6d71238e8ee1932332abcb54",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/launchmarathon/CMakeLists.txt",
+      "sha256": "f166b7e9ab9c31ce086fdd1c603d4fc16b62fbbd14d2b5a1bff63cf37b4a6fd7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/launchmarathon/launch.c",
+      "sha256": "b0aa9154848cf187867f49bc6dbc5a5ed3ec3cdf7a44f9110b2cd496a6e01cf8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/legacycolors/CMakeLists.txt",
+      "sha256": "1ce220380cf22f9a8632d386eb198ff068585320ba522a1dd9ad177201730bfa",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/legacycolors/colors.c",
+      "sha256": "8d1ca29efe06455ede86fb2f4655316ce07bac03a7aaa901f81b763a350b11ca",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/maxdevice/CMakeLists.txt",
+      "sha256": "969894ac65257fcdce17fc97f9dd1c4f405a78888d37a72bad8f5e5a71eebb1d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/maxdevice/device.c",
+      "sha256": "b5adfdfc114fba199eebb1cdd8b93983b1750e326104d0411ec6aae4f1bae35f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/memoryflags/CMakeLists.txt",
+      "sha256": "6799ddb23ae24f3e142579c65103e64fcf07d0592771ba12cd1a8d7f9e03fffe",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/memoryflags/flags.c",
+      "sha256": "2894b784be1a525d7158a04766529ca06823674148cf1274a8c0af85489c8d35",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menubars/CMakeLists.txt",
+      "sha256": "53bcd8ff5b202305ac21eb0ac02dcf75a003e8c281804daa1367b1922f651057",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menubars/fixtures.r",
+      "sha256": "c1730b97efcc87be65d5e7acc9408a8505f305f796d70b8a783b792dd7d857bf",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menubars/menubars.c",
+      "sha256": "aadf3dabc50279f73a1940ee8b4e22ef3f77cdd79ddbe10f45873edf4ad771ad",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menuitems/CMakeLists.txt",
+      "sha256": "d173a2236f6400621e0c4cacc31d229632545437cd91893de85908bac496d141",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menuitems/items.c",
+      "sha256": "58fdd981b5be208dd7859f4cca61f1fcdeae8a39b6db3725db502242d331988b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menusemantics/CMakeLists.txt",
+      "sha256": "6078436e517a7553448519698b2f8c1bfdc1413221ce1522dfa0c6e653f767f0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menusemantics/initial-layout.c",
+      "sha256": "903d2c08f02785a8dca3c32d2fc1ad573ba113452ac80bb57887f9b5908a2e9e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/menusemantics/semantics.c",
+      "sha256": "f24532a3e86065d3082e1298dd2795a112049c41fec3ceb1c2416b172ad69344",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/mmumode/CMakeLists.txt",
+      "sha256": "9aa066109ec9478f675c47919be07a0c43a892511fb414d2e39e24c0f73aeed2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/mmumode/mode.c",
+      "sha256": "14c907edaffdb49c46e30653b830c5a8710e9b65795b59011666f3880474f48d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modaldialog/CMakeLists.txt",
+      "sha256": "0c3fea747f67071c53a952c5069bd558d5d5b4eaee679a441da43ce615801188",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modaldialog/modal.c",
+      "sha256": "dc105ce341e3920d0f435cb9a4e500035bb5ffe5ad20613e871975752b930d4a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modaldialog/runtime-filter.s",
+      "sha256": "c99d727bd140a02f6077771f4ad07c342069fafda557dd52967dd64ffa99280d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/CMakeLists.txt",
+      "sha256": "86ba76ccd7905ed514a26687de0a4bc7c6c303b2f3b2043cf223afbd39ec22cb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/dialog.r",
+      "sha256": "b94058bf6dc1601809c20def8fd50219362391d989ce21622aca9348a2267d5a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/filter.c",
+      "sha256": "85cf8c1655aa4626ecf85acaa3506a0e9d2f9ab6d338ed8705c724d422b18ca4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/iconplot.c",
+      "sha256": "301a9726037ea8191b5245dece8b567d4c1e46e22d21591ee4e5ffd8a1471228",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/iconplot.r",
+      "sha256": "0eb9a02b72c2991443f629e7f48ff8e756649aad062393f948b7b87bb632b29b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/runtime-filter.s",
+      "sha256": "40de034e18dbf4af086e5f254badec2eb1484844838b53a408bcaca6ad6a1ce7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/runtime-hook.s",
+      "sha256": "e6c75a4c109566afcf1b3e8b7728486761f7c73a1fc5ebbfac33ec016531310b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/runtime-useritem.s",
+      "sha256": "a734b7d1e0cb9be60ba5f509d948ca03beac1b5cf84fd373e5fcfbba900b9628",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/standard-context-v2.c",
+      "sha256": "15e352bacb8429cbe5c152d202d331e56aeae602a4960215334706a03a21e503",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/standard-context-v3.c",
+      "sha256": "bed0a72b9424ca78b3a5e9db665bca63edf7b80d3ad44c15983b3ebb56d1cc62",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/standard-standalone.c",
+      "sha256": "88dc2519581c5b62305415eaec6a0b10b244f103333567ea0ef4b1de6b0870b2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/standard.c",
+      "sha256": "771504c053057076fac7957f09a33963a331e3bd5cf2cc4ee6bf0e2d19b04563",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/useritems.c",
+      "sha256": "ce43a562ffd355d8272e079156dd07810dd71465e5dda2af2ae6a91c3e2d8b82",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/modalfilter/useritems.r",
+      "sha256": "5a30816314a3dce4ca746edc076da48a67d6d07d6b618c54e6adc526329d1e6c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/mousecoupling/CMakeLists.txt",
+      "sha256": "fe2d0d7bd8a5e2b395fbaa5a2f1ab729b6f38a4291b4f4b53240120340e8fa07",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/mousecoupling/capture-v3.c",
+      "sha256": "85e83118f7c612cc9cb8640ccbb23d26ac47d00ff18ba554886ad84b3a3c0ada",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/mousecoupling/capture-v4.c",
+      "sha256": "368183000c7cdd8a3f206c44969f69a9f1a076756965f8744a53d97857101372",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/mousecoupling/mouse.c",
+      "sha256": "9262694de22e3fe1481483454dc83d122e8dce27843ebefb8dc9c11e46b50436",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/movehhi/CMakeLists.txt",
+      "sha256": "8a67e87e98067888956dc1a067e9c1d71cb081536eb67c41e8e3488f030fd276",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/movehhi/move.c",
+      "sha256": "57c2a0946800359674b5a3f9778d4d12f93a7c2f18484a661e4301e019256928",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/newdialog/CMakeLists.txt",
+      "sha256": "8fadeaf35c6ee219ebb6517c635d6fbf5db5380a90af451209b2317365713533",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/newdialog/dialog.c",
+      "sha256": "07eaee64615da69ad067906ed3a5228eebf6c653ac2d0245b64d1c78451aeb0c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/newdialog/fixtures.r",
+      "sha256": "c8631a5aef419d85618b039ce5639059d46bf572005e8a1151f124cdc438bab0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/newdialogdetails/CMakeLists.txt",
+      "sha256": "f3f60fff985156128ab647ca9e3402dae8679b7fe1ce3b9a6bec98d182cc5510",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/newdialogdetails/details.c",
+      "sha256": "7a632422fa3ac8a68cc2f8138a03b0246c3fc36f64214ad6ea71eaea116050b1",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/newdialogdetails/fixtures.r",
+      "sha256": "cd758dbfc793acc1ba89681b3da71b26600ccb8205543bace98e9367cec5d4ea",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/offdevice/CMakeLists.txt",
+      "sha256": "ef7462d0e167a3b68c445178e4acd6389fe43ec0e4963e95d20c52284d5be95e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/offdevice/device.c",
+      "sha256": "76f4073715b5ab3b3bd1d778851e7f75ae4ccac2e0a3a0b525c33a58382cb5b5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/opendf/CMakeLists.txt",
+      "sha256": "048c3146164a01ba8bcda109e0950fd84145278f06ab8286614e5069c387e9b2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/opendf/opendf.c",
+      "sha256": "48a0d2c40b5aa7eaf910f226b23d339457e2371fe5dd7255b2cc73e9a611f4bb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/opendf2/CMakeLists.txt",
+      "sha256": "2e693466fecb1e9e91bd66b26efe1d9201ac32d1cde21c0e16aa20809592864f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/opendf2/opendf.c",
+      "sha256": "957a667c5736ce9f994d5bd8a4faa53321091a6e95e81927483c892c8862ca2c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/origin/CMakeLists.txt",
+      "sha256": "99db313a748a5ca18057d90bbc14690d1d1578263f32d1fae22d6c3157763a56",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/origin/origin.c",
+      "sha256": "b8dd86d290ad652de9c10ca465af1173e15028baf6fa0a2d6ff14ee947cb70ca",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/osevents/CMakeLists.txt",
+      "sha256": "9e9c2259ec144fbde437e3a1159ee6cbf5ce3ecdcdb75774f690d1bb82f07831",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/osevents/events.c",
+      "sha256": "f7b27a892503e3e1b8eb8e6a1e13e9c41d18dcc9778d75e8501145bbb736fc46",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/owned68k/CMakeLists.txt",
+      "sha256": "c0e483e00ef8d08000161e774c6dced16b101c28f8bce64161be5f711a31d306",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/owned68k/owned68k.c",
+      "sha256": "25d7b8fdfbaece761d20b2aaab3f7aff0c1f5ea03ea46e6c59e677cc3d92547f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/owned68k/program.bin",
+      "sha256": "ce5579e8134c6e821f78950c1525fb0354f5ff3ea29e3ef7d55cba47ba888672",
+      "evidence": [
+        "tools/build-owned68k.py",
+        "probes/owned68k/program.s"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/owned68k/program.h",
+      "sha256": "66d8949bead8605134587d7e5d607105320e309ba25e28ced287958ed336677c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/owned68k/program.s",
+      "sha256": "6466eafa522d01ced77c84d7675a881c6d8f73072fcd5606d198349e93b74fe4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pathfiles/CMakeLists.txt",
+      "sha256": "b81747c05c7d096d1ef41655187f3691f12551d282faac1303eb4e0691bf258e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pathfiles/pathfiles.c",
+      "sha256": "85c8c81844bb0a0e1a453b3b97997ff7ca733156d1ffc3c349ae48b1f08fb0f7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pathpb/CMakeLists.txt",
+      "sha256": "b9d32b9bd473c62d54c80437b3a28f56f9805ec062dcb66d6636f0ab93ca155c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pathpb/pathpb.c",
+      "sha256": "0ebfcf232b3584d0ae759e64a7a1794f06ee06c7d6f425b3d8f59787ccbd917c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/penpat/CMakeLists.txt",
+      "sha256": "2f19ccd4b0247e2ef7896b80ac5a23420b89a667ef46469dc68a0e0ab5004458",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/penpat/pen.c",
+      "sha256": "e4d15a1e0a900db08c36e18761587a44f772fc685148df300e41ec333a81717f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/CMakeLists.txt",
+      "sha256": "f64a3145f76b61a1953ba46867fc3497213141be222e08d72669edd3238b584b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/fixtures.h",
+      "sha256": "024b2825e04866efb056944aebdcc5edc771aed8c8f13830d3c9626044af3fbd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/pict-0.bin",
+      "sha256": "ad24ece4b0de063a778c73cde50abe39867def82cf70dc8f18fa5bca7847e580",
+      "evidence": [
+        "tools/build-pict-bitmap-fixtures.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/pict-1.bin",
+      "sha256": "d49c0f2563129a6e272ac6bd76ddfa27db51c2c3d57bbea94a020a9ee57d2fcc",
+      "evidence": [
+        "tools/build-pict-bitmap-fixtures.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/pict-2.bin",
+      "sha256": "c184f5c1b8e68ee99ca5d1ad1b7dd74fbac990179031bf6e2a15cc6d7d0c6e0a",
+      "evidence": [
+        "tools/build-pict-bitmap-fixtures.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/pict-3.bin",
+      "sha256": "cd787b5dbf2db6fd6a313665557dad6ee3e4784db6652402ec6ead25ccfb09df",
+      "evidence": [
+        "tools/build-pict-bitmap-fixtures.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pictbitmap/picture.c",
+      "sha256": "7baf820d8d84665ea90126689bab3a91528dc7f7e638546b72b3053b099b1275",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pixmap/CMakeLists.txt",
+      "sha256": "fd778f99006922a7f1da931b02fa16cd6b96bfa1f773857dac71c771b33b4791",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pixmap/pixmap.c",
+      "sha256": "2ecc575568783d1818cd4c5cd2f39368a7078cf949cde5e3c4165903f5adc082",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/pixmap/resources.r",
+      "sha256": "97e3a9e63d425db4cb0b94284eafe4d04bf7b8c731d946c8f8d1c5c72aabdf91",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/processes/CMakeLists.txt",
+      "sha256": "2b4b76e9ac4c47584c6dd8e8206f123095c7da6ae1e766354f5608797edcc01b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/processes/processes.c",
+      "sha256": "003f40a5be62b8dc0f58ee654141d52512f1e0944f1d130063651bf3bb277c80",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/qdline/CMakeLists.txt",
+      "sha256": "ebd21354227b38b4297527602394ac8a400e0180d1e1099b08acb95f81e01ba5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/qdline/line.c",
+      "sha256": "40e79031fe113d14d0776759de02f303470c8e3e87a4c2b993591d32ed5c4de1",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/qdrandom/CMakeLists.txt",
+      "sha256": "909bcb2a79d94a6a16f19f749017e8a1245bd5954df360be243b438365ea742c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/qdrandom/random.c",
+      "sha256": "8c9b8a772a5537409bef607c8d321a91d19f1ff6b735e75beba4226ae687123e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/quickdraw/CMakeLists.txt",
+      "sha256": "39028d21b0bbaec08277903d5fac3f93abf3de014412a1fadb9e63aad48e32c6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/quickdraw/quickdraw.c",
+      "sha256": "e753f113e143750e1ad80669b183deca92892323f7bf49f7df2ff90d8ae5151d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/regions/CMakeLists.txt",
+      "sha256": "c731a8d9336e56e88385a9b03fb5b707ae9a2e1b2f570a512292fc474704e1b6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/regions/regions.c",
+      "sha256": "c199a13b76aab7dec08961e34c532e5836948a2faea689c12fbf88369239efc6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/rescreate/CMakeLists.txt",
+      "sha256": "623efe9dc13022ae5869e3944241bda44dd4c5ea66bea0993a3d981b528a8471",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/rescreate/rescreate.c",
+      "sha256": "2228281ad698531f72e17c55a8791de2e57bf03cbee9a45c668b020b1bc2a54a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resfiles/CMakeLists.txt",
+      "sha256": "859c68be65a92c328fbb4fa7f2c9c4b25a0a42a699ec89664c39188ac0ad0689",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resfiles/resfiles.c",
+      "sha256": "9833656cfb9e9c03dbbe3c651ee7207e05605069cc35a3e98077540026ba8ec9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resio/CMakeLists.txt",
+      "sha256": "276b7f81e2c7e830488e6d3f64b4d0b922d48e4e166becc8fe4d3f4fc9bcb07b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resio/resio-context-v1.c",
+      "sha256": "e87097fa9e4add191161d117e479327717dfd83097a1924a8b9879c0f9a613f0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resio/resio-context-v2.c",
+      "sha256": "59333a1fdb1fb54a31ca27bc20710a756aec9e7c289c0d60d292c28116ff3238",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resio/resio-prepared-v3.c",
+      "sha256": "58ad503b4f6a0cbe3b45ecae4877fc0d0bda6eb7435210f58762b22afe50bfea",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resio/resio.c",
+      "sha256": "a551275794f19201f9f49c8aec5cab23f962de0da139c1b480afecf858553a50",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resourceenum/CMakeLists.txt",
+      "sha256": "260ba3c9a9817d2ba252c9d0fa1c321d118819547d7985682a5a4431003773b8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resourceenum/enumeration.c",
+      "sha256": "03c47cdaa4a89ed95cf574b2d7ff066a52d4ef251c3241b4573950a9b6dc8166",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/resourceenum/fixtures.r",
+      "sha256": "27eae694ab32896b776f6ca800d809e072bd1c279ebffcdebe8d91081052c069",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/roundrect/CMakeLists.txt",
+      "sha256": "1f7c3a20b2e9923b09bd7d35199361482ec9980bdb085a4234e71fa0e9de2892",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/roundrect/round.c",
+      "sha256": "c963bf88ce86006a86b3341e1198b0a218d09eebb60ef0b903c7411495a72a6f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/CMakeLists.txt",
+      "sha256": "8f7a793daefc066ce0f8c8cbedcdcbe2ce364acc2b9b2f183b374c2bd6dd4209",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/base-operands.txt",
+      "sha256": "349cebfded5475674afa431c7854b901e9a308742e284ae97b19aea9b719351c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/memory.r",
+      "sha256": "9bde77a9a3a1e4d9955dd1fe1fd111b3b260ed27c1e89576b7da886b6cec2978",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/operand_counts.rs",
+      "sha256": "b3102964889a4a1b10677272aac93e7c4899252708df93dc8526c73d36a2078f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/operands.bin",
+      "sha256": "e0724e6e7497900f20c611c5ba44388125515a4f03f65a04f6ae060820a7278f",
+      "evidence": [
+        "tools/build-sane-operands.py",
+        "probes/sane/memory.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/operands.h",
+      "sha256": "9aa090a3f62d5330f36bbc8a266a8c6776e9a9f2f340f134a8cadedcd73e2130",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sane/sane.c",
+      "sha256": "d09149570466390bdd68a941d78fb0263b629ee7bb229611267110dd349f4aa4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanebasicx/CMakeLists.txt",
+      "sha256": "e1c9d114ce7641c73389650533484ee8da2eacb9293917eb213127e85d802aea",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanebasicx/basic.c",
+      "sha256": "6a46a3e78b27b69488974f331d3045d8ed61da4d837857d05b7bd6d321ef35d2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanebasicx/memory.r",
+      "sha256": "bbb807ef85e461a7df38af556d7cc1243d0717531f24719d8e8a24dd28b07799",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneclass/CMakeLists.txt",
+      "sha256": "c6ca1a375d7baf6e01a0063502db1a10c0d7b497fcee528988a41605b19b1662",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneclass/classify.c",
+      "sha256": "15e00aba4c7246143ff63f6fcb797409758c336c5ca1f97add3b60d510050601",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecompare/CMakeLists.txt",
+      "sha256": "7b2f0bae4ad9f17874d12f9ec30d6ff0b4b10dcb3bcc975684a3ba2498c6b5b8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecompare/compare.c",
+      "sha256": "f6a0b60df288bff2a50f7a1809884a33adbc511a4945beeb04c6c1612ef7cc27",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecompare/destinations.bin",
+      "sha256": "f3cb75390350d4f7b3e80c52414c98f33d9612c036fbdb48e96a23779a8c9afb",
+      "evidence": [
+        "tools/build-sane-compare-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecompare/operands.h",
+      "sha256": "91216c6155a03416ce8a2b9de70aaa03b140165913effa888c0823132f39a4c3",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecompare/sources_d.bin",
+      "sha256": "c33135e708342e3672a3bf46c6b79ef633bc744da538cc66eaa060e9c2d74770",
+      "evidence": [
+        "tools/build-sane-compare-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecompare/sources_x.bin",
+      "sha256": "f5620b183be240aea0efdbb5b6800e8c0e4050691e11afebf96ca5f1a90ffcab",
+      "evidence": [
+        "tools/build-sane-compare-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneconvert/CMakeLists.txt",
+      "sha256": "8e83b255d669e0a4114b87629f9677544fbd77dd40368706e518125f29985f74",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneconvert/convert.c",
+      "sha256": "5c5c50169d71c51ab8fc9f23886511e9a4ef0b5b8bfe9569e8e766bc7be556aa",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneconvert/memory.r",
+      "sha256": "ab9b50e19bad992842f445db695bf0edeab61d7526848fa214d84fa0e10c8c98",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneconvert/operands.bin",
+      "sha256": "8f4d1e1fc2da7574b8e112536eaf5a2a93d5c535aa205b0faceb677c3caae088",
+      "evidence": [
+        "tools/build-sane-conversion-operands.py",
+        "probes/saneconvert/memory.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneconvert/operands.h",
+      "sha256": "9e4bac0d65a8a1ec2f0999515edcd78681fa5128d30eb02075caf42e27bff30b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecos/CMakeLists.txt",
+      "sha256": "2d65ce9ad106b8d4628fa64ec7438d24ed9a224696bcbd6fc9eea2c54bc7e6a0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanecos/cos.c",
+      "sha256": "008f275c371cb31dddfbed781e872b3282db0a527b18d461cb4a973e7bc80b7e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanediv/CMakeLists.txt",
+      "sha256": "808815bbb25bef2e9bcd38bdbd5f58e01d89d1ec315ea53af6d70fd83416ecc0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanediv/divide.c",
+      "sha256": "73788a125c7c896320339d7449e5907af9e26c06c7fcd7be6383b5eb868a80e5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneenv/CMakeLists.txt",
+      "sha256": "852dff48e93d2fed85404fc6e7b9010d72e8947c90dbcca3815e8a89fedde0b9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneenv/environment.c",
+      "sha256": "ebbb3931d8447dd7321f6b552a7df48335d6f1f4fee552a7f29f76d9fa4c95b2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneextended/CMakeLists.txt",
+      "sha256": "772a21ec421db91c9c7efa86643b01ef60f73adafb7e33c00e37c942d061a3da",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneextended/extended.c",
+      "sha256": "7eff2fdecaeaf9cf5d199b7caa5d000cfb1373f148c437b1633a8d089094b81b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneextended/memory.r",
+      "sha256": "bbb807ef85e461a7df38af556d7cc1243d0717531f24719d8e8a24dd28b07799",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanef32widen/CMakeLists.txt",
+      "sha256": "c23860f0edbd5f35cffdef38d2b13b6b3923c84da4050bb84246ac89991b34e5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanef32widen/operands.bin",
+      "sha256": "7ac5cd05f0f933768aedb8abae21486b43e23110434cb8ab0be587e5ee7f8c59",
+      "evidence": [
+        "tools/build-sane-single-widen-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanef32widen/operands.h",
+      "sha256": "9e3758eabfd2da251f5814a05013c7622f9ea9b3575f42b4d0cbc0aee7f79d48",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanef32widen/widen.c",
+      "sha256": "ad9a6a6b29cc6def9c872cb57029b4df01743cd8b46681d86341d14e8ebd4664",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanei32widen/CMakeLists.txt",
+      "sha256": "728888fbf6786450e57a4ce90a4bbbf5de7e6c5a6fb143e9a8ed8c622fed5665",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanei32widen/operands.bin",
+      "sha256": "b895d405d73a026644d6f533649de081e32ca6916c7b9be78122eb6323d37c5c",
+      "evidence": [
+        "tools/build-sane-long-widen-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanei32widen/operands.h",
+      "sha256": "8676a187afe80fa6acf5cdbe4bb2900a5c48cf2ec5bc7d424b2dbb8b58648e61",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanei32widen/widen.c",
+      "sha256": "627f9d565ae14a30d20cefb9fa779c13c78c179b9ebca3134166bb0db4b66c66",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneinteger/CMakeLists.txt",
+      "sha256": "10b46e2e340a1dcf78d5f362fe6fd184574e6d102a58a255920f29412fdc12e5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneinteger/integer.c",
+      "sha256": "e37f72f3868a9b381a1434bdc3593c50b8bd60c9b45342693e366b642265555b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneinteger/memory.r",
+      "sha256": "ab9b50e19bad992842f445db695bf0edeab61d7526848fa214d84fa0e10c8c98",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneinteger/operands.bin",
+      "sha256": "435f5fa3d8806c0fe516146bd7bad82a3c263d26e2b1f343c28f5a92aef10492",
+      "evidence": [
+        "tools/build-sane-integer-operands.py",
+        "probes/saneinteger/memory.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneinteger/operands.h",
+      "sha256": "acaae7520b47a521b640aeedcd17d4299e0674a27aa6ca595067c9d87a0c540e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneintflags/CMakeLists.txt",
+      "sha256": "1d61de2e7a9ebc1885b3fbe1a7ad1df676fc1fe40a95a2cfaf12df0a8258fce5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneintflags/flags.c",
+      "sha256": "a18c2ffc64d83028cafb826d5d181971ce30d18e32075743831343c8080dc54d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneintflags/operands.bin",
+      "sha256": "b84ec9cce7d5db96dfe4761ac85bebfc226e838726a68e61616e0b0657141b0b",
+      "evidence": [
+        "tools/build-sane-intflags-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneintflags/operands.h",
+      "sha256": "571c4731bda6bf9d8b058cc0f85b8fb140cb1b28c424b2b93db56ec312436237",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanemixed/CMakeLists.txt",
+      "sha256": "4cea89245c4c2fd97f6bb5abf346eba6c8a9101da2025d01c876c0623a642b4d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanemixed/mixed.c",
+      "sha256": "2ef4fcf2d80ee4def36bd480865698ea4ffe11b685fe5cb3307e65c198a1a1df",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanemixedadd/CMakeLists.txt",
+      "sha256": "135a1c2761c6564a4fb8d5b09acec681e351c6cefd025c570b9c576a7a6ca492",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanemixedadd/mixed.c",
+      "sha256": "caf9f1170fc4fbbc6ff648686bb80c8343f98600c0ecd9c3614d613fcc354b3f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanemul/CMakeLists.txt",
+      "sha256": "a2e7d4ecd50022159672e69706bdc9704e8eaba89e73e124649759f82f739b6c",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanemul/multiply.c",
+      "sha256": "eae0e8cca0159872b78a8b9388537ea85df61c4ea2dc8cb70e8e6aefa1082362",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanepower/CMakeLists.txt",
+      "sha256": "1c11fc2697158081ab0b38b88c20402260ffdacec703f6711ac207a08594ebae",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanepower/operands.bin",
+      "sha256": "d5b13873368495105acc565103a53c85cf4b7d06e6a19241c32666f599983447",
+      "evidence": [
+        "tools/build-sane-power-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanepower/operands.h",
+      "sha256": "d793e8cd43a57d09e7741e05ca335caab15fdd9076521f7abc1a3db93c0b10c8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanepower/power.c",
+      "sha256": "dce9482a922b02682b5f1e11e0374d77d92f44582d4969445f2fdce83c8f3687",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneround/CMakeLists.txt",
+      "sha256": "bc717f819ffe604913d173490ef636f83dbf5012b9c95a4bb5d5b49e2558b2b0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneround/memory.r",
+      "sha256": "a1957c2de863e4bae9a1b694750ae025e5d5779fcf49fcc5446f2f24a7b42d09",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneround/operands.bin",
+      "sha256": "7f939434e92d3eb504990588938bc4cb519a8cbca8c1ea63f869d45d51de61fc",
+      "evidence": [
+        "tools/build-sane-round-operands.py",
+        "probes/saneround/memory.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneround/operands.h",
+      "sha256": "2a4374bda642a4fadb3dcd79069e2eff2e270fa4237c599b1c6362a7bb5bb708",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saneround/round.c",
+      "sha256": "91be6205a2e5e12e98caa45eef29b7a70aeafd265fcd05262b0ccb87331dffe6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanesine/CMakeLists.txt",
+      "sha256": "70cfd2c1a9a6d189104dc52a0a7eeeba12d7978883b43a1dd65915cd63c1023f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanesine/operand_counts.rs",
+      "sha256": "e89a7411991a03abf55d0d24a776dd5099f58486d77be32422ae8bed31892f5e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanesine/operands.bin",
+      "sha256": "ad5cf91398ba3e30fe077ef050a334979f720ba2b20beab994e70b7341b32f07",
+      "evidence": [
+        "tools/build-sane-sine-operands.py"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanesine/operands.h",
+      "sha256": "84784c3ccc3954471761274d48b7eb37ae61bfd10f520446bbd9ad2da510cfb2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanesine/sine.c",
+      "sha256": "87fddd26403389eaee5a6a8e2fcd3121531bbb0ee6c389fb0986f81729e0db07",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanetan/CMakeLists.txt",
+      "sha256": "1cbd44c0ab93ec2633e0abf44772e0867f9a938a1e283a7e478ae905dd2d3c7a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanetan/tan.c",
+      "sha256": "1c4a237ea90471a0468c92956ae0b68cd7399e744ef41057b451742204148b3a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanewiden/CMakeLists.txt",
+      "sha256": "d35bdb12a7a6c40fe2d36a3f1fd7164207423d8a1261b37742f1dcf8dd830da4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanewiden/memory.r",
+      "sha256": "ab9b50e19bad992842f445db695bf0edeab61d7526848fa214d84fa0e10c8c98",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanewiden/operands.bin",
+      "sha256": "1de82abcb55cdf01e4c0db088f4d05b944cb192c876aa54561815d6456a5f2a1",
+      "evidence": [
+        "tools/build-sane-widen-operands.py",
+        "probes/sanewiden/memory.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanewiden/operands.h",
+      "sha256": "a1897d7d9444fee44a0d66839f2597ccc3c733503ca857326b13569aa1493354",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sanewiden/widen.c",
+      "sha256": "f4f790751f7f634c2ee6bc2d966ad84e3049b282a13958fe02df6464884f1cfe",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saveconfirm/CMakeLists.txt",
+      "sha256": "fafb4e13d041f82a12ad3fd4de67696b48d04e97d979775c873715dc6dde11ff",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/saveconfirm/saveconfirm.c",
+      "sha256": "b2d9855278697c241505137921e6459299efa4a2c586bc5d653a48383270484a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/scriptcontext/CMakeLists.txt",
+      "sha256": "e2cd512d5e0962f98c52e1d1a4c2698947b393e43650bcb8445d801d4489a5f7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/scriptcontext/context.c",
+      "sha256": "937503f985fed0a298d3450220b5b8d207bd64950e956e135cce8cdf177a3763",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/segments/CMakeLists.txt",
+      "sha256": "a42e0203b86d30f68d9ed4634edf589bb621939fab0e0bd74278621ce26c25f2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/segments/segments.c",
+      "sha256": "f037af8e2311925e2f4c313c33b3ecaeacdf689cb7ce8c6d0adadf285565e8c0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/simpletext/cancel-save.json",
+      "sha256": "1db47fe5a37d4acde23cd89aabe6c42688351cca674fdeb91e7dfb8a1032bb3f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/simpletext/save-document.json",
+      "sha256": "0d3bcd60142ca0694bf38b87dcbdf961508cd5fdcf26922c23d908c00673ebae",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/simpletext/type-edit-document.json",
+      "sha256": "6bc691956b58542e9efc8c242f009d6ff4513761f2d3a1e32c2a1c17f8583f14",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundamplitude/CMakeLists.txt",
+      "sha256": "29643424099234736c61ee33a43b4360d2363c588dd86fc65c8fabca33bae673",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundamplitude/amplitude.c",
+      "sha256": "bfa362612b97f2f0320e13f7b4c90390d90b8d16df1d7d45d470e06861b34e2e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundchannels/CMakeLists.txt",
+      "sha256": "cf4897f8282752ec79855a0141172fb55d22f2e1764199888e64d962db380ae4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundchannels/channels.c",
+      "sha256": "589bada2deb074ef65edbe309af76f9df8271d8b26ca17e306255f8179557139",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundcommands/CMakeLists.txt",
+      "sha256": "25ef1d9b74751a669f4cab158747ff0c30c6d3555a0c270572c648403cfc5b86",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundcommands/commands.c",
+      "sha256": "cedb0cea09f007876520c3b54b41048912eec3268d75a63c728f74818498201e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundcontrol/CMakeLists.txt",
+      "sha256": "1acb5e6878776b46c34276f563fbdb5a91ea5f6408e6d7bf73933efd46b6c3cc",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundcontrol/control.c",
+      "sha256": "80020b7173f7672f0d6f3b13b8200918ae7a5a14aca54ea6856035da26dd389f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sounddevices/CMakeLists.txt",
+      "sha256": "a1b1a0da168d817b47daad81a84453b9c0264a7c23d18c58cbf2a98b9607165a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sounddevices/devices.c",
+      "sha256": "2f2a1e392853b0405501d6437b120930a6343bb07e7027935b25573fbb8df73d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sounddiscovery/CMakeLists.txt",
+      "sha256": "dfaa2938e3caf0cd8eb4110682f2467b41720ded59d9162d6cd3bb8f983e558b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/sounddiscovery/discovery.c",
+      "sha256": "33f157e032db378b92fc083de15c17a81017cd881b0f8c5311e5968abe6c01bc",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundguest/CMakeLists.txt",
+      "sha256": "20d84e974bd9d57be496e55d451022a0792475bc762ca52d4724ae08a0cc2c7a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundguest/program.bin",
+      "sha256": "476018be98972653d2422f2dc7fd64fba9e123c9eafe0427a1bbc686454dc304",
+      "evidence": [
+        "tools/build-sound-guest-fixture.py",
+        "probes/soundguest/program.s"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundguest/program.h",
+      "sha256": "b76605c49040c651b6e2bdb9dd2a6cd74e3282d120aead819c0d049719a7f4dc",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundguest/program.s",
+      "sha256": "4b83b0f786c2cbb0cc7fde762dcd757a7e63f2ccdf59ef73638f6a03066d36a8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundguest/soundguest.c",
+      "sha256": "a153e4dc0db7abff00c3fe1be2596891d2ded6fed9a578ca1d23c68e4ac5f1b1",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundpcm/CMakeLists.txt",
+      "sha256": "d74b01e9cb03938400d6226fc11951c16de2444fc69006d9d3d65819729d4ef0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundpcm/pcm.c",
+      "sha256": "1e555a475c257d1be798f61d5192a24c8744c4ccc8cf045a5b52158e79fac159",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundversion/CMakeLists.txt",
+      "sha256": "c6f335be319f487254009919d45c6d1aae1aae9f6effcf6fe5ce1f1b1c763341",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/soundversion/soundversion.c",
+      "sha256": "c1d7d26d6ba50002a0c3762a7a325df31df07d59e73936aa4d3283adb003e7cf",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stilldown/CMakeLists.txt",
+      "sha256": "8ebf16083bceb3e94cd64643644dd7d14249c21053d2109148368e1d79574e79",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stilldown/mouse.c",
+      "sha256": "72aff398ae50b9f07ced9b6f8cc76b2e0dd2e23411994e731e83d745ee1be7fd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stringcompare/CMakeLists.txt",
+      "sha256": "6070d98830b9f48ee741c8a0cedecff53619b84452e2731f6ad2ed48e2159a5d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stringcompare/compare.c",
+      "sha256": "d6beb87f2ff6be33ea4b31bc1b6cf530c2ec063c121ea3dd0c96d57951c4ea08",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/styledtext/CMakeLists.txt",
+      "sha256": "f58ed6f8f8ef700bc09c7494d8d0c2912e03c8c142cac703eb67d1b7201fce7a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/styledtext/initial-refcon.c",
+      "sha256": "196666b14b68e31bc970ad6b2cd70c97a6c027463e8baf4ffa93023b6c383a33",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/styledtext/styles.c",
+      "sha256": "25509072cb9ab3cd3aaaa20e56b4f5954fdf068d991748432276ab498e5789f4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/styledtext/variant.c",
+      "sha256": "39ebc234ae35f6e2fa943c274f2d31f1f6e625d7258aa672bde258edf906e50d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stylequeries/CMakeLists.txt",
+      "sha256": "5a177d823c8885a19b33e6e6ee9af53ececb161305a3aea8801b7de2492893c7",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stylequeries/queries.c",
+      "sha256": "b92c9cd569ab656c2cd4621479307d38dec857a1e6b0a8d2cb9d9a0ba9ed86d9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stylescrap/CMakeLists.txt",
+      "sha256": "07efffb9b3491044afa47e334c6932609ce40c55bae5e1b19498372f324ae7f4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/stylescrap/stylescrap.c",
+      "sha256": "611d2b5aeaecfe92c391ff7635a27b85148ed70f051186eca38b562425530351",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/styleuse/CMakeLists.txt",
+      "sha256": "e3ce8624bc80d82dd3a33e39d8b0135104f2a210a41c51f852a15876975471a6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/styleuse/styleuse.c",
+      "sha256": "6f2446beb0d59ee798e26d15a642a2fafd067f63d8a5b9c29177c8da98f10c28",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/systemstyles/CMakeLists.txt",
+      "sha256": "3fd90c9a5ea1e19846f9858493fab9e2fa1a20eb8e81ef5ba4d3f4cf7198ce13",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/systemstyles/styles.c",
+      "sha256": "4ea54288ab139a874444a6306cf7282426a941b29089e0a74ff99c9a9861e966",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/cancel-replacement.json",
+      "sha256": "2f3a96b3d4008b672a30a11adcdc096e5005dba06a371422cd724898e143ef81",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/cancel-save.json",
+      "sha256": "1b589aee81f3877ee2071a22542f9402cf67cc3fe0f334fc392efe97ee6e7ae5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/commit-save.json",
+      "sha256": "0d3bcd60142ca0694bf38b87dcbdf961508cd5fdcf26922c23d908c00673ebae",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/copy-paste.json",
+      "sha256": "0ca7601f0f61d08558d247b54c02e64202067f3b9c5d33ec4095fffeb356d403",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/cut-document.json",
+      "sha256": "f134e2775fd285e4f7e67b1142b6933cc829b93f140e180422d2adc4cf43dbbf",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/cut-paste.json",
+      "sha256": "baaa8bd8cf72a7aff973c577526cabc27e479f18409049522b005f4406340d60",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/move-document.json",
+      "sha256": "50dbf8ab436ed287fd511109a8e9b3f55c395cc290fe3fe15ded3a724521073e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/new-document.json",
+      "sha256": "1c9a4377f8c208cf024bb622420f4d28416f3101c55eb3be857ebe5c6be7290f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/open-document.json",
+      "sha256": "d2c78c54ffcf230a57e5c4c756a7df24938dbe53227751dc504daa59b65d5a3d",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/reopen-document.json",
+      "sha256": "f4e2ba6a70cc9bc464fef8ffadee42a26c55209d399b14960aad89e11814fbd0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/replace-existing.json",
+      "sha256": "1b45da310da33463b4fc6770eaea4dbfca87545607a07ea2cc3f64a456f393ac",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/resize-document.json",
+      "sha256": "7a1f2bb5fdcabe4ce1e11f00654992d24f73ac36d61c09c6e855636d3ff3bd22",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/save-close-new.json",
+      "sha256": "b66e7ea1592d17a1602ca0f1c6e93babdb2572b8f022aa892766ea0dcd4f70c9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/save-close-open.json",
+      "sha256": "8740d89917ad98a6f37fa4005124796ab3851ca0e987ec4e8c58eb8dbafe928a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/save-document.json",
+      "sha256": "ca73da666afe4b89d3fc06ce021a87b9d701045c14e484bfdb91a083612ca79f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/save-existing-document.json",
+      "sha256": "6a64d123c2badcb3a550c801b01ef9888ce3f48570143389daa81ce9fbf33d74",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/scroll-document.json",
+      "sha256": "a14a885b35cea91f5a3b56801fb2ec537ea9201cb7d8f000ff1048a667020a06",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/thumb-document.json",
+      "sha256": "889c9ceb2f6f6c0d5cd3fc97f98f6f2c5f0b42364409f39fd3d284cdea1761dd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teachtext/type-document.json",
+      "sha256": "1dca447adfd68309b3687e6ce1c0f55e0f6dd525267e7d0bc6b76f523c182ece",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tearrows/CMakeLists.txt",
+      "sha256": "c01afb59089c9e641a926c12952c3d9785ef6e03b161cbb64d654929fc08fceb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tearrows/arrows.c",
+      "sha256": "b32deb75e8d68236ac2d98993976e78d962294a22d74185440b7745cc7a8ec24",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teautoview/CMakeLists.txt",
+      "sha256": "6457862ad303b20ce6540c7bf6a77a278765c1e8fe7e9546c4b9096a57fa94d5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teautoview/auto.c",
+      "sha256": "51567d2127aa958c371fff9f803968973b26b99172ba2c601085f509430d4d12",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tecontinuous/CMakeLists.txt",
+      "sha256": "fb1c483d014806219b8c527968648282269eb1ed4055cef3c2ca7f8bec2a7463",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tecontinuous/continuous.c",
+      "sha256": "094cb1b1f5b4034c6cb05aae667d2ef4a33a4a67fbe95ea98220ba79424761cd",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tecontinuous/control.c",
+      "sha256": "c98471a6789ae0c50cfca751c51f124b9451b749051f690f51bc5215bc8fc52e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tedouble/CMakeLists.txt",
+      "sha256": "7c919a686011203b7a13c725dedc6eb7a1f8f30f2f65516b77e29223fc19a011",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tedouble/double.c",
+      "sha256": "5de91c7cc31143f579be8dedcc6dad3a6dcf7a176857f324ddaaa469b509680b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tefeatures/CMakeLists.txt",
+      "sha256": "6d844a351d6cbe5cb47928b76f848a382f4bd81e5ab4e698ab7ee82a97748f81",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/tefeatures/features.c",
+      "sha256": "43136a0a25e13c2bff09969f9712e465b3f9a3846e020f4bca61e7b320c1ee63",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teoutline/CMakeLists.txt",
+      "sha256": "85282903fd0110a4caf3a255408dd072e17baf234aa8258162d4925acc42ba3f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teoutline/control.c",
+      "sha256": "1206b87d04b1a6d81fa450f48204789265331faab9fef861f871b0826d3e1b01",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teoutline/outline.c",
+      "sha256": "4c84d90ad6ccce885b6ec5b8ef44b72379079af7bfdee942a114f59ce6127de6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teoutline/refresh.c",
+      "sha256": "329ef488eaeb4aa46996202d41ddd94e7f4739b11bf63111ca04dc29f63a7675",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/teoutline/spaces.c",
+      "sha256": "b974f37bd809d10f9ca7ddbcde830d135bbf95fba5d62584dc43fe33b915063e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textbox/CMakeLists.txt",
+      "sha256": "9e79178cce68eb37ffb6bda4b26af5a7d2093bdaf0885543a4f596f9ae20178a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textbox/box.c",
+      "sha256": "d34b4c26b88c7db1d5a1be46e5c3b4e385c2956250bdf7ce940cec1071ed4aa2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textdirect/CMakeLists.txt",
+      "sha256": "fa621c093696a86447f940ea338140732d19c9bc783539f6d5258800555f3571",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textdirect/textdirect.c",
+      "sha256": "9d791350e4ce0003a6f499553ee0c7d413af0f2b956c8faa6fd5c0d65512be78",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textedit/CMakeLists.txt",
+      "sha256": "ba096a15824e01334d7cd5bda18dbeff1ebbeeb7f6c0b8e9a655cb383340f453",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textedit/textedit.c",
+      "sha256": "42854d65cbbfbfde7f32cb941e9490979474ed854c443a7e86dc74563fd72f4b",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textlayout/CMakeLists.txt",
+      "sha256": "496a7d78891c05d34e5a131e00aa871d83c3cb8ac045a823b0f1bb1c886b3958",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/textlayout/textlayout.c",
+      "sha256": "080b376e1e4fae3c1febd1b752ffd5a694e82ab666bf27606123ac6a3494c0da",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/themefonts/CMakeLists.txt",
+      "sha256": "74b7e88ce146e5a162b54d3d7fd64f638b4d94414331adc9f024061fe7ae7add",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/themefonts/themefonts.c",
+      "sha256": "5e54ab2f91779a427388c77db7be58af76a27e7055a322d9aeeed23fabe263da",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/timemanager/CMakeLists.txt",
+      "sha256": "86063aa05b4c83522a3fb9ea3d2e68463c414a485dd7acbeaffb28957bebc175",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/timemanager/callback.bin",
+      "sha256": "18d5ddec4bbfff503b28b8f73c7093e054d128c805cb1140b7dd46f2720583aa",
+      "evidence": [
+        "tools/build-timer-callback.py",
+        "probes/timemanager/callback.s"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/timemanager/callback.h",
+      "sha256": "4518161f3738f8d1f727beeb79ee6e9d1949e163f82569c3cca3caf6b01fe5fe",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/timemanager/callback.s",
+      "sha256": "60fb229a3768205850efc0708cf160f7691f0dfceb05fca3e5b9f9779d0996ea",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/timemanager/timer.c",
+      "sha256": "103ab7846553a93b6076a2c82cf40c2a2d401a650a947a88c7c609ed40214ca3",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/titlebounds/CMakeLists.txt",
+      "sha256": "11f2eff4006ea0c1986fc49b6dcc1ad27f86786e5f9054e561d3bdb6b12fd6df",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/titlebounds/titlebounds.c",
+      "sha256": "44044f1a6b191e8d6a6685c1e066e393e8651ce02709c51e94a224b8773778b8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/titlemetrics/CMakeLists.txt",
+      "sha256": "215a98623c4eb5bea0eeacf52da8dd416eaf10ca17a6388f55f682d41412e0ea",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/titlemetrics/titlemetrics.c",
+      "sha256": "01ae79bff39abdcdabdbf977d0be9cf1d01166d25406a4b51fbbadbe97ab0c69",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/titlepairs/CMakeLists.txt",
+      "sha256": "86cee6440fbcf5898a2f849053f141ae3fc6b317e7b88bdd1822d3f52a6d3821",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/titlepairs/titlepairs.c",
+      "sha256": "7c0f1c9dc26b6d39fc12658092d55c4ad7af544f016ebaceb668a2e08c422d1e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/truncation/CMakeLists.txt",
+      "sha256": "25db66ba440763c064f687f3052ba9ada310b09ce65109b98382de5f865f9ba0",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/truncation/truncation.c",
+      "sha256": "039f29ce665985a63451ef2f1a187035e3d325e24cd505f409b046214c6040ea",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/vbl/CMakeLists.txt",
+      "sha256": "de8b010054450950a71eb65f5002654994dd2682f56af348bbe36c69b8d3d21e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/vbl/callback.bin",
+      "sha256": "3ac6c4fc38237b075674c3d517ce96b5940b6bbc2e4c3e985cd087d4290c0bc0",
+      "evidence": [
+        "tools/build-vbl-callback.py",
+        "probes/vbl/callback.s"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/vbl/callback.h",
+      "sha256": "6f58cdad498429d49b36208e934b077834c4ef635edd3e0eaefb002da53e5024",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/vbl/callback.s",
+      "sha256": "467d6525b9a5f151545d7e550774519f73718686ea63a495858d76b339fbdd68",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/vbl/vbl.c",
+      "sha256": "3fc974c7ddac7f32cf791ebe140f4dd0b540af53f4c894d96358644f1217a096",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowbackground/CMakeLists.txt",
+      "sha256": "69de29f984462baf6560a61cee39e243df9723a0d9b76be8359479464077335e",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowbackground/background.c",
+      "sha256": "7976d5501be84725b73840e06be8411e9d7cc5419ef0914956c11b6534e2abc6",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowcolors/CMakeLists.txt",
+      "sha256": "56544b246d4f8d0bd2237f3000136376b1fb7c91bb87a9f2a444d5200c02b674",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowcolors/colors.c",
+      "sha256": "74c8fcbd2073134a6a4ac8566c6b2ea3cf98d144a515ab33d60bec7bf5b8d7d2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowcolors/fixtures.r",
+      "sha256": "5f9a6aaaccbbded6bd44f36a9eede1405baf0f7cb0fb47b04a010b100eb13680",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowcolors/resources.rsrc",
+      "sha256": "bd94f3bcf0e3913cfb024be5ae13c9b8c61e9b95ef4d3c3812a94d6ba07c5311",
+      "evidence": [
+        "tools/build-window-colors-resources.py",
+        "probes/windowcolors/fixtures.r"
+      ],
+      "classification": "owned generated fixture paired with generator/assembly/Rez source",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowdamage/CMakeLists.txt",
+      "sha256": "077a316d5ada0e26af18afd84145ff0ec23e8358bf0c910cddfcbe4f04c6e583",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowdamage/damage.c",
+      "sha256": "c4ba667faa69538edf59578b8e8158bab78c231188459fda2db0277de00e73d2",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowflow/CMakeLists.txt",
+      "sha256": "1663ceca7505d0e91ae7f879f1c2f0667e7a2a2200b3b2bf55c999de897c85fb",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowflow/windowflow.c",
+      "sha256": "13fd8042baa642e644a02e29a863c33077bda5eb4d8e07a4af60c603a05995a3",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowgeometry/CMakeLists.txt",
+      "sha256": "ca8477f366cebd6d4035c5503b5af981846195db4e188e965046fc585c691bf5",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowgeometry/geometry.c",
+      "sha256": "c775f834eaaff301464aafd42e895d26218b1b894533880d6483173ba6983cd4",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowresources/CMakeLists.txt",
+      "sha256": "f50de7be174cda885595b2a13b42676b5f9f4a86de4e4fe4fec5d9b7dd2e68a8",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowresources/fixtures.r",
+      "sha256": "0b36a9b6ec793c01074bb78aacda74755a6420e36935e8c08dadd518a332af99",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowresources/lifecycle.c",
+      "sha256": "c95e52afc1111b7b992fc42e7d99ce19e60d13fc5f1fa8a2e0c0cf9f6295968a",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowresources/windows.c",
+      "sha256": "ca63b22be3d8febfd1300e91770147650a032ca7ef344142fd6c5eaac060c0c9",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windows/CMakeLists.txt",
+      "sha256": "925f70276799f7b85d170a55d644ba01cc23a321887b1d5c21d27f759281640f",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windows/windows.c",
+      "sha256": "6585e437af7d42ff91358b859514a372d2fa80e8dd6994f74848e76f9b274978",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowtracking/CMakeLists.txt",
+      "sha256": "0921d9cafe2635c003d97da187e2ef1f2cbc58935442c5cf435c9befbb82a6ff",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "probes/windowtracking/tracking.c",
+      "sha256": "fd8d4651dae7263507b9fdba6d301542a325fc3651730374a0ebcea529585230",
+      "classification": "project-authored probe source/event input/numerical operand definition",
+      "license": "MIT OR Apache-2.0"
+    },
+    {
+      "path": "runtime/data/color-tables/1.bin",
+      "sha256": "674f1cd77d33d4588aeda86175d3eb4468160302dd23966578588c265d650ce4",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 1,
+      "entry_count": 2,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/2.bin",
+      "sha256": "43494aac05befbf7e9612d0903562b18997515f812f30658f41aa8823471be40",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 2,
+      "entry_count": 4,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/33.bin",
+      "sha256": "acf551add76f55b1f5d34f7c438e158c606f04e90af6046bc9b65219c7b44ed8",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 1,
+      "entry_count": 2,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/34.bin",
+      "sha256": "105b6da9269dd76939dc3ec8b0377bc17aef7bc2605fcb284a9d37f72e03a606",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 2,
+      "entry_count": 4,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/36.bin",
+      "sha256": "4a3edee531f3ad55b14bd0d26d5208b30feedeb6df59003b5b97cf0d7124f860",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 36,
+      "entry_count": 16,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/4.bin",
+      "sha256": "5aae8865b362414dcbe59d9a310825d6af48f5930d625aa111384c473975cce7",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 4,
+      "entry_count": 16,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/40.bin",
+      "sha256": "8eb9cf1e79a3597e4512ae463443974d9ca0852459fcc6868956e9355d6c18a6",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 40,
+      "entry_count": 256,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/color-tables/8.bin",
+      "sha256": "a76de5be3c84da6e4948d758952f0bef9f02963ef4620b772f04cbbfdcffa0c9",
+      "classification": "reviewed numeric ColorTable ABI fields and RGB16 compatibility observations; no executable code, original application or glyph artwork",
+      "seed": 8,
+      "entry_count": 256,
+      "evidence": [
+        "probes/getctable",
+        "tools/getctable_observations.py"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/courier-metrics.json",
+      "sha256": "7d2abaa6aa2182c8780e6cd0d4dfd6f7f7c7aab3fed0d0f44e68804e4b9d6101",
+      "classification": "observed numeric font metrics/bounds; no glyph artwork",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/font-metrics.json",
+      "sha256": "8a479fd3ad564bdb294ddf449b8dd92ae0c8d9407e38b9ebf6fab45ac8c48673",
+      "classification": "observed numeric font metrics/bounds; no glyph artwork",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/data/title-font-bounds.json",
+      "sha256": "0f7f5ca3023febb3d1352cd0a610b57c0ccbd187bf4b7ae39bfcb06caee85f14",
+      "classification": "observed numeric font metrics/bounds; no glyph artwork",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt"
+      ],
+      "license_scope": "observed numerical behavior and project data construction; no claim to license original Apple programs/artwork"
+    },
+    {
+      "path": "runtime/fonts/Coppet-OFL.txt",
+      "sha256": "e7c8980b8c576d32105d68c48056a8541715f522110daf5a73ecc26ea88982cc",
+      "classification": "OFL substitute font or its license; not an Apple font",
+      "license": "OFL-1.1",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt",
+        "runtime/fonts/Coppet-OFL.txt",
+        "runtime/fonts/URW-OFL.txt"
+      ]
+    },
+    {
+      "path": "runtime/fonts/Coppet-Regular.ttf",
+      "sha256": "039de58d710483aad4110106677a46bd39d822204542520470b2becdcda30afb",
+      "classification": "OFL substitute font or its license; not an Apple font",
+      "license": "OFL-1.1",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt",
+        "runtime/fonts/Coppet-OFL.txt",
+        "runtime/fonts/URW-OFL.txt"
+      ]
+    },
+    {
+      "path": "runtime/fonts/NimbusMonoPS-Regular.ttf",
+      "sha256": "bf749d47bf69f4bf6963833afb66a3a5b6e62185bfffaf068b7a1b3f0276ba82",
+      "classification": "OFL substitute font or its license; not an Apple font",
+      "license": "OFL-1.1",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt",
+        "runtime/fonts/Coppet-OFL.txt",
+        "runtime/fonts/URW-OFL.txt"
+      ]
+    },
+    {
+      "path": "runtime/fonts/NimbusSans-Bold.ttf",
+      "sha256": "148726be75d2060a38dfd2e2637569f56c82af9f671e97131023b47add06f2cb",
+      "classification": "OFL substitute font or its license; not an Apple font",
+      "license": "OFL-1.1",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt",
+        "runtime/fonts/Coppet-OFL.txt",
+        "runtime/fonts/URW-OFL.txt"
+      ]
+    },
+    {
+      "path": "runtime/fonts/NimbusSans-Regular.ttf",
+      "sha256": "df5d1ce7b86c2e74974008623612bae136123a35ba7885de8a0721b68258edbc",
+      "classification": "OFL substitute font or its license; not an Apple font",
+      "license": "OFL-1.1",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt",
+        "runtime/fonts/Coppet-OFL.txt",
+        "runtime/fonts/URW-OFL.txt"
+      ]
+    },
+    {
+      "path": "runtime/fonts/URW-OFL.txt",
+      "sha256": "5defa64c721ef9a2c590e044582789791f4483fd18471331b543cfcdf7741cc3",
+      "classification": "OFL substitute font or its license; not an Apple font",
+      "license": "OFL-1.1",
+      "evidence": [
+        "runtime/THIRD_PARTY.txt",
+        "runtime/fonts/Coppet-OFL.txt",
+        "runtime/fonts/URW-OFL.txt"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+#include <QuickDraw.h>
+#include <Windows.h>
+#include <Fonts.h>
+#include <Files.h>
+#include <stdio.h>
+static char output[16384];
+static char *rect(char *p,Rect r){return p+sprintf(p,"[%d,%d,%d,%d]",r.top,r.left,r.bottom,r.right);}
+static char *state(char *p,WindowPtr w){WindowPeek x=(WindowPeek)w;p+=sprintf(p,"{\"visible\":%d,\"refcon\":%ld,\"port_rect\":",x->visible!=0,GetWRefCon(w));p=rect(p,x->port.portRect);p+=sprintf(p,",\"content\":");p=rect(p,(**x->contRgn).rgnBBox);p+=sprintf(p,",\"structure\":");p=rect(p,(**x->strucRgn).rgnBBox);p+=sprintf(p,",\"update\":");p=rect(p,(**x->updateRgn).rgnBBox);p+=sprintf(p,",\"vis\":");p=rect(p,(**x->port.visRgn).rgnBBox);return p+sprintf(p,"}");}
+static char *run(char *p,Boolean color){WindowPtr w=color?GetNewCWindow(21001,0,(WindowPtr)-1):GetNewWindow(21000,0,(WindowPtr)-1);unsigned char title[256];short i;if(!w)return 0;p+=sprintf(p,"{\"initial\":");p=state(p,w);SetWRefCon(w,-987654);SetWTitle(w,"\pChanged");GetWTitle(w,title);p+=sprintf(p,",\"title\":[");for(i=0;i<title[0];i++)p+=sprintf(p,"%s%u",i?",":"",title[i+1]);p+=sprintf(p,"],\"changed\":");p=state(p,w);MoveWindow(w,120,100,0);p+=sprintf(p,",\"moved\":");p=state(p,w);SizeWindow(w,240,100,1);p+=sprintf(p,",\"resized\":");p=state(p,w);ShowWindow(w);p+=sprintf(p,",\"shown\":");p=state(p,w);HideWindow(w);p+=sprintf(p,",\"hidden\":");p=state(p,w);ShowWindow(w);p+=sprintf(p,",\"reshown\":");p=state(p,w);DisposeWindow(w);return p+sprintf(p,"}");}
+int main(void){char *p=output;GrafPtr old;short file;long n;OSErr e;InitGraf(&qd.thePort);InitFonts();InitWindows();GetPort(&old);p+=sprintf(p,"{\"schema\":1,\"probe\":\"window-resource-flow-v1\",\"windows\":{\"mono\":");p=run(p,0);if(!p)return 5;SetPort(old);p+=sprintf(p,",\"color\":");p=run(p,1);if(!p)return 6;SetPort(old);p+=sprintf(p,"}}\n");e=Create("\pWindowResourceFlowProbe.json",0,'ttxt','TEXT');if(e&&e!=dupFNErr)return 2;if(FSOpen("\pWindowResourceFlowProbe.json",0,&file))return 3;SetEOF(file,0);n=p-output;e=FSWrite(file,&n,output);FSClose(file);FlushVol(0,0);return e?4:0;}

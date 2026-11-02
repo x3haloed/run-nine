@@ -1,0 +1,20 @@
+[package]
+name = "classic-runtime"
+version = "0.1.0"
+edition = "2021"
+publish = false
+license = "(MIT OR Apache-2.0) AND OFL-1.1"
+
+[features]
+gui = ["dep:minifb"]
+
+[dependencies]
+run9-resource-codec = { path = "../vendor/run9-resource-codec" }
+classic-core = { path = "../compat-core", features = ["hosted-cpu"] }
+m68k = { path = "../vendor/m68k", version = "=0.14.7" }
+serde_json = "=1.0.149"
+fontdue = "=0.9.3"
+minifb = { version = "=0.29.0", optional = true }
+
+[patch.crates-io]
+minifb = { path = "vendor/minifb" }

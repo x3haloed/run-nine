@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><title>OS 9 Reference Console</title><style>
+html,body{margin:0;width:100%;height:100%;background:#333;color:#eee;font:14px system-ui}body{display:flex;flex-direction:column}header{display:flex;gap:24px;align-items:center;padding:8px 12px}#screen{flex:1;min-height:0;width:100%}label{cursor:pointer}
+</style></head><body><header><span id="status" role="status">Connecting…</span><label><input type="checkbox" id="command" disabled>Guest Command</label><label><input type="checkbox" id="shift" disabled>Guest Shift</label><span id="keypad">Keypad <button data-code="NumLock" data-key="ff7f" disabled>Clear</button><button data-code="Numpad0" data-key="ffb0" disabled>0</button><button data-code="NumpadDecimal" data-key="ffae" disabled>.</button><button data-code="Numpad8" data-key="ffb8" disabled>8 ↑</button><button data-code="Numpad2" data-key="ffb2" disabled>2 ↓</button><button data-code="Numpad4" data-key="ffb4" disabled>4 ←</button><button data-code="Numpad6" data-key="ffb6" disabled>6 →</button></span></header><output id="pointer" style="position:absolute;top:38px;left:4px;font:11px monospace;white-space:pre;pointer-events:none;z-index:10"></output><div id="screen"></div><script type="module">
+import RFB from './node_modules/@novnc/novnc/core/rfb.js';
+// Some macOS browser input paths report MouseEvent.buttons=0 even on a
+// mouse-down. Preserve physical down/up edges for noVNC's buttons-based mapper.
+// This observes normal canvas input; it does not synthesize remote gestures.
+let heldButtons=0, pointerSequence=0;
+const pointerStates={mousedown:"",mouseup:"",mousemove:""};
+const buttonBit=button=>[1,4,2,8,16][button]||0;
+for(const type of ['mousedown','mouseup','mousemove']) document.addEventListener(type,event=>{
+ const canvas=document.querySelector('#screen canvas');
+ if(!canvas || (event.target!==canvas && heldButtons===0))return;
+ const rawButtons=event.buttons;
+ if(type==='mousedown')heldButtons|=buttonBit(event.button);
+ if(type==='mouseup')heldButtons&=~buttonBit(event.button);
+ if(event.buttons!==heldButtons)Object.defineProperty(event,'buttons',{value:heldButtons,configurable:true});
+ // Canvas/RFB input coordinates are not the accelerated OS9 cursor location.
+ const rect=canvas.getBoundingClientRect();
+ pointerStates[type]=`${++pointerSequence}:${type} client${Math.round(event.clientX)},${Math.round(event.clientY)} rfbInput${Math.round((event.clientX-rect.left)*canvas.width/rect.width)},${Math.round((event.clientY-rect.top)*canvas.height/rect.height)} buttons${rawButtons}/${heldButtons}`;
+ document.getElementById('pointer').textContent=pointerStates.mousedown+' | '+pointerStates.mouseup+'\n'+pointerStates.mousemove;
+},true);
+window.addEventListener('blur',()=>{heldButtons=0;});
+const rfb=new RFB(document.getElementById('screen'),'ws://127.0.0.1:6085/websockify');
+rfb.scaleViewport=true;
+rfb.resizeSession=false;
+// A normal remote-keyboard modifier latch lets browser-reserved Command
+// shortcuts reach the guest without invoking the browser's own commands.
+const command=document.getElementById('command'),shift=document.getElementById('shift'),status=document.getElementById('status');
+const keypad=[...document.querySelectorAll('#keypad button')];
+command.addEventListener('change',()=>{rfb.sendKey(0xffeb,'MetaLeft',command.checked);rfb.focus();});
+shift.addEventListener('change',()=>{rfb.sendKey(0xffe1,'ShiftLeft',shift.checked);rfb.focus();});
+// Ordinary on-screen keyboard controls; each guest key comes from a visible CUA click.
+for(const button of keypad)button.addEventListener('click',()=>{rfb.sendKey(parseInt(button.dataset.key,16),button.dataset.code);rfb.focus();});
+const release=()=>{if(command.checked){rfb.sendKey(0xffeb,'MetaLeft',false);command.checked=false;}if(shift.checked){rfb.sendKey(0xffe1,'ShiftLeft',false);shift.checked=false;}};
+window.addEventListener('blur',release);window.addEventListener('pagehide',release);
+rfb.addEventListener('connect',()=>{rfb.sendKey(0xffeb,'MetaLeft',false);rfb.sendKey(0xffe1,'ShiftLeft',false);command.disabled=shift.disabled=false;command.checked=shift.checked=false;for(const button of keypad)button.disabled=false;status.textContent='Connected';});
+rfb.addEventListener('disconnect',()=>{command.checked=shift.checked=false;command.disabled=shift.disabled=true;for(const button of keypad)button.disabled=true;status.textContent='Disconnected';});
+</script></body></html>

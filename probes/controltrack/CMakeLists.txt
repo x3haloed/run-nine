@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(ControlTrackProbe C)
+option(CONTROL_BUTTON_DIAGNOSTIC "Capture button state before and during tracking" OFF)
+if(CONTROL_BUTTON_DIAGNOSTIC)
+  add_application(ControlTrackProbe button-state.c)
+else()
+  add_application(ControlTrackProbe track.c)
+endif()

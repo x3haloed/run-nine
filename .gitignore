@@ -1,0 +1,12 @@
+# Local reference applications, OS9 media, historical evidence, and caches.
+.local/
+work/
+outputs/
+**/target/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Library-local lockfiles are generated; applications retain their lockfiles.
+compat-core/Cargo.lock
+vendor/run9-resource-codec/Cargo.lock

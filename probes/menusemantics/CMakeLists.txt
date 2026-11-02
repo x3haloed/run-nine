@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(MenuSemanticsProbe C)
+option(INITIAL_LAYOUT "Reproduce the archived native-calculated geometry capture" OFF)
+if(INITIAL_LAYOUT)
+  add_application(MenuSemanticsProbe initial-layout.c)
+else()
+  add_application(MenuSemanticsProbe semantics.c)
+endif()

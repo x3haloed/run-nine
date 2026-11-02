@@ -1,0 +1,70 @@
+Project-authored runtime code is MIT OR Apache-2.0. Third-party exceptions below retain their own licenses.
+
+CPU emulation: m68k crate 0.14.7, Ben Letchford, MIT license.
+Source: https://github.com/benletchford/m68k-rs
+Pinned by Cargo.lock; no JIT feature enabled.
+
+Resource decompression: ../vendor/run9-resource-codec, GPL-3.0-or-later.
+See its PROVENANCE.txt and LICENSE for the upstream revision, original notices,
+and the mechanical migration-only visibility changes. No codec algorithm was
+replaced in this migration. Project-owned runtime code is MIT OR Apache-2.0,
+but the combined runtime with this GPL dependency remains subject to GPL
+requirements when distributed. Root permissive licenses do not override that.
+Fonts below remain separately OFL-1.1 (reflected in Cargo package metadata).
+
+Offline HFS utility (outside runtime): tools/hfs-image.c links libhfs
+from Retro68/hfsutils, Robert Leslie, GPL-2.0-or-later. The utility and library
+are separate processes from this runtime. See Retro68 source notices.
+
+Glyph fonts: runtime/fonts contains Coppet-Regular (Inter-derived, Ben
+Letchford and Inter Project Authors) and Nimbus Sans regular/bold plus
+Nimbus Mono PS regular (URW Core 35), all SIL OFL 1.1. Original notices
+are retained in Coppet-OFL.txt and URW-OFL.txt. Copied unchanged from the
+same pinned Systemless checkout as the codec. These are separate font
+assets, not imported Font Manager or renderer code.
+Glyph rasterization: fontdue 0.9.3, MIT OR Apache-2.0 OR Zlib, crates.io.
+No Apple font binary or glyph artwork is bundled.
+
+Compatibility font metrics: data/font-metrics.json contains integer metrics
+and advances observed by our FontProbe in OS 9, with the source JSON hash.
+These are lookup data for known classic font selections, not a complete
+font engine. Font outline appearance is supplied by the OFL substitutes.
+
+Hosted window/input (optional gui feature): minifb 0.29.0, Daniel Collin, MIT.
+Source https://github.com/emoon/rust_minifb, exact crate and checksums pinned
+in Cargo.lock. License retained in third-party/minifb-MIT.txt. Used only for
+native window/framebuffer presentation and host keyboard/pointer input.
+It supplies no Macintosh CPU/Toolbox implementation. Platform dependencies
+are locked by Cargo.lock; the freestanding kernel has no GUI dependency.
+
+minifb is now vendored under vendor/minifb with a local macOS pointer-event
+bridge. See vendor/minifb/LOCAL_CHANGES.txt for upstream revision and exact source paths.
+This fixes event coordinates and preserves sub-frame mouse transitions; it
+is not an imported Macintosh runtime. Active-window cursor synchronization for
+explicit guest recenter requests is also local window/input adapter work;the
+shared Macintosh mouse service remains in classic-core. Existing upstream compiler warnings
+remain visible in local builds.
+
+System title extent facts: data/title-font-bounds.json contains256 integer
+intervals calibrated from our native TitleBoundsProbe, with reference hash.
+The runtime unions these intervals at ordinary advance offsets. The separate
+TitlePairsProbe verifies every two-byte string and32 long byte strings.
+This exports numerical compatibility observations, not Apple font programs,
+glyph artwork, system implementation code or a title-to-answer lookup table.
+Reproduction and scope: outputs/Title-font-validation.txt and provenance JSON.
+
+The pinned MIT m68k0.14.7 interpreter is now vendored at ../vendor/m68k with a no_std/alloc port. See PORT.md and PORT.json for archive/commit/source pins, exact port scope and validation. Its freestanding-only dependencies libm0.2.16 and spin0.9.9 are MIT and pinned in native/Cargo.lock. No JIT or host services are compiled into the ARM64 kernel; FPU equivalence is not claimed.
+
+Hosted audio output: the local audio_output.rs adapter uses macOS Audio Queue
+Services from the system AudioToolbox framework. Its C declarations follow
+AudioQueue.h and AudioStreamBasicDescription in the installed Apple SDK;
+API reference https://developer.apple.com/documentation/audiotoolbox/audio-queue-services
+The framework remains a platform system dependency. Sample decoding, frame
+scheduling, interpolation, gain, mixing and completion are owned Rust code in
+../compat-core/src/audio.rs. This adds no Cargo package or imported DSP code.
+The optional native OS9 measurement emulator is a separate GPL QEMU Screamer
+build, pinned in outputs/Sound-reference-emulator.json; it is used to collect
+reference observations. Guest Sound Manager dispatch in soundmanager.rs is owned
+project code backed by the same shared renderer and actual output sink. Native
+OS9 probe programs and observed scalar/PCM results supply compatibility evidence;
+no OS9 implementation, ROM or prerecorded game output is linked into it.

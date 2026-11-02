@@ -1,0 +1,12 @@
+#include <QuickDraw.h>
+#include <Fonts.h>
+#include <TextEdit.h>
+#include <Windows.h>
+#include <Files.h>
+#include <stdio.h>
+static char output[16384];static long baseline[480];
+static long pixel(short x,short y){RGBColor c;GetCPixel(x,y,&c);return ((long)(c.red>>8)<<16)|((long)(c.green>>8)<<8)|(c.blue>>8);}
+static char *difference(char *p){short x,y,top=32767,left=32767,bottom=-32768,right=-32768;long count=0;p+=sprintf(p,"{\"rows\":[");for(y=28;y<44;y++){p+=sprintf(p,"%s\"",y>28?",":"");for(x=20;x<50;x++){short changed=baseline[(y-28)*30+x-20]!=pixel(x,y);p+=sprintf(p,"%d",changed);if(changed){count++;if(y<top)top=y;if(x<left)left=x;if(y+1>bottom)bottom=y+1;if(x+1>right)right=x+1;}}p+=sprintf(p,"\"");}return p+sprintf(p,"],\"count\":%ld,\"bounds\":[%d,%d,%d,%d]}",count,top,left,bottom,right);}
+static char *run(char *p,Boolean styled){Rect wb={60,50,260,400},ob={400,600,550,900},r={30,20,100,200};WindowPtr w,other;GrafPtr saved;TEHandle h;short x,y;long ink=0;GetPort(&saved);w=NewCWindow(0,&wb,"\pOutline",1,0,(WindowPtr)-1,1,0);SetPort(w);TextFont(4);TextFace(0);TextSize(9);h=styled?TEStyleNew(&r,&r):TENew(&r,&r);if(!w||!h)return 0;TESetText("ABCD",4,h);TESetSelect(1,3,h);TEFeatureFlag(2,0,h);TEDeactivate(h);TEUpdate(&r,h);for(y=28;y<44;y++)for(x=20;x<50;x++){long c=pixel(x,y);baseline[(y-28)*30+x-20]=c;if(c!=0xffffff)ink++;}p+=sprintf(p,"{\"baseline_ink\":%ld,\"set_result\":%d",ink,TEFeatureFlag(2,1,h));TEActivate(h);TEDeactivate(h);p+=sprintf(p,",\"active_window\":");p=difference(p);
+ other=NewCWindow(0,&ob,"\pOther",1,0,(WindowPtr)-1,1,0);SetPort(w);TEActivate(h);TEDeactivate(h);p+=sprintf(p,",\"inactive_window\":");p=difference(p);p+=sprintf(p,",\"clear_result\":%d",TEFeatureFlag(2,0,h));TEActivate(h);TEDeactivate(h);p+=sprintf(p,",\"cleared\":");p=difference(p);TEDispose(h);DisposeWindow(other);DisposeWindow(w);SetPort(saved);return p+sprintf(p,"}");}
+int main(void){char *p=output;short file;long n;OSErr e;InitGraf(&qd.thePort);InitFonts();InitWindows();TEInit();p+=sprintf(p,"{\"schema\":1,\"probe\":\"te-outline-v1\",\"textedit\":{\"plain\":");p=run(p,0);if(!p)return 5;p+=sprintf(p,",\"styled\":");p=run(p,1);if(!p)return 6;p+=sprintf(p,"}}\n");e=Create("\pTEOutlineProbe.json",0,'ttxt','TEXT');if(e&&e!=dupFNErr)return 2;if(FSOpen("\pTEOutlineProbe.json",0,&file))return 3;SetEOF(file,0);n=p-output;e=FSWrite(file,&n,output);FSClose(file);FlushVol(0,0);return e?4:0;}

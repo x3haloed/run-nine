@@ -1,0 +1,15 @@
+[package]
+name = "classic-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[features]
+default = []
+m68k-adapter = ["dep:m68k"]
+hosted-cpu = ["m68k-adapter", "m68k/std"]
+freestanding-cpu = ["m68k-adapter", "m68k/freestanding"]
+
+[dependencies]
+m68k = { path = "../vendor/m68k", version = "=0.14.7", default-features = false, optional = true }

@@ -1,0 +1,10 @@
+#include <QuickDraw.h>
+#include <Files.h>
+#include <stdio.h>
+#include <string.h>
+int main(void){char out[4096],*p=out;ProcessSerialNumber psn;ProcessInfoRec process;FSSpec app,found;FInfo info;short f,result,i;long size,n,pos,current_size;unsigned char header[16]={0};OSErr err;ParamBlockRec write_pb;
+ memset(&process,0,sizeof(process));process.processInfoLength=sizeof(process);process.processAppSpec=&app;GetCurrentProcess(&psn);err=GetProcessInformation(&psn,&process);p+=sprintf(p,"{\"schema\":1,\"probe\":\"app-source-v1\",\"source\":{\"process_info\":%d",err);
+ err=FSMakeFSSpec(app.vRefNum,app.parID,app.name,&found);p+=sprintf(p,",\"lookup\":[%d,%d]",err,found.vRefNum==app.vRefNum&&found.parID==app.parID&&EqualString(found.name,app.name,true,true));err=FSpGetFInfo(&app,&info);p+=sprintf(p,",\"finder\":[%d,%lu,%lu]",err,info.fdType,info.fdCreator);
+ err=FSpOpenDF(&app,fsRdPerm,&f);GetEOF(f,&size);n=16;err=FSRead(f,&n,header);p+=sprintf(p,",\"data\":[%d,%ld,%ld],\"data_bytes\":[",err,size,n);for(i=0;i<n;i++)p+=sprintf(p,"%s%u",i?",":"",header[i]);p+=sprintf(p,"]");FSClose(f);memset(header,0,sizeof(header));
+ err=FSpOpenRF(&app,fsRdPerm,&f);GetEOF(f,&size);n=16;err=FSRead(f,&n,header);p+=sprintf(p,",\"resource\":[%d,%ld,%ld],\"header\":[",err,size,n);for(i=0;i<16;i++)p+=sprintf(p,"%s%u",i?",":"",header[i]);p+=sprintf(p,"]");memset(&write_pb,0,sizeof(write_pb));write_pb.ioParam.ioRefNum=f;write_pb.ioParam.ioBuffer=(void*)"X";write_pb.ioParam.ioReqCount=1;write_pb.ioParam.ioActCount=77;write_pb.ioParam.ioPosMode=fsAtMark;err=PBWriteSync(&write_pb);n=write_pb.ioParam.ioActCount;GetFPos(f,&pos);p+=sprintf(p,",\"readonly_write\":[%d,%ld,%ld]",err,n,pos);FSClose(f);err=GetEOF(CurResFile(),&current_size);p+=sprintf(p,",\"current_resource_file\":[%d,%ld]}}\n",err,current_size);
+ err=Create("\pAppSourceProbe.json",0,'ttxt','TEXT');if(err&&err!=dupFNErr)return 2;if(FSOpen("\pAppSourceProbe.json",0,&result))return 3;SetEOF(result,0);n=p-out;err=FSWrite(result,&n,out);FSClose(result);FlushVol(0,0);return err?4:0;}

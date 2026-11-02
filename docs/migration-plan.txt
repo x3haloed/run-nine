@@ -1,0 +1,33 @@
+RUN9 migration plan
+
+User decisions: local assets, archives, reference environments and caches stay
+inside this checkout and are gitignored. Review fixtures individually. Do not
+import the previous Git history or outputs wholesale into the public history.
+
+1. Preserve the original129commit history as a verified private Git bundle.
+   Preserve untracked material, ignored reference data and native resource forks.
+2. Curated source import retaining folder names and source provenance. Our three
+   project-authored Rust package code uses MIT OR Apache-2.0 (the hosted
+   package metadata also retains OFL-1.1 for bundled fonts). Package the existing
+   resource decoder as an explicitly GPL-3.0-or-later vendored dependency, with
+   its original notices and tests. This packaging is NOT a GPL workaround: the
+   combined runtime remains subject to GPL distribution requirements until a
+   later replacement/relicensing solution. No codec algorithm replacement now.
+3. Keep work/ and outputs/ private within this checkout to preserve relative
+   paths. Archive original evidence without changing its bytes. Replace live
+   absolute pointers with new local locations; retain an explicit relocation
+   manifest. Repair offline QEMU backing chains and verify logical contents.
+   Preserve the pinned measurement emulator/firmware outside temporary storage.
+4. Review each fixture: owned source/generated inputs may be tracked with
+   provenance; original apps, ROMs, OS9/media, captured game PCM and screenshots
+   remain gitignored. Third-party open-source dependencies retain their licenses.
+5. Fresh builds/tests in RUN9, then all138manager comparisons, document workflows,
+   ARM64 execution, live original Marathon gameplay/audio and OS9 reference boot.
+   Verify without the original caj path available, and without compatibility
+   symlinks pointing back to it. Only after successful cutover can caj be retired.
+6. Codec replacement or other GPL resolution is a later task. No upstream
+   additional-license request is part of this migration.
+
+Existing native evidence and old audit source pins are historical. Migration
+reports must distinguish exact preserved evidence from new relocation checks;
+never rewrite old hashes to manufacture a pass.
