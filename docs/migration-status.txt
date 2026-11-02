@@ -1,0 +1,32 @@
+Migration checkpoint — 2026-11-01
+
+IN PROGRESS. Keep the original caj directory until the remaining gates pass.
+
+The curated import and project dual licensing are committed on
+codex/migrate-classic-runtime. Original applications, reference environments,
+history, captures, and local caches remain gitignored inside this checkout.
+The existing GPL resource codec remains explicitly GPL licensed; resolving it
+is a later task. Moving it into a dependency does not remove GPL obligations.
+
+Verified here:
+- 61 shared-core, 74 runtime, 6 codec, and 4 frontend tests.
+- All 30 relocated QEMU disks have identical logical contents to their originals.
+- The 129-commit project archive restores and passes Git integrity checks.
+- Three upstream archives restore with their original shallow boundaries and
+  pass Git integrity checks.
+- Fresh OS9 SoundGuest output matches the saved native reference exactly.
+- ARM64 boot executes the owned 68K proof: 195 instructions and 10 traps at EL1.
+- Original Marathon runs from this checkout; a fresh live CoreAudio capture of
+  5,037,120 stereo frames matches the independently reconstructed mix exactly.
+- 860 imported source files are byte-identical to the original Git revision.
+  Changes are confined to licensing, dependency packaging, and relocation.
+
+Pending:
+- Complete and verify the ignored work/ transfer. Several source files are
+  iCloud-only; filesystem reads stall. Finder Download Now and Try Again were
+  attempted. Stalled readers were stopped; the original directory remains.
+- Finish the full 138-manager/document regression and fresh SDK compilation.
+- Run the final cutover checks with the original path unavailable.
+- Retire the original directory only after those checks and preservation pass.
+
+Private reports and resumable copy helpers are in .local/migration/.
