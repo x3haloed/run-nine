@@ -4,7 +4,7 @@
     {
       "project": "resource_dasm",
       "revision": "db45c79522bf9683f92b13ba675f582fb1fb31fd",
-      "license": "MIT (per-file meta license for Kaitai specs)",
+      "license": "MIT",
       "files": {
         "LICENSE": "7216d69d8078ad2d35a71129e36b31fc2157251e510f2d03e877324a0f2940ba",
         "src/ResourceCompression.cc": "5ffc3d52b52001641e7d758c2b0637dffb1ad4e79e399b32241f2453e413e318",
@@ -27,7 +27,7 @@
     {
       "project": "python-rsrcfork",
       "revision": "d2bbab1f5dd8670baa1ea5a31a1754b824743493",
-      "license": "MIT (per-file meta license for Kaitai specs)",
+      "license": "MIT",
       "files": {
         "LICENSE": "710b9198a2d748737b3b3af7bbef33e07b2eae19cd9a2ba3be777dc98a30d2d8",
         "src/rsrcfork/compress/__init__.py": "eb45cadce472eb3d70ac9d2e91ae7d611ed1339feb0546ee927d77fbbfbb5760",

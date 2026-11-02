@@ -13,7 +13,7 @@ static short write_line(const char *text) {
 
 int main(void) {
     short count, index, batch, batches = 1, app, external = 0, ref;
-    char line[512];
+    char line[1024];
     unsigned char path[128];
     Handle config;
     OSErr error;
@@ -44,6 +44,7 @@ int main(void) {
     if (write_line(line)) return 9;
     for (index = 0; index < count; index++) {
         Handle actual, expected;
+        char actual_hex[65] = "", expected_hex[65] = "";
         long actual_size = -1, expected_size = -1, first = -1, differences = 0, i, common;
         short native_error, expected_error, attrs = -1;
         sprintf(line, "{\"event\":\"begin\",\"batch\":%d,\"case\":%d}\n", batch, index);
@@ -77,10 +78,18 @@ int main(void) {
                 differences += actual_size > expected_size ? actual_size - expected_size : expected_size - actual_size;
             }
         }
-        sprintf(line, "{\"event\":\"result\",\"batch\":%d,\"case\":%d,\"native_error\":%d,\"expected_error\":%d,\"actual_size\":%ld,\"expected_size\":%ld,\"attrs_after_load\":%d,\"equal\":%s,\"different_bytes\":%ld,\"first_difference\":%ld}\n",
+        /* Bounded diagnostics for isolated owned hypotheses. Original-app runs
+         * and all observation files remain private, including these bytes. */
+        if (first >= 0 && actual && expected && !native_error && !expected_error && actual_size >= 0 && expected_size >= 0) {
+            for (i = 0; i < 32 && first + i < actual_size; i++)
+                sprintf(actual_hex + 2 * i, "%02x", (unsigned char)(*actual)[first + i]);
+            for (i = 0; i < 32 && first + i < expected_size; i++)
+                sprintf(expected_hex + 2 * i, "%02x", (unsigned char)(*expected)[first + i]);
+        }
+        sprintf(line, "{\"event\":\"result\",\"batch\":%d,\"case\":%d,\"native_error\":%d,\"expected_error\":%d,\"actual_size\":%ld,\"expected_size\":%ld,\"attrs_after_load\":%d,\"equal\":%s,\"different_bytes\":%ld,\"first_difference\":%ld,\"actual_at_difference\":\"%s\",\"expected_at_difference\":\"%s\"}\n",
                 batch, index, native_error, expected_error, actual_size, expected_size, attrs,
                 actual && expected && actual_size >= 0 && expected_size >= 0 && !native_error && !expected_error && first == -1 ? "true" : "false",
-                differences, first);
+                differences, first, actual_hex, expected_hex);
         if (write_line(line)) return 5;
         if ((actual && actual_size < 0) || (expected && expected_size < 0)) {
             /* Do not release a malformed native handle or continue a tainted
