@@ -1,6 +1,9 @@
-Migration checkpoint — 2026-11-01
+Migration complete — 2026-11-02
 
-IN PROGRESS. Keep the original caj directory until the remaining gates pass.
+The active checkout is run-nine. The verified legacy checkout was moved to
+macOS Trash after the cutover checks passed. The original caj and temporary
+migration-hold paths are absent. Durable reference data, history, untracked
+material, and evidence are retained inside this checkout's ignored directories.
 
 The curated import and project dual licensing are committed on
 codex/migrate-classic-runtime. Original applications, reference environments,
@@ -8,25 +11,34 @@ history, captures, and local caches remain gitignored inside this checkout.
 The existing GPL resource codec remains explicitly GPL licensed; resolving it
 is a later task. Moving it into a dependency does not remove GPL obligations.
 
-Verified here:
+Verified here, with the original sources/assets unavailable during cold tests:
+- All 138 native manager comparisons and the document workflows pass.
 - 61 shared-core, 74 runtime, 6 codec, and 4 frontend tests.
+- 20,683 transferred data files match their originals; classic Macintosh
+  metadata for 175 files and all 487 untracked files are preserved and verified.
+- All 434 individually reviewed fixtures still match their recorded hashes.
 - All 30 relocated QEMU disks have identical logical contents to their originals.
+  Every retained image chain also opens with the original checkout unavailable.
 - The 129-commit project archive restores and passes Git integrity checks.
 - Three upstream archives restore with their original shallow boundaries and
   pass Git integrity checks.
 - Fresh OS9 SoundGuest output matches the saved native reference exactly.
+- The relocated SDK rebuilds that probe with a byte-identical resource fork.
+  Its generated CMake configuration now derives its default prefix relatively;
+  compilation also passes without an explicit prefix override.
 - ARM64 boot executes the owned 68K proof: 195 instructions and 10 traps at EL1.
 - Original Marathon runs from this checkout; a fresh live CoreAudio capture of
-  5,037,120 stereo frames matches the independently reconstructed mix exactly.
+  7,330,080 stereo frames matches the independently reconstructed mix exactly,
+  with zero device/drain errors and no capture overflow. This measures actual
+  output buffers, not a microphone or the physical speaker path.
 - 860 imported source files are byte-identical to the original Git revision.
   Changes are confined to licensing, dependency packaging, and relocation.
+  The original generated Codex Run action was also copied byte for byte.
 
-Pending:
-- Complete and verify the ignored work/ transfer. Several source files are
-  iCloud-only; filesystem reads stall. Finder Download Now and Try Again were
-  attempted. Stalled readers were stopped; the original directory remains.
-- Finish the full 138-manager/document regression and fresh SDK compilation.
-- Run the final cutover checks with the original path unavailable.
-- Retire the original directory only after those checks and preservation pass.
+The initial iCloud transfer failure is resolved. There are no remaining
+migration gates. GPL codec resolution is the next, separate task. Existing
+application, audio, kernel, and physical-hardware limitations remain unchanged.
 
-Private reports and resumable copy helpers are in .local/migration/.
+Private reports are summarized and hashed by .local/migration/final-result.json.
+Historical milestone evidence and its original source pins remain archived;
+the old completion audits describe their original revision, not a new baseline.

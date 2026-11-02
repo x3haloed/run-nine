@@ -43,6 +43,8 @@ CARGO_INCREMENTAL=0 cargo test --manifest-path runtime/Cargo.toml
 ```
 
 Original-application and OS 9 reference validation also require the local assets
-and cross-toolchain. Migration/cutover status and the required verification gate
-are documented in `docs/migration-plan.txt`. No original directory may be deleted
-on the strength of unit tests alone.
+and cross-toolchain. The completed cutover checks are documented in
+`docs/migration-status.txt`; the migration plan is in `docs/migration-plan.txt`.
+Private migration reports are in `.local/migration/final-result.json`.
+Historical completion audits retain the original revision's source pins and
+evidence; they are not rewritten to manufacture a pass against the new layout.
