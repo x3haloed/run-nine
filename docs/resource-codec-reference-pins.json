@@ -1,0 +1,49 @@
+{
+  "purpose": "Approved permissive implementation inputs; GPL codec excluded",
+  "references": [
+    {
+      "project": "resource_dasm",
+      "revision": "db45c79522bf9683f92b13ba675f582fb1fb31fd",
+      "license": "MIT (per-file meta license for Kaitai specs)",
+      "files": {
+        "LICENSE": "7216d69d8078ad2d35a71129e36b31fc2157251e510f2d03e877324a0f2940ba",
+        "src/ResourceCompression.cc": "5ffc3d52b52001641e7d758c2b0637dffb1ad4e79e399b32241f2453e413e318",
+        "src/ResourceCompression.hh": "867d42b977506374162bbe4807e4b82531270bdbd829a48625823fc29aa0ce40",
+        "src/ResourceDecompressors/System.hh": "429e16672c9df07b36fca971b00a0df87e2862c971a5e1f74dca1c12d79076a0",
+        "src/ResourceDecompressors/System01.cc": "4cdef0e45fdc496fc51ac13e8168e0460459f22b127ff65c389efd1d2d3feb67",
+        "src/ResourceDecompressors/System3.cc": "0c6116157de7c923b3cbcbc99b562d7d3a1e493e47a48e6ff0c16c3b7c84651c"
+      }
+    },
+    {
+      "project": "kaitai_struct_formats",
+      "revision": "7d175667527372eb0c521045c1dac212230d9779",
+      "license": "MIT (per-file meta license for Kaitai specs)",
+      "files": {
+        "macos/compressed_resource.ksy": "1a7d5f74a02172e9b5f4b58a26c16cb969a7b6957c4d37a776af053163acc955",
+        "macos/resource_compression/dcmp_0.ksy": "baeab46012ceabfaf2ca5e5de9904e6e4f93774fa84fcc0275998d4d83713d48",
+        "macos/resource_compression/dcmp_variable_length_integer.ksy": "804675c64e6a0a4be77922b80f2423a0831362e882d9ca491071039c6f84b71e"
+      }
+    },
+    {
+      "project": "python-rsrcfork",
+      "revision": "d2bbab1f5dd8670baa1ea5a31a1754b824743493",
+      "license": "MIT (per-file meta license for Kaitai specs)",
+      "files": {
+        "LICENSE": "710b9198a2d748737b3b3af7bbef33e07b2eae19cd9a2ba3be777dc98a30d2d8",
+        "src/rsrcfork/compress/__init__.py": "eb45cadce472eb3d70ac9d2e91ae7d611ed1339feb0546ee927d77fbbfbb5760",
+        "src/rsrcfork/compress/common.py": "dcc79cc577499202abcdfbad4652c944bbaebb0fab27bec5d7a1c6549c2b6faf",
+        "src/rsrcfork/compress/dcmp0.py": "569046e41a727dc1258707f61036247b7ad1b782b4b2ff8268d80b6799a8c87d"
+      }
+    }
+  ],
+  "validation_only_references": [
+    {
+      "project": "phosg",
+      "revision": "ecad41c6d9afb66153b2af3a66dcf035c20a49c0",
+      "license": "MIT",
+      "license_path": "src/LICENSE",
+      "license_sha256": "0ae976aefe9cdc98409074c92e75094b243f27ae05f2cdd7378f1e770b2d22a3",
+      "purpose": "Build unchanged pinned ResourceDASM System0/System3 as independent external oracle; not linked into RUN9"
+    }
+  ]
+}
