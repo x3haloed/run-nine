@@ -14,8 +14,10 @@ is a later task. Moving it into a dependency does not remove GPL obligations.
 Verified here, with the original sources/assets unavailable during cold tests:
 - All 138 native manager comparisons and the document workflows pass.
 - 61 shared-core, 74 runtime, 6 codec, and 4 frontend tests.
-- 20,683 transferred data files match their originals; classic Macintosh
-  metadata for 175 files and all 487 untracked files are preserved and verified.
+- 20,683 transferred files were audited. Data-fork hashes match apart from
+  documented path/configuration relocations and separately verified qcow headers.
+  Classic Macintosh metadata for 175 files and all 487 untracked files are
+  preserved and verified.
 - All 434 individually reviewed fixtures still match their recorded hashes.
 - All 30 relocated QEMU disks have identical logical contents to their originals.
   Every retained image chain also opens with the original checkout unavailable.
