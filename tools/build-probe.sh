@@ -22,6 +22,7 @@ if [ "$probe" = saneconvert ]; then python3 "$root/tools/build-sane-conversion-o
 if [ "$probe" = vbl ]; then python3 "$root/tools/build-vbl-callback.py"; fi
 if [ "$probe" = timemanager ]; then python3 "$root/tools/build-timer-callback.py"; fi
 cmake -S "$root/probes/$probe" -B "$root/work/probes/$probe" \
+ -DRETRO68_ROOT="$root/work/Retro68-build/toolchain" \
  -DCMAKE_TOOLCHAIN_FILE="$root/work/Retro68-build/toolchain/m68k-apple-macos/cmake/retro68.toolchain.cmake"
 cmake --build "$root/work/probes/$probe"
 
