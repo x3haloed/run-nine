@@ -1,0 +1,196 @@
+{
+  "schema": 1,
+  "milestone": "Independent permissive resource codec replacement",
+  "implementation": {
+    "package": "run9-resource-codec",
+    "version": "0.2.0",
+    "license": "MIT OR Apache-2.0",
+    "third_party_notices": "resource-codec/NOTICES.txt",
+    "authoring_record": "resource-codec/PROVENANCE.txt",
+    "handoff": "docs/resource-codec-implementation-handoff.txt",
+    "format_and_native_scope": "docs/resource-codec-format.md",
+    "fresh_implementation_context_excluded": [
+      "GPLsource/tests/oracle",
+      "priorchat",
+      "originalapplication/OSresources"
+    ],
+    "formal_clean_room_or_legal_guarantee_claimed": false
+  },
+  "baseline": {
+    "forks": 8,
+    "resources": 689,
+    "compressed": 26,
+    "compressed_scope": "TeachText dcmp0; SimpleText,Marathon,and siblings passed through",
+    "candidate_matches_frozen_old_and_two_independent_permissive_oracles": true,
+    "native_all_resources_exact": true
+  },
+  "owned_verification": {
+    "main_vectors": 3360,
+    "candidate_expectation_failures": 0,
+    "additional_small_memo_cases": 12,
+    "small_memo_three_way_differences": 0,
+    "disputed_literal_hypotheses": 12,
+    "three_way_differences_classified": 166,
+    "classification_groups": {
+      "literal_V_native_128_255_larger_reference_derived": 10,
+      "extension_native143_positive": 143,
+      "header_zero_native_positive": 1,
+      "strict_common_header_body_oracle_does_not_validate": 4,
+      "explicit_RUN9_limit_reference_guard": 1,
+      "unsupported_extension_explicit_error": 1,
+      "checked_declared_length_policy": 5,
+      "strict_dcmp0_termination_matches_Python_and_old": 1
+    },
+    "candidate_vector_artifact_pins": {
+      "candidate_sha256": "6713d14c6b85372bde7957e0cf11c25825608e1e09b8bdb06a8987c1f6bf5d7e",
+      "vectors_sha256": "7dafe61bd85bf968bc7c0472041e6d93b2bbce06286d8c4d8b1353f2bc39a6f8",
+      "archived_vectors_gzip_sha256": "6171691258850b1a96a9ec605b64e73240c702d284a6f8db0dfaedc7fff59c87"
+    },
+    "random_body_safety_cases": 12000,
+    "tests": "One bounded-memo unit test,three main corpus/safety/truncation integration tests,two separate fixture tests; release and Clippy-Dwarnings passed",
+    "important_scope": "Candidate-vs-own-expectations is not native equivalence. Positive native observations and safe validation choices are separately described."
+  },
+  "native_experiments": [
+    {
+      "local_path": "native-all-app-resources/comparison-v1.json",
+      "sha256": "59a1dd0feabb02ffbafd81dad4c632f6fded6cfa765fc6ae2dfa2c02adeb23e8",
+      "cases": 689,
+      "passed": true,
+      "failures": 0,
+      "scope": "Original application/sibling resources, unchanged headers and attributes"
+    },
+    {
+      "local_path": "native-common-padded/comparison-final.json",
+      "sha256": "675fe3581a6f764e3e2a92c6a515e6921498f7974e865c68e737627f2a327eea",
+      "cases": 3156,
+      "passed": false,
+      "failures": 1,
+      "scope": "Owned common-positive corpus;3155exact, giantmemo divergence retained below"
+    },
+    {
+      "local_path": "native-literal-variable/comparison-final.json",
+      "sha256": "bc291fddd6f65c57e82ba94743b7e72a9cd0908da42c141ef835a72f3f94e62e",
+      "cases": 6,
+      "passed": true,
+      "failures": 0,
+      "scope": "Both literal tags,127/128/255word V lengths"
+    },
+    {
+      "local_path": "native-extension-differences/comparison-v1.json",
+      "sha256": "b7e4c69fd863e36be244338d4378c5be400c418ee8ab25a6b9043e3791d1d31c",
+      "cases": 143,
+      "passed": true,
+      "failures": 0,
+      "scope": "Disputed signed/nonminimal extension values and count masks"
+    },
+    {
+      "local_path": "native-final-boundaries/comparison-v2.json",
+      "sha256": "58e66cb949e47d8bf910b272fe2da7d207da0d268677235dc689a1146556134b",
+      "cases": 30,
+      "passed": true,
+      "failures": 0,
+      "scope": "17dcmp3residual cases,12smallmemo addressing cases,1header-size-zero"
+    }
+  ],
+  "native_adaptations": {
+    "reason": "Native in-place workspace requires meaningful hints; raw zero-hint trials are not compatibility passes",
+    "description": "Recorded workspace hints; selected even dcmp0 streams append owned zero-repeat suffix and adjust declared length/expected zeros. Original decoded prefix and both hashes retained. Detailed policies and hashes are per manifest/spec.",
+    "large_memo_caveat": "65576stored literals require131152bytes for16bit per-slot offsets alone; native runs diverged. Exact native failure mechanism/slotlimit is not claimed. RUN9 retains bounded separate-output normalization matching all3host oracles, without emulating native overflow. Native65575slot equivalence is not claimed.",
+    "larger_literal_caveat": "V literal128/255 lengths native-positive; >255and nonminimal literal encodings remain permissive-reference-derived."
+  },
+  "runtime_regressions": {
+    "manager_comparisons": 138,
+    "all_equal": true,
+    "core_tests": 61,
+    "runtime_tests": 74,
+    "frontend_tests": 4,
+    "document_workflows_passed": true,
+    "evidence": {
+      "local_path": "runtime-validation-v1-summary.json",
+      "sha256": "07c45b3331a474a553b7f093e30979fcecb6ad2e5621ca07de130fa57ea30e10"
+    },
+    "bounded_event_loop_stops_are_not_application_exit_claims": true
+  },
+  "audio_and_gameplay": {
+    "executable": {
+      "local_path": "runtime-gui-binary-pin.json",
+      "sha256": "ec41499e0fe7801e52abca1917ca759e81d384c490aaa3d451f34c5873ad502e"
+    },
+    "owned_guest_native_API_and_sample_exact_headless_CoreAudio": true,
+    "guest_evidence": {
+      "local_path": "guest-sound-v1/result.json",
+      "sha256": "071a2c40bee04772bda6e3c6d573d341c1e84a1f61c1a10d4e4ed2795b135c18"
+    },
+    "original_Marathon_buffers_matched": 263,
+    "walk_turn": {
+      "forward": {
+        "held_observations": 33,
+        "distinct_images": 12,
+        "first": "held-000.ppm",
+        "last": "held-032.ppm"
+      },
+      "right": {
+        "held_observations": 27,
+        "distinct_images": 11,
+        "first": "held-033.ppm",
+        "last": "held-059.ppm"
+      }
+    },
+    "manual_review": "Forward enlarges terminal until close-up; right rotates view from terminal to wall. Source screenshots reviewed.",
+    "output_frames": 24828000,
+    "output_channels": 2,
+    "output_sample_rate": 48000,
+    "different_samples": 0,
+    "max_abs_error": 0,
+    "expected_and_captured_pcm_sha256": "f9e7d461634726efa986287e8c9d4a62d94f2542e18d42c5f0a8e44453c8e622",
+    "device_errors": [],
+    "all_rendered_frames_consumed": true,
+    "waveform_evidence": {
+      "local_path": "marathon-v3/waveform.json",
+      "sha256": "d5ee698d6dbd2c7cb1014ca2a5909b222bce6287e4d57d7c104c2eba8680edce"
+    },
+    "input_identity_evidence": {
+      "local_path": "marathon-v3/input-identity.json",
+      "sha256": "5f062cede99de0cb9ea4d881135a2a8ccfa5f4d9e31628c709eec5bb70e14bac"
+    },
+    "scope": "Original guest requests and recorded runtime schedule; no native scheduling/hardware-loopback parity claim. Whole-run audio includes attract,manualplay,idle,and death periods. Manual movement/turning proven separately; no firing claim based on dead/attract trials."
+  },
+  "license_audit": {
+    "scope": "Locked all-features metadata including target-conditional packages; this is broader than the current macOS link graph",
+    "packages": 90,
+    "GPL_required_packages": [],
+    "alternative_license_choices": [
+      {
+        "name": "r-efi",
+        "version": "6.0.0",
+        "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+        "selected_license": "MIT",
+        "reason": "Disjunctive SPDX choice; not a GPL obligation"
+      }
+    ],
+    "codec": {
+      "name": "run9-resource-codec",
+      "version": "0.2.0",
+      "license": "MIT OR Apache-2.0",
+      "manifest": "resource-codec/Cargo.toml"
+    },
+    "metadata_sha256": "f888c29bccb5b57ebd674ad3a5b3d7e97d6893081d58a805dafe7955ad0ee1fb"
+  },
+  "source_retirement": {
+    "GPL_codec_current_source_removed": true,
+    "GPL_codec_runtime_dependency_removed": true,
+    "old_source_licenses_and_separate_private_oracle_preserved": true,
+    "history_rewritten": false,
+    "separate_GPL_tools_and_OFL_fonts_retain_licenses": true
+  },
+  "excluded_trials_and_limits": [
+    "Original zero-workspace native experiments invalidated; input/adapted hashes and partial logs retained",
+    "BYTE128 literal experiment aborted incomplete; its stall alone is not proof of grammar",
+    "Giantmemo native mismatch preserved and documented",
+    "Arrowkey delivery alone was not counted as movement; successful proof used keypad8/6",
+    "Setup Keys reaches existing unsupported trap0xa98f; broader configuration UI not part of this replacement",
+    "Extra native macOS Command-Q trial lacked finalized WAV and was not counted as audio acceptance",
+    "Full OS9 equivalence,other codecs,physical Pi500 drivers,and whole campaign compatibility remain outside scope"
+  ],
+  "private_artifact_rule": "Application/OS bytes,expanded proprietary resources,VM images,captures,and oldGPL executable/source remain ignored local data. Public report contains owned observations/counts/hashes only."
+}

@@ -6,7 +6,7 @@ The package carries both project license texts. Third-party MIT notices are
 retained separately in NOTICES.txt and apply to their respective material.
 
 Authoring method:
-A fresh implementation context received only implementation-handoff.txt, the
+A fresh implementation context received only ../docs/resource-codec-implementation-handoff.txt, the
 approved SHA-256 ledger, approved MIT reference files and project license texts.
 It verified every file in the approved reference ledger before reading its contents. It did
 not inspect GPL source/tests, old oracles, the legacy vendor crate, runtime vendor

@@ -35,6 +35,8 @@ are documented in `resource-codec/PROVENANCE.txt` and
 and a private, separately executed comparison oracle; it is absent from the
 current runtime dependency graph. Separate GPL tools such as QEMU and the offline
 HFS utility retain their licenses. Bundled fonts remain OFL-1.1.
+Verification counts, evidence pins, native adaptations, and limits are recorded
+in `docs/resource-codec-validation.json`.
 
 ## Development
 

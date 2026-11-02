@@ -1,3 +1,7 @@
+Historical migration checkpoint. The later codec replacement is documented in
+resource-codec-validation.json; its current licensing supersedes the temporary
+GPL dependency status recorded below.
+
 Migration complete — 2026-11-02
 
 The active checkout is run-nine. The verified legacy checkout was moved to
