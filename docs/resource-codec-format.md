@@ -3,9 +3,9 @@
 This describes `resource-codec` version 0.2.0, independently authored from the
 approved permissive references pinned in
 [resource-codec-reference-pins.json](resource-codec-reference-pins.json).
-It is a reference-derived specification, **not an assertion of verified native
-Resource Manager behavior**. No GPL implementation, legacy tests, application
-resource, or OS resource was read to author this implementation or its fixtures.
+It is a reference-derived specification with separately labeled targeted native
+observations, **not a claim of complete native Resource Manager equivalence**.
+No GPL implementation, legacy tests, application resource, or OS resource was read to author this implementation or its fixtures.
 Native comparisons are a separate integration requirement.
 
 ## Sources and confidence
@@ -104,7 +104,7 @@ literal slices in insertion order; references never refer to arbitrary output.
 
 Hexadecimal token/slot constants above omit the `0x` prefix. The immutable fixed
 dictionary has 179 words; its exact entries are in `resource-codec/src/table.rs`.
-Zero-length literals are accepted and can be memoized. The largest addressable
+Zero-length literals are accepted and can be memoized. The largest syntactically addressable
 memo index is `40+65535=65575`. Retain only the first 65,576 memo entries.
 Further stored literal blocks are still consumed and output normally, but their
 metadata is discarded because no supported token can address them. In particular,
@@ -114,6 +114,65 @@ each memo slot. Reserve requests grow in chunks of at most 256 entries, capped
 at the remaining addressable slots. The largest requested memo capacity is
 65,576 slice entries (1,049,216 bytes on a host with 16-byte slice references),
 plus allocator overhead; an allocator may round an allocation upward.
+
+### Native memo workspace caveat and small boundary probes
+
+The grammar's syntactic index range and this decoder's metadata cap do not prove
+native equivalence at 65,575. In approved System01.cc's working-buffer comment,
+ResourceDASM describes the original memo's next-slot offset and string-start
+fields as `uint16_t`, then replaces that native arrangement with a host vector.
+For 65,576 stored literals, the per-slot 16-bit offsets alone require 131,152
+bytes, before the next-slot field and literal data; that cannot fit in a single
+unwrapped table addressed by 16-bit scratch offsets. Increasing allocation hints
+alone does not establish native validity. The reported measurements do not prove
+an exact failure mechanism or a precise native slot limit, and do not justify
+emulating overflow or corruption.
+
+The parent reported that the giant owned `dcmp0-memo-all-address-forms` case
+(65,576 stored two-byte literals and 46 references) produced the first 131,152
+literal bytes correctly, then diverged at the first reference in native OS9.
+Adapted output was 787,204 bytes with owned zero-fill. A fraction/extra-hints
+128/255 run differed in 116 bytes; a separate 255/255 run completed but differed
+in 52,884 bytes, again starting at offset 131,152. All three parent host decoders
+agreed on the arithmetic expected bytes. Small native stored-literal/reference
+controls passed. These parent-reported observations do not establish that the
+giant native result is the format's intended semantics, nor demonstrate native
+support for all 65,576 syntactically representable memo entries. The giant case
+remains a bounded host-parser stress case with an explicit native caveat.
+At these extreme memo counts, RUN9 deliberately retains the bounded separate
+output interpretation shared by all three host decoders; native slot-65,575
+equivalence is not claimed. No production semantics were changed to reproduce
+the divergent bytes. Parent-reported normal application comparisons (689
+resources, including 26 compressed dcmp0 resources) remain byte-exact; they do
+not establish native behavior for the giant synthetic case.
+
+A separate small native experiment corpus is authored in
+`tests/support/memo_boundaries.rs` and exported with:
+
+```sh
+cargo run --release --manifest-path resource-codec/Cargo.toml --example export_memo_boundaries > /tmp/run9-memo-boundaries.tsv
+```
+
+It contains eleven isolated references and one composite case, each storing at
+most 553 two-byte literals using fixed token 11. Stored slot i contains word
+`3000+i` (hex base), and expected reference words are calculated directly from
+the requested index. Targets are slots 0/39 via tokens 23/4A, 40/295 via 20,
+296/551 via 21, and 40/295/296/551/552 via 22. The 552 case encodes offset
+`0200` after 22, crossing the two-byte token forms' maximum index 551.
+The composite stores 553 words then exercises all eleven encodings.
+
+Each exported fixture explicitly uses fraction/extra hints 255/255 and extends
+its literal/reference expected prefix to 4096 bytes using an owned zero-repeat
+suffix. The longest expected prefix is 1128 bytes. This adaptation is part of
+these owned fixtures, not an assertion that the header values guarantee native
+workspace sufficiency. The TSV uses the main six-column schema and `decoded`
+outcome as the host expectation. The parent subsequently reported all twelve
+cases byte-exact in native OS9 (final boundary run cases 17..28; evidence below).
+This establishes those tested address forms under the recorded fixture/workspace
+conditions, not giant-table equivalence. Main corpus exports and production
+decoding are unchanged.
+
+### Extended dcmp0 literal lengths
 
 Literal lengths for tokens 00/10 are disputed: Python/Kaitai describe a single
 unsigned length byte; ResourceDASM calls `read_encoded_int`. This implementation
@@ -234,7 +293,10 @@ returned byte `41` for the nonzero unused-padding case and empty output for the
 zero-length resource with a trailing byte. The original candidate rejected both
 with `TrailingData`; that extra strictness was removed. This implementation
 context did not read the baseline source, and the measurement does not prove
-native Resource Manager behavior. Native confirmation remains pending.
+native Resource Manager behavior. The parent subsequently reported all seventeen
+owned residual-input variants byte-exact in native OS9 (final boundary run cases
+0..16; evidence below). This validates the tested residual cases under recorded
+adaptations, not arbitrary malformed input or all possible trailing payloads.
 
 First read a run code R using these prefix classes (`x` is an unsigned payload):
 
@@ -355,20 +417,68 @@ TSV fields: `name`, decimal `attrs`, decimal `limit`, hex `input_hex`, `outcome`
 bytes are present. The generator is the source of truth; its large repetitive
 export need not be committed.
 
-## Hypotheses to resolve with native probes
+## Recorded native boundary and extension observations
 
-1. Header size zero is accepted as eighteen bytes; exact header attribute byte 1
-   and version 8 reserved zero are required. Test alternate attribute bits.
+These measurements were supplied by the integrating parent; this implementation
+context did not read the private evidence files or any GPL implementation.
+
+The final OS9 boundary run reported `complete=true`, 30/30 byte-exact cases:
+
+* Cases 0..16: all seventeen owned dcmp3 residual-input variants (five nonzero
+  padding values and twelve trailing-content cases).
+* Cases 17..28: all twelve small memo fixtures described above, including both
+  endpoints of tokens 20/21, token 22 crossing slot 551 to 552, and the composite.
+* Case 29: header size zero, using an adapted even dcmp0 stream with owned
+  zero-fill to declared output length 4096. This positively demonstrates that
+  specific header-zero case; it does not establish other header permissiveness.
+
+Private directory `.local/codec-replacement/native-final-boundaries/`:
+
+| File | Parent-supplied SHA-256 |
+| --- | --- |
+| `manifest.json` | `8690a5efb2aa8b9c886da3b1e28326ae8744b2c35d501a5398407d8e5c1b3eef` |
+| `native-v2.jsonl` | `f68d6b6fb3eb19f920fd9bbfcd1a1100549a11b8f907b2c8c57a79393f997ad1` |
+| `comparison-v2.json` | `58e66cb949e47d8bf910b272fe2da7d207da0d268677235dc689a1146556134b` |
+
+A separate OS9 run reported `complete=true`, 143/143 byte-exact selected owned
+extension cases, including negative/nonminimal variable-value encodings and
+low-word count masking cases. It excluded the long-literal/header-zero questions
+addressed separately. Parent-reported adaptations retained each even dcmp0
+output prefix, added owned zero-repeat padding to output length
+`max(4096, 4 * original compressed input length)`, and used version 8
+fraction/extra hints 255/255. These are positive observations for the selected
+cases identified by the parent's manifest, not a proof for all extension values,
+all count encodings, or arbitrary malformed-input policies.
+
+Private directory `.local/codec-replacement/native-extension-differences/`:
+
+| File | Parent-supplied SHA-256 |
+| --- | --- |
+| `manifest.json` | `cfe3beef90904c02193cac577825b240c31c1f9763a3b7d8a6e89990b99557d1` |
+| `native-v1.jsonl` | `e3d2b81a3e700799cfc7df309eb0cb6641dd4c4e8ec77ea603334ddf35978517` |
+| `comparison-v1.json` | `b7e4c69fd863e36be244338d4378c5be400c418ee8ab25a6b9043e3791d1d31c` |
+
+No production parser, output bound, or main corpus expectation was changed for
+these positive native observations. The giant memo normalization caveat remains.
+
+## Remaining hypotheses and limits of native observations
+
+1. One adapted header-size-zero case is native-confirmed as described above.
+   Exact header attribute byte 1 and version 8 reserved zero remain parser
+   requirements; alternate attribute/reserved-bit policies need separate probes.
 2. Native six-case observations support V literal lengths at 127/128/255 words
    for tags 00/10 with the recorded workspace/zero-fill adaptation. Probe lengths
    above 255 (including 256) and nonminimal V encodings separately.
-3. Extensions 01/05 exist for dcmp0; extension values truncate, counts mask to
-   low16, and selector 00 accepts zero count. Probe signed/high-bit parameters.
+3. Selected signed/nonminimal extension-value and low16-count cases now have
+   143 positive native observations. The full grammar, including selectors 01/05
+   and selector 00 zero count, remains specified from the approved references;
+   do not infer exhaustive native equivalence beyond the identified tested cases.
 4. Only odd declared lengths admit a single final decoded alignment byte;
    arbitrary overexpansion is rejected, while zero-output final commands work.
 5. FF is mandatory/final for dcmp0 (a strict parser policy). dcmp3 ignores unused
-   bits and trailing bytes after declared output is complete, based on MIT
-   reference and measured baseline agreement; confirm native behavior separately.
+   bits and trailing bytes after declared output is complete, supported by MIT
+   reference/baseline agreement and seventeen positive native variants. Untested
+   malformed-input policies still require separate evidence.
 6. The irregular dcmp3 dispatch/thresholds are pinned ResourceDASM-derived
    hypotheses, not proven native behavior. Probe whether native decoding agrees
    at P=1644/1645/1664/1665 and P=81984/81985/82048/82049.
@@ -384,4 +494,5 @@ export need not be committed.
    any added zero-fill suffix, changed declared length, and expected padding.
 
 Application baselines contain dcmp0 only; success there cannot validate dcmp3.
-Native/synthetic comparisons and runtime integration remain separate work.
+Native/synthetic comparisons and runtime integration are tracked by the
+integrating parent; crate tests alone do not establish whole-goal completion.

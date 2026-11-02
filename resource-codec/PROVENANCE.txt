@@ -60,8 +60,9 @@ behavior and parent-reported measured oracle I/O from archived three-way-v1:
 both the frozen baseline and MIT body oracle accepted the nonzero padding and
 trailing-byte cases rejected by the initial candidate. No baseline implementation
 source was read. New owned vectors extend these cases to multiple pad values,
-trailing contents and lengths. Native confirmation remains pending; native
-workspace-hint problems are separately documented, not treated as grammar facts.
+trailing contents and lengths. The parent subsequently reported seventeen exact
+native residual-input cases; the scoped evidence summary appears below. Native
+workspace-hint problems are documented separately, not treated as grammar facts.
 
 Separate literal-length hypothesis corpus:
 - tests/support/literal_hypotheses.rs and export_literal_hypotheses example
@@ -90,3 +91,38 @@ Parent-reported targeted native literal observations (no private artifact read):
   bc291fddd6f65c57e82ba94743b7e72a9cd0908da42c141ef835a72f3f94e62e.
   Manifest/log hashes are recorded in ../docs/resource-codec-format.md exactly
   as supplied by the parent; this context did not open those private files.
+
+Small memo boundary experiment corpus:
+- tests/support/memo_boundaries.rs independently authors eleven isolated and one
+  composite addressing cases, at most553 stored two-byte literals. Literal words
+  are0x3000+slot; exact reference outputs are arithmetic, not oracle-derived.
+- Cover slots0/39/40/295/296/551/552, including20/21 byte endpoints and22's
+  offset0x0200 transition. Hints255/255 and owned zero-repeat padding to4096 are
+  explicit fixture adaptations. No production change or giant native-corruption
+  imitation is made.
+- Approved System01.cc's uint16_t native memo workspace fields motivate testing
+  small address forms separately from the65576-store host stress case. Parent
+  observations of native giant-case divergence are documented as caveats in the
+  format document; no exact native slot limit is inferred, no private files read.
+
+Parent-reported final native boundary observations (no private artifact read):
+- Final OS9 boundary run complete=true,30/30 byte-exact: cases0..16 are all17
+  owned dcmp3 residual variants; cases17..28 all12 small memo address fixtures;
+  case29 adapted header-size-zero/even dcmp0+owned zero-fill to4096.
+- These observations confirm only the tested bytes under recorded adaptations;
+  arbitrary malformed policies and native giant-slot65575 equivalence are not
+  claimed. The giant-case bounded separate-output normalization is retained.
+- Evidence directory .local/codec-replacement/native-final-boundaries/:
+  comparison-v2.json SHA256
+  58e66cb949e47d8bf910b272fe2da7d207da0d268677235dc689a1146556134b.
+- A separate native extension run complete=true,143/143 byte-exact selected
+  negative/nonminimal variable-value and low-word-count cases. Parent adaptations
+  retained even output prefixes, added owned zero-repeat padding to
+  max(4096,4*original compressed input length), v8 hints255/255. This selection
+  does not prove exhaustive extension/malformed-input acceptance.
+- Evidence directory .local/codec-replacement/native-extension-differences/:
+  comparison-v1.json SHA256
+  b7e4c69fd863e36be244338d4378c5be400c418ee8ab25a6b9043e3791d1d31c.
+- Exact parent-supplied manifest/log hashes are recorded in the format document;
+  private files were not opened. No production code/main corpus changes made.
+  Default64MiB output bound remains RUN9 policy, not a native format limit.
