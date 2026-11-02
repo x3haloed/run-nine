@@ -644,16 +644,48 @@ pub fn vectors() -> Vec<Vector> {
         header(9, 1, &w.bytes()),
         "length",
     ));
-    let mut w = Writer::default();
-    w.literal(&[65]);
-    let mut p = w.bytes();
-    *p.last_mut().unwrap() |= 1;
-    v.push(bad("dcmp3-invalid-padding", header(9, 1, &p), "trailing"));
-    v.push(bad(
-        "dcmp3-invalid-trailing",
-        header(9, 0, &[0]),
-        "trailing",
-    ));
+    for padding in [1, 2, 15, 16, 31] {
+        let mut w = Writer::default();
+        w.literal(&[65]);
+        let mut p = w.bytes();
+        // This one-byte literal uses eleven bits, leaving five unused bits.
+        *p.last_mut().unwrap() |= padding;
+        v.push(good(
+            format!("dcmp3-compat-padding-nonzero-{padding}"),
+            9,
+            p,
+            vec![65],
+        ));
+    }
+    let trailing_patterns = [
+        vec![0],
+        vec![255],
+        vec![0xa8, 0x9f, 0x65, 0x72],
+        vec![0x55; 7],
+        vec![255; 257],
+        (0..1024).map(|i| (i % 256) as u8).collect(),
+    ];
+    for (index, trailing) in trailing_patterns.into_iter().enumerate() {
+        v.push(good(
+            format!("dcmp3-compat-trailing-empty-{index}-len{}", trailing.len()),
+            9,
+            trailing.clone(),
+            vec![],
+        ));
+        let mut w = Writer::default();
+        w.literal(&[65]);
+        let mut p = w.bytes();
+        p.extend(&trailing);
+        v.push(good(
+            format!(
+                "dcmp3-compat-trailing-literal-{index}-len{}",
+                trailing.len()
+            ),
+            9,
+            p,
+            vec![65],
+        ));
+    }
     // Truncate representative command forms at every byte boundary. Expected
     // category is intentionally generic: truncation can also reveal length errors.
     v

@@ -20,21 +20,6 @@ impl Bits<'_> {
         }
         Ok(value)
     }
-    fn finish(&self) -> Result<()> {
-        if self.bit == 0 {
-            if self.byte != self.data.len() {
-                return Err(Error::TrailingData);
-            }
-        } else {
-            if self.byte + 1 != self.data.len() {
-                return Err(Error::TrailingData);
-            }
-            if self.data[self.byte] & ((1 << (8 - self.bit)) - 1) != 0 {
-                return Err(Error::TrailingData);
-            }
-        }
-        Ok(())
-    }
 }
 fn literal_length(b: &mut Bits<'_>) -> Result<usize> {
     if b.read(1)? == 0 {
@@ -161,5 +146,8 @@ pub(super) fn decode(input: &[u8], out: &mut Output) -> Result<()> {
             allow_literal = true;
         }
     }
-    b.finish()
+    // dcmp3 terminates at the declared output length. Unused bits and trailing
+    // bytes are ignored, matching the pinned MIT body decoder and measured
+    // baseline I/O; see the format document for the limits of this evidence.
+    Ok(())
 }

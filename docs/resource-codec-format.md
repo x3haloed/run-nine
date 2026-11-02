@@ -155,10 +155,19 @@ The narrower policy here is intentional and awaits native comparison.
 
 Read bits most-significant first within each byte. There is no end marker;
 decoding stops when output length exactly equals the header length. Any command
-that crosses that length fails. Residual bits in the last consumed byte must be
-zero, and no whole trailing byte is accepted. Empty output requires an empty
-payload. System3.cc ignores residual input, so this is a RUN9 strictness policy,
-not a verified native rule.
+that crosses that length fails. Once output is complete, unused bits and any
+trailing bytes are ignored. A zero declared output length returns empty output
+without reading the payload. The expansion limit and per-command output bounds
+still apply before termination.
+
+This compatibility policy follows the pinned MIT System3.cc decoder and measured
+oracle I/O reported by the integrating parent: in the archived three-way-v1 run,
+both the frozen baseline decoder and pinned MIT ResourceDASM body decoder
+returned byte `41` for the nonzero unused-padding case and empty output for the
+zero-length resource with a trailing byte. The original candidate rejected both
+with `TrailingData`; that extra strictness was removed. This implementation
+context did not read the baseline source, and the measurement does not prove
+native Resource Manager behavior. Native confirmation remains pending.
 
 First read a run code R using these prefix classes (`x` is an unsigned payload):
 
@@ -289,13 +298,21 @@ export need not be committed.
    low16, and selector 00 accepts zero count. Probe signed/high-bit parameters.
 4. Only odd declared lengths admit a single final decoded alignment byte;
    arbitrary overexpansion is rejected, while zero-output final commands work.
-5. FF is mandatory/final for dcmp0, and dcmp3 permits only zero intra-byte
-   padding with no trailing bytes. These are strict parser policies.
+5. FF is mandatory/final for dcmp0 (a strict parser policy). dcmp3 ignores unused
+   bits and trailing bytes after declared output is complete, based on MIT
+   reference and measured baseline agreement; confirm native behavior separately.
 6. The irregular dcmp3 dispatch/thresholds are pinned ResourceDASM-derived
    hypotheses, not proven native behavior. Probe whether native decoding agrees
    at P=1644/1645/1664/1665 and P=81984/81985/82048/82049.
 7. Ignoring dcmp3 header parameters and the version 8 allocation parameters does
    not alter logical decoded bytes when decoding into a separate bounded buffer.
+   Standalone decoder fixtures can nevertheless have allocation hints insufficient
+   for native in-place execution. The parent observed an invalid native handle
+   while probing memo cases with version 8 hints 0,0; this is not grammar evidence.
+   Kaitai explicitly warns insufficient working space can make the native
+   decompressor misbehave. Native probe adaptations (such as version 8 hints
+   1,255 or version 9 extra space 65535) must record original/adapted input hashes
+   while keeping compressed bytecode and expected output unchanged.
 
 Application baselines contain dcmp0 only; success there cannot validate dcmp3.
 Native/synthetic comparisons and runtime integration remain separate work.

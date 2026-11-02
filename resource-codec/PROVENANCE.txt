@@ -51,6 +51,14 @@ implementation or legacy tests. Expected bytes are direct arithmetic/literal
 constructions; dcmp3 streams are authored with a separate encoder. This does
 not substitute for native/differential verification by the integrating parent.
 
-Disagreements and explicit RUN9 policies, including strict padding/trailing
-rules and the default 64 MiB expansion limit, are recorded in
-../docs/resource-codec-format.md with source citations and native probe targets.
+Disagreements and explicit RUN9 policies, including dcmp0 strict termination,
+dcmp3 output-length termination, and the default 64 MiB expansion limit, are
+recorded in ../docs/resource-codec-format.md with citations/native probe targets.
+
+The dcmp3 residual-input policy was corrected using the pinned MIT System3.cc
+behavior and parent-reported measured oracle I/O from archived three-way-v1:
+both the frozen baseline and MIT body oracle accepted the nonzero padding and
+trailing-byte cases rejected by the initial candidate. No baseline implementation
+source was read. New owned vectors extend these cases to multiple pad values,
+trailing contents and lengths. Native confirmation remains pending; native
+workspace-hint problems are separately documented, not treated as grammar facts.

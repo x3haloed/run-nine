@@ -59,6 +59,10 @@ def main():
     parser.add_argument('--names', nargs='*', help='explicit positive vector names; otherwise all positives')
     parser.add_argument('--selection', type=Path, help='JSON array of explicit positive vector names')
     parser.add_argument('--embedded', action='store_true', help='small smoke corpus inside application')
+    parser.add_argument('--native-workspace', action='store_true',
+                        help='conservative native in-place workspace hints; token bytes unchanged')
+    parser.add_argument('--native-padding', action='store_true',
+                        help='append owned zero output to short even dcmp0 cases for native workspace')
     args = parser.parse_args()
     csv.field_size_limit(16 * 1024 * 1024)
     if args.names and args.selection:
@@ -95,8 +99,30 @@ def main():
         records = []
         for i, row in enumerate(batch):
             raw, expected = bytes.fromhex(row['input_hex']), bytes.fromhex(row['output_hex'])
+            original_hash = hashlib.sha256(raw).hexdigest()
+            original_output_hash = hashlib.sha256(expected).hexdigest()
+            padding = 0
+            if args.native_padding and raw[6] == 8 and len(expected) < 4096 and len(expected) % 2 == 0:
+                if raw[-1] != 255:
+                    raise ValueError('dcmp0 test stream lacks final marker')
+                padding = 4096 - len(expected)
+                count = padding - 1
+                encoded_count = bytes([count]) if count < 128 else (count + 0xc000).to_bytes(2, 'big')
+                raw = bytearray(raw[:-1] + bytes([254, 2, 0]) + encoded_count + bytes([255]))
+                expected += bytes(padding)
+                raw[8:12] = len(expected).to_bytes(4, 'big')
+                raw = bytes(raw)
+            if args.native_workspace:
+                raw = bytearray(raw)
+                if raw[6] == 8:
+                    raw[12:14] = bytes([255, 255])
+                elif raw[6] == 9:
+                    raw[14:16] = bytes([255, 255])
+                raw = bytes(raw)
             records.extend([(b'CMPD', 128 + i, int(row['attrs']), raw), (b'EXPT', 128 + i, 0, expected)])
             manifest.append({'batch': b, 'case': i, 'name': row['name'],
+                             'source_input_sha256': original_hash,
+                             'source_output_sha256': original_output_hash, 'native_padding_bytes': padding,
                              'input_sha256': hashlib.sha256(raw).hexdigest(),
                              'output_sha256': hashlib.sha256(expected).hexdigest(), 'output_bytes': len(expected)})
         if args.embedded:
@@ -107,6 +133,8 @@ def main():
         app.append((b'BATS', 128, 0, struct.pack('>H', len(batches))))
     (out / 'ResourceCodecProbe.rsrc').write_bytes(fork(app))
     (out / 'manifest.json').write_text(json.dumps({'probe_base_sha256': hashlib.sha256(base).hexdigest(),
+                                                 'workspace_policy': 'v8 fraction255/extra255; v9 extra65535' if args.native_workspace else 'unchanged input hints',
+                                                 'padding_policy': 'Short even dcmp0 streams append a zero-repeat extension to reach4096 output bytes; original decoded prefix preserved' if args.native_padding else 'unchanged token body',
                                                  'batches': len(batches), 'cases': manifest}, indent=2) + '\n')
     print('Packaged', len(rows), 'owned vectors in', len(batches), 'batches')
 

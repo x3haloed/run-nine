@@ -52,15 +52,17 @@ int main(void) {
         actual = Get1Resource('CMPD', 128 + index);
         native_error = ResError();
         if (actual) {
-            HLock(actual);
             actual_size = GetHandleSize(actual);
-            attrs = GetResAttrs(actual);
+            if (actual_size >= 0) {
+                HLock(actual);
+                attrs = GetResAttrs(actual);
+            }
         }
         expected = Get1Resource('EXPT', 128 + index);
         expected_error = ResError();
         if (expected) {
-            HLock(expected);
             expected_size = GetHandleSize(expected);
+            if (expected_size >= 0) HLock(expected);
         }
         if (actual && expected && actual_size >= 0 && expected_size >= 0) {
             common = actual_size < expected_size ? actual_size : expected_size;
@@ -80,6 +82,11 @@ int main(void) {
                 actual && expected && actual_size >= 0 && expected_size >= 0 && !native_error && !expected_error && first == -1 ? "true" : "false",
                 differences, first);
         if (write_line(line)) return 5;
+        if ((actual && actual_size < 0) || (expected && expected_size < 0)) {
+            /* Do not release a malformed native handle or continue a tainted
+             * heap experiment; preserve its result and stop this corpus. */
+            FSClose(output); FlushVol(0, 0); return 10;
+        }
         if (actual) { HUnlock(actual); ReleaseResource(actual); }
         if (expected) { HUnlock(expected); ReleaseResource(expected); }
         FlushVol(0, 0);
