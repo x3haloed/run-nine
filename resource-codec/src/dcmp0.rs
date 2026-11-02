@@ -3,6 +3,25 @@ use crate::{Bytes, Error, Output, Result};
 #[path = "table.rs"]
 mod table;
 
+// The widest memo token is 0x22 + u16, whose index is 40 + u16::MAX.
+const MAX_MEMO_ENTRIES: usize = 40 + u16::MAX as usize + 1;
+
+fn memoize<'a>(memo: &mut Vec<&'a [u8]>, literal: &'a [u8]) -> Result<()> {
+    if memo.len() < MAX_MEMO_ENTRIES {
+        if memo.len() == memo.capacity() {
+            // Fixed-size growth with a capped last request avoids geometrically
+            // reserving beyond the addressable table size.
+            let additional = (MAX_MEMO_ENTRIES - memo.len()).min(256);
+            memo.try_reserve_exact(additional)
+                .map_err(|_| Error::Allocation)?;
+        }
+        memo.push(literal);
+    }
+    // Later stored blocks still produce output, but cannot be named by any
+    // supported reference token and need no retained metadata.
+    Ok(())
+}
+
 pub(super) fn decode<'a>(r: &mut Bytes<'a>, out: &mut Output) -> Result<()> {
     // Borrow memoized literals from the immutable compressed input. They do not
     // consume another copy of the output budget or depend on output reallocations.
@@ -20,8 +39,7 @@ pub(super) fn decode<'a>(r: &mut Bytes<'a>, out: &mut Output) -> Result<()> {
                 out.check(n)?;
                 let literal = r.take(n)?;
                 if tag & 16 != 0 {
-                    memo.try_reserve(1).map_err(|_| Error::Allocation)?;
-                    memo.push(literal);
+                    memoize(&mut memo, literal)?;
                 }
                 out.bytes(literal)?;
             }
@@ -112,5 +130,28 @@ fn extension(r: &mut Bytes<'_>, out: &mut Output) -> Result<()> {
             Ok(())
         }
         kind => Err(Error::InvalidToken(kind)),
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn memo_metadata_stops_at_last_addressable_entry() {
+        let mut memo = Vec::new();
+        memoize(&mut memo, b"first").unwrap();
+        for _ in 1..MAX_MEMO_ENTRIES - 1 {
+            memoize(&mut memo, b"").unwrap();
+        }
+        memoize(&mut memo, b"last").unwrap();
+        let capacity = memo.capacity();
+        for _ in 0..1_000_000 {
+            memoize(&mut memo, b"unaddressable").unwrap();
+        }
+        assert_eq!(memo.len(), MAX_MEMO_ENTRIES);
+        assert_eq!(memo.capacity(), capacity);
+        assert_eq!(memo.first(), Some(&b"first".as_slice()));
+        assert_eq!(memo.last(), Some(&b"last".as_slice()));
     }
 }

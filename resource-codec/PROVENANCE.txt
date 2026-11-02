@@ -12,7 +12,9 @@ It verified every file in the approved reference ledger before reading its conte
 not inspect GPL source/tests, old oracles, the legacy vendor crate, runtime vendor
 code, application/OS resources, or parent conversation history. Implementation
 uses new checked byte/bit readers, a bounded output builder, borrowed-input memo
-storage, and independent synthetic encoders. It does not claim a legally defined
+storage capped at the 65,576 addressable entries, and independent synthetic
+encoders. Later memo stores retain input consumption and direct output while
+discarding unaddressable metadata. It does not claim a legally defined
 clean-room process or native correctness merely from this separation.
 
 Exact approved reference revisions and hashes:

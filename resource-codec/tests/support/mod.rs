@@ -305,6 +305,21 @@ pub fn vectors() -> Vec<Vector> {
     }
     p.push(255);
     v.push(good("dcmp0-memo-all-address-forms", 8, p, expected));
+    // More stores than the grammar can address: retain the first/last slots,
+    // consume zero-length and nonempty excess blocks, and preserve direct output.
+    let mut p = vec![0x11, b'A', b'B'];
+    for _ in 1..65575 {
+        p.extend([0x10, 0]);
+    }
+    p.extend([0x11, b'C', b'D']); // Slot 65575, the final addressable entry.
+    for _ in 0..1024 {
+        p.extend([0x10, 0]);
+    }
+    p.extend([0x11, b'E', b'F', 0x23, 0x22, 0xff, 0xff, 0xff]);
+    let mut case = good("dcmp0-memo-over-cap", 8, p, b"ABCDEFABCD".to_vec());
+    case.limit = 10;
+    v.push(case);
+
     for attrs in [3, 127, 255] {
         let mut case = good(format!("map-attrs-{attrs}"), 8, vec![255], vec![]);
         case.attrs = attrs;

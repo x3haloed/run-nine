@@ -105,8 +105,15 @@ literal slices in insertion order; references never refer to arbitrary output.
 Hexadecimal token/slot constants above omit the `0x` prefix. The immutable fixed
 dictionary has 179 words; its exact entries are in `resource-codec/src/table.rs`.
 Zero-length literals are accepted and can be memoized. The largest addressable
-memo index is `40+65535=65575`. Storage uses fallibly allocated borrowed input
-slices; no expanded literal copy is held for each memo slot.
+memo index is `40+65535=65575`. Retain only the first 65,576 memo entries.
+Further stored literal blocks are still consumed and output normally, but their
+metadata is discarded because no supported token can address them. In particular,
+zero-length stored blocks cannot grow metadata without bound. Storage uses
+fallibly allocated borrowed input slices; no expanded literal copy is held for
+each memo slot. Reserve requests grow in chunks of at most 256 entries, capped
+at the remaining addressable slots. The largest requested memo capacity is
+65,576 slice entries (1,049,216 bytes on a host with 16-byte slice references),
+plus allocator overhead; an allocator may round an allocation upward.
 
 Literal lengths for tokens 00/10 are disputed: Python/Kaitai describe a single
 unsigned length byte; ResourceDASM calls `read_encoded_int`. This implementation
@@ -241,7 +248,7 @@ No ordinary `memcpy` assumption is made.
 Default maximum declared expansion is 64 MiB, explicitly a RUN9 policy.
 `decompress_if_needed_with_limit` accepts a caller-selected limit. Declared
 length is checked before output allocation. Allocation uses `try_reserve_exact`;
-memo growth uses `try_reserve`. Every output command checks its entire length
+memo growth uses capped `try_reserve_exact` requests. Every output command checks its entire length
 before expansion. Parsing range arithmetic is checked; malformed input returns
 an owned `Debug`/`Display` error without panics. Input traversal bounds the number
 of zero-output literal/memo commands. No unsafe code or external dependencies
@@ -253,6 +260,7 @@ termination under memory pressure.
 and exact expected results, with format dictionary facts cross-checked against
 the independent Python reference. The corpus includes all token/extension classes,
 all fixed dictionary words, all memo addressing classes and their endpoints,
+excess memo stores with a ten-byte output limit and first/last-slot references,
 integer-width boundaries, wrapped arithmetic/counts, all literal lengths, run
 prefix classes, offset-family/third-arm threshold boundaries and anomalies,
 truncations, invalid references/offsets, header rejection, trailing/alignment
