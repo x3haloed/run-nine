@@ -2,11 +2,12 @@ RUN9 project-authored code: MIT OR Apache-2.0, at your option. See root and
 package LICENSE-MIT/LICENSE-APACHE files. This grant does not relicense third-party
 code/assets. Preserve per-file notices and package-specific license declarations.
 
-Temporary exception: vendor/run9-resource-codec is GPL-3.0-or-later. The hosted
-runtime depends on it; distributing the combined runtime carries GPL obligations.
-The codec is not fixed/replaced by this migration. Its source and notices remain
-available and explicitly labeled. Do not describe the complete runtime as
-permissive-only until the planned dependency/provenance work is finished.
+resource-codec: independently authored MIT OR Apache-2.0 implementation, with
+retained MIT notices for permissive reference material in NOTICES.txt. See its
+PROVENANCE.txt and docs/resource-codec-reference-pins.json. The previous GPL
+codec is absent from the current source tree and runtime dependencies. Its
+historical source/licenses and private separate comparison executable retain
+their original terms; they are not relicensed by this replacement.
 
 runtime/fonts: SIL OFL1.1; original licenses retained. CPU and window dependencies:
 MIT, with upstream notices retained. The offline HFS helper uses a separate GPL

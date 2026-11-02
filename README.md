@@ -10,6 +10,7 @@ remain future work.
 
 - `compat-core/`: shared services, renderer, and CPU integration.
 - `runtime/`: hosted classic application loader, managers, window/input/audio.
+- `resource-codec/`: independently authored, bounded dcmp0/dcmp3 resource decoder.
 - `native/`: freestanding ARM64 shared-execution experiment.
 - `probes/`: project-authored native reference probes and owned fixtures.
 - `tools/`, `script/`: builders, comparisons, launchers, and audits.
@@ -27,18 +28,19 @@ Project-authored Rust code is **MIT OR Apache-2.0**. Bundled fonts retain OFL1.1
 other dependencies retain their licenses. See `LICENSES.txt` and the package
 THIRD_PARTY notices.
 
-The hosted runtime temporarily depends on `vendor/run9-resource-codec`, which
-is **GPL-3.0-or-later**. Distributing the combined runtime carries GPL obligations.
-Moving that unchanged codec into its own crate does not remove those obligations.
-Codec replacement or another GPL solution is explicitly deferred until after the
-migration has been confirmed working. The complete runtime is not currently a
-permissive-only distribution.
+The hosted runtime uses the **MIT OR Apache-2.0** codec in `resource-codec/`.
+Its independent authoring inputs, retained MIT notices, and compatibility scope
+are documented in `resource-codec/PROVENANCE.txt` and
+`docs/resource-codec-format.md`. The old GPL codec remains in historical commits
+and a private, separately executed comparison oracle; it is absent from the
+current runtime dependency graph. Separate GPL tools such as QEMU and the offline
+HFS utility retain their licenses. Bundled fonts remain OFL-1.1.
 
 ## Development
 
 ```
 CARGO_INCREMENTAL=0 cargo test --manifest-path compat-core/Cargo.toml
-CARGO_INCREMENTAL=0 cargo test --manifest-path vendor/run9-resource-codec/Cargo.toml
+CARGO_INCREMENTAL=0 cargo test --manifest-path resource-codec/Cargo.toml
 CARGO_INCREMENTAL=0 cargo test --manifest-path runtime/Cargo.toml
 ```
 

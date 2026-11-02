@@ -4,12 +4,13 @@ CPU emulation: m68k crate 0.14.7, Ben Letchford, MIT license.
 Source: https://github.com/benletchford/m68k-rs
 Pinned by Cargo.lock; no JIT feature enabled.
 
-Resource decompression: ../vendor/run9-resource-codec, GPL-3.0-or-later.
-See its PROVENANCE.txt and LICENSE for the upstream revision, original notices,
-and the mechanical migration-only visibility changes. No codec algorithm was
-replaced in this migration. Project-owned runtime code is MIT OR Apache-2.0,
-but the combined runtime with this GPL dependency remains subject to GPL
-requirements when distributed. Root permissive licenses do not override that.
+Resource decompression: ../resource-codec, MIT OR Apache-2.0.
+New Rust byte/bit readers and bounded dcmp0/dcmp3 implementation were authored
+in a fresh context using only approved, revision-pinned permissive references.
+See its PROVENANCE.txt and NOTICES.txt, and ../docs/resource-codec-format.md.
+MIT notices for ResourceDASM and python-rsrcfork material remain intact. The
+previous GPL codec is no longer linked or present in the current source tree;
+its historical source/licenses and private separate oracle remain GPL.
 Fonts below remain separately OFL-1.1 (reflected in Cargo package metadata).
 
 Offline HFS utility (outside runtime): tools/hfs-image.c links libhfs

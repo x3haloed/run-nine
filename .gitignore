@@ -9,5 +9,4 @@ __pycache__/
 
 # Library-local lockfiles are generated; applications retain their lockfiles.
 compat-core/Cargo.lock
-vendor/run9-resource-codec/Cargo.lock
 resource-codec/Cargo.lock
