@@ -23,7 +23,7 @@ def main():
         raise ValueError('native/manifest batch counts differ')
     complete = rows[-1].get('event') == 'complete'
     seen, begun, batches, failures = set(), set(), set(), []
-    for row in rows[1:]:
+    for position, row in enumerate(rows[1:], 1):
         event = row['event']
         if event == 'open':
             if row['error'] or not row['valid_ref']:
@@ -51,7 +51,10 @@ def main():
                     or row['actual_size'] != case['output_bytes']
                     or row['expected_size'] != case['output_bytes']):
                 failures.append({'name': case['name'], 'native': row})
-        elif event != 'complete':
+        elif event == 'complete':
+            if position != len(rows) - 1:
+                raise ValueError('native completion must occur exactly once at end')
+        else:
             raise ValueError('unrecognized native event')
     missing = [expected[key]['name'] for key in expected.keys() - seen]
     report = {'complete': complete, 'cases': len(seen), 'expected_cases': len(expected),
@@ -59,7 +62,7 @@ def main():
               'passed': complete and not missing and not failures and len(batches) == manifest['batches'],
               'manifest_sha256': hashlib.sha256(args.manifest.read_bytes()).hexdigest(),
               'observations_sha256': hashlib.sha256(args.observations.read_bytes()).hexdigest(),
-              'scope': 'OS9 Resource Manager loaded owned compressed resources; native probe compared every byte against packaged owned expectations. No whole-OS or arbitrary-malformed-input claim.'}
+              'scope': 'OS9 Resource Manager loaded the manifest resources; native probe compared every byte against packaged expectations. Fixture ownership and adaptations are recorded separately. No whole-OS or arbitrary-malformed-input claim.'}
     args.report.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps({k: report[k] for k in ('complete', 'cases', 'expected_cases', 'passed')}))
     return not report['passed']

@@ -62,3 +62,13 @@ trailing-byte cases rejected by the initial candidate. No baseline implementatio
 source was read. New owned vectors extend these cases to multiple pad values,
 trailing contents and lengths. Native confirmation remains pending; native
 workspace-hint problems are separately documented, not treated as grammar facts.
+
+Separate literal-length hypothesis corpus:
+- tests/support/literal_hypotheses.rs and export_literal_hypotheses example
+  provide twelve new owned native experiment cases for tags 00/10, word counts
+  127/128/255, and compact unsigned-byte versus signed-variable encodings.
+- The conflict was rechecked only in the approved pinned System01.cc, Python
+  dcmp0.py, and Kaitai dcmp_0.ksy. Proposed outputs are hypotheses; 127-word pairs
+  share identical bytes as controls. No production acceptance policy was changed.
+- Version 8 hints 1/255 are included to separate workspace from grammar tests;
+  actual native requirements/observations remain the integrating parent's work.

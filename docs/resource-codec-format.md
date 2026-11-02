@@ -10,7 +10,7 @@ Native comparisons are a separate integration requirement.
 
 ## Sources and confidence
 
-All fourteen approved files were SHA-256 verified against the ledger before use.
+Every file in the approved reference ledger was SHA-256 verified before use.
 Primary grammar references are ResourceDASM at
 `db45c79522bf9683f92b13ba675f582fb1fb31fd`:
 [System01.cc](https://github.com/fuzziqersoftware/resource_dasm/blob/db45c79522bf9683f92b13ba675f582fb1fb31fd/src/ResourceDecompressors/System01.cc)
@@ -119,6 +119,36 @@ Literal lengths for tokens 00/10 are disputed: Python/Kaitai describe a single
 unsigned length byte; ResourceDASM calls `read_encoded_int`. This implementation
 chooses V and includes 127/128/255/256/16127/16128-word tests. Values below 128
 agree across both descriptions.
+
+A separate, deliberately small experimental corpus isolates this disagreement:
+`tests/support/literal_hypotheses.rs` authors twelve fixtures (tags 00/10 times
+127/128/255 words times byte/V encoding), exported independently using:
+
+```sh
+cargo run --release --manifest-path resource-codec/Cargo.toml --example export_literal_hypotheses > /tmp/run9-literal-hypotheses.tsv
+```
+
+The TSV retains the six main corpus columns, but `outcome` is **hypothesis**,
+not `decoded`: `output_hex` is the proposed result under the named interpretation,
+not an assertion of native acceptance. These fixtures are excluded from the main
+production acceptance corpus. Their explicit length bytes are:
+
+| Words | Byte hypothesis | V hypothesis |
+| --- | --- | --- |
+| 127 | 7F | 7F |
+| 128 | 80 | C0 80 |
+| 255 | FF | C0 FF |
+
+The 127-word pair is a byte-identical shared control; 128/255 discriminate the
+interpretations. Literal contents and proposed outputs are identical within each
+pair, use newly authored deterministic bytes, and contain 254/256/510 bytes.
+Each fixture has a version 8 header, resource attrs 1, reserved zero, native
+working-buffer hints 1/255, one literal command, and final FF. Hints are supplied
+to reduce native workspace confounding; they are not a new format guarantee.
+Any native transport padding/adaptation must remain separately recorded. Fixture
+shape tests check exact lengths and wire bytes without calling the production
+decoder or asserting either disputed interpretation is correct. Production
+literal handling is unchanged pending native observation.
 
 ### dcmp0 extensions
 

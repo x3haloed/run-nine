@@ -59,10 +59,12 @@ def main():
     parser.add_argument('--names', nargs='*', help='explicit positive vector names; otherwise all positives')
     parser.add_argument('--selection', type=Path, help='JSON array of explicit positive vector names')
     parser.add_argument('--embedded', action='store_true', help='small smoke corpus inside application')
+    parser.add_argument('--include-hypotheses', action='store_true',
+                        help='explicitly package unresolved format hypotheses as experiments')
     parser.add_argument('--native-workspace', action='store_true',
                         help='conservative native in-place workspace hints; token bytes unchanged')
     parser.add_argument('--native-padding', action='store_true',
-                        help='append owned zero output to short even dcmp0 cases for native workspace')
+                        help='append owned zero output to even dcmp0 cases for native in-place workspace')
     args = parser.parse_args()
     csv.field_size_limit(16 * 1024 * 1024)
     if args.names and args.selection:
@@ -71,7 +73,8 @@ def main():
     rows = []
     with args.vectors.open() as stream:
         for row in csv.DictReader(stream, delimiter='\t'):
-            if row['outcome'] == 'decoded' and (wanted is None or row['name'] in wanted):
+            if (row['outcome'] == 'decoded' or
+                    (args.include_hypotheses and row['outcome'] == 'hypothesis')) and (wanted is None or row['name'] in wanted):
                 rows.append(row)
     if not rows or (wanted is not None and wanted != {row['name'] for row in rows}):
         raise ValueError('missing/empty positive vector selection')
@@ -102,13 +105,22 @@ def main():
             original_hash = hashlib.sha256(raw).hexdigest()
             original_output_hash = hashlib.sha256(expected).hexdigest()
             padding = 0
-            if args.native_padding and raw[6] == 8 and len(expected) < 4096 and len(expected) % 2 == 0:
+            target_size = max(4096, 4 * len(raw))
+            if args.native_padding and raw[6] == 8 and len(expected) < target_size and len(expected) % 2 == 0:
                 if raw[-1] != 255:
                     raise ValueError('dcmp0 test stream lacks final marker')
-                padding = 4096 - len(expected)
-                count = padding - 1
-                encoded_count = bytes([count]) if count < 128 else (count + 0xc000).to_bytes(2, 'big')
-                raw = bytearray(raw[:-1] + bytes([254, 2, 0]) + encoded_count + bytes([255]))
+                padding = target_size - len(expected)
+                commands = bytearray()
+                left = padding
+                while left:
+                    run = min(left, 65536)
+                    count = run - 1
+                    encoded_count = (bytes([count]) if count < 128 else
+                                     (count + 0xc000).to_bytes(2, 'big') if count <= 16127 else
+                                     bytes([255]) + struct.pack('>i', count))
+                    commands += bytes([254, 2, 0]) + encoded_count
+                    left -= run
+                raw = bytearray(raw[:-1] + commands + bytes([255]))
                 expected += bytes(padding)
                 raw[8:12] = len(expected).to_bytes(4, 'big')
                 raw = bytes(raw)
@@ -120,7 +132,7 @@ def main():
                     raw[14:16] = bytes([255, 255])
                 raw = bytes(raw)
             records.extend([(b'CMPD', 128 + i, int(row['attrs']), raw), (b'EXPT', 128 + i, 0, expected)])
-            manifest.append({'batch': b, 'case': i, 'name': row['name'],
+            manifest.append({'batch': b, 'case': i, 'name': row['name'], 'source_outcome': row['outcome'],
                              'source_input_sha256': original_hash,
                              'source_output_sha256': original_output_hash, 'native_padding_bytes': padding,
                              'input_sha256': hashlib.sha256(raw).hexdigest(),
@@ -134,7 +146,7 @@ def main():
     (out / 'ResourceCodecProbe.rsrc').write_bytes(fork(app))
     (out / 'manifest.json').write_text(json.dumps({'probe_base_sha256': hashlib.sha256(base).hexdigest(),
                                                  'workspace_policy': 'v8 fraction255/extra255; v9 extra65535' if args.native_workspace else 'unchanged input hints',
-                                                 'padding_policy': 'Short even dcmp0 streams append a zero-repeat extension to reach4096 output bytes; original decoded prefix preserved' if args.native_padding else 'unchanged token body',
+                                                 'padding_policy': 'Even dcmp0 streams append owned zero-repeat commands until output is at least4096 bytes and4x original compressed input; original decoded prefix preserved' if args.native_padding else 'unchanged token body',
                                                  'batches': len(batches), 'cases': manifest}, indent=2) + '\n')
     print('Packaged', len(rows), 'owned vectors in', len(batches), 'batches')
 
